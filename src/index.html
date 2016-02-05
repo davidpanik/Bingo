@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+	<head>
+		<title></title>
+
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+
+		<!-- build:css:build ./styles/main.min.css -->
+		<link rel="stylesheet" href="styles/main.css">
+		<!-- /build -->
+	</head>
+
+	<body>
+		<!-- Example of including another HTML file -->
+		<!-- build:include includes/header.html -->Header will go here<!-- /build -->
+
+		<p>Hello world</p>
+
+		<!-- Example of including another HTML file and passing inline JSON data to be parsed by Handlebars -->
+		<!-- build:handlebars includes/test.html -->
+			{
+				"name": "Hello world",
+				"intro": {
+					"alpha": 123,
+					"beta":  456
+				},
+				"people": [
+					{ "first": "Bob"   , "last": "Smith" },
+					{ "first": "Sue"   , "last": "Brown" },
+					{ "first": "Joe"   , "last": "White" },
+					{ "first": "Alice" , "last": "Clark" }
+				]
+			}
+		<!-- /build -->
+
+		<!-- Example of including another HTML file and passing a JSON file to be parsed by Handlebars -->
+		<!-- build:handlebars includes/test.html  -->
+			/data/test.json
+		<!-- /build -->
+
+		<!-- Example of the above with option to then override/extend the JSON inline -->
+		<!-- build:handlebars includes/test.html|/data/test.json  -->
+			{
+				"name": "CHECK THIS OUT!"
+			}
+		<!-- /build -->
+
+		<!-- build:include includes/footer.html -->Footer will go here<!-- /build -->
+
+		<!-- build:include includes/scripts.html -->Scripts will go here<!-- /build -->
+	</body>
+</html>
