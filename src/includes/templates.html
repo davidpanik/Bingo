@@ -1,0 +1,36 @@
+		<!-- TEMPLATES -->
+
+		<script id="cardTemplate" type="text/ractive">
+			<div class="card">
+				{{#each model.grid}}
+					{{#each .}}
+						{{>'#cellTemplate'}}
+					{{/each}}
+					<br/>
+				{{/each}}
+
+				{{#if model.bingoAvailable}}
+					<button class="bingo" on-click="bingo">Bingo!</button>
+				{{/if}}
+			</div>
+		</script>
+
+		<script id="cellTemplate" type="text/ractive">
+			{{#if marked}}
+				<button class="cell marked" on-click="mark:{{.}}">{{value}}</button>
+			{{else}}
+				<button class="cell" on-click="mark:{{.}}">{{value}}</button>
+			{{/if}}
+		</script>
+
+		<script id="callerTemplate" type="text/ractive">
+			<div class="caller">
+				<h1>
+					{{#if model.current}}
+						{{model.current}}
+					{{/if}}
+				</h1>
+
+				<button class="start" on-click="start">Start!</button>
+			</div>
+		</script>

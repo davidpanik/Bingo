@@ -17,56 +17,7 @@
 		<div id='cardPlaceHolder'></div>
 
 
-
-		<!-- TEMPLATES -->
-
-		<script id="cardTemplate" type="text/ractive">
-			<div class="card">
-				{{#each model.grid}}
-					{{#each .}}
-						{{>'#cellTemplate'}}
-					{{/each}}
-					<br/>
-				{{/each}}
-
-				{{#if model.bingoAvailable}}
-					<button class="bingo" on-click="bingo">Bingo!</button>
-				{{/if}}
-			</div>
-		</script>
-
-		<script id="cellTemplate" type="text/ractive">
-			{{#if marked}}
-				<button class="cell marked" on-click="mark:{{.}}">{{value}}</button>
-			{{else}}
-				<button class="cell" on-click="mark:{{.}}">{{value}}</button>
-			{{/if}}
-		</script>
-
-		<script id="callerTemplate" type="text/ractive">
-				<h1>
-					{{#if model.current}}
-						{{model.current}}
-					{{/if}}
-				</h1>
-		</script>
-
-
-
-		<!-- SCRIPTS -->
-		<script src="https://www.airconsole.com/api/airconsole-1.3.0.js"></script>
-		<script src='http://cdn.ractivejs.org/latest/ractive.min.js'></script>
-
-		<script src='scripts/models/cell.js'></script>
-		<script src='scripts/models/card.js'></script>
-		<script src='scripts/models/caller.js'></script>
-		<script src='scripts/models/player.js'></script>
-		<script src='scripts/models/players.js'></script>
-
-		<script src='scripts/views/card.js'></script>
-		<script src='scripts/views/caller.js'></script>
-
-		<script src='scripts/arrayShuffle.js'></script>
-		<script src='scripts/main.js'></script>
+		<!-- build:include includes/templates.html -->Templates will go here<!-- /build -->
+		<!-- build:include includes/scripts.html -->Scripts will go here<!-- /build -->
 	</body>
 </html>
