@@ -1,6 +1,6 @@
-{Project name}
-{Developer}
-{Date}
+Bingo!
+David Storey
+February
 
 
 

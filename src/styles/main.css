@@ -1,0 +1,30 @@
+body {
+	background: white;
+	text-align: center;
+}
+
+h1 {
+	font-size: 4em;
+}
+
+button.cell {
+	display: inline-block;
+	width: 60px;
+	height: 60px;
+	font-size: 2em;
+	cursor: pointer;
+}
+
+button.cell.marked {
+	background-color: red;
+}
+
+button.bingo {
+	margin: 1em;
+	padding: 1em;
+	font-size: 2em;
+}
+
+.card {
+	margin-top: 170px;
+}

@@ -18,7 +18,6 @@
 		<p>Fill any row, column or diagonal to call Bingo! and win the game.</p>
 
 		<div id='callerPlaceHolder'></div>
-		<div id='cardPlaceHolder'></div>
 
 
 
@@ -46,17 +45,19 @@
 		</script>
 
 		<script id="callerTemplate" type="text/ractive">
-				<h1>
-					{{#if model.current}}
-						{{model.current}}
-					{{/if}}
-				</h1>
+			<h1>
+				{{#if model.current}}
+					{{model.current}}
+				{{/if}}
+			</h1>
+
+			<button class="start" on-click="start">Start!</button>
 		</script>
 
 
 
 		<!-- SCRIPTS -->
-
+		<script src="https://www.airconsole.com/api/airconsole-1.3.0.js"></script>
 		<script src='http://cdn.ractivejs.org/latest/ractive.min.js'></script>
 
 		<script src='scripts/models/cell.js'></script>

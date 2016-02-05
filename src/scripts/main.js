@@ -1,5 +1,101 @@
-(function () {
+(function() {
 	'use strict';
+	var mode = '';
+	if (document.getElementById('cardPlaceHolder') && document.getElementById('callerPlaceHolder')) {
+		mode = 'local';
+	} else if (document.getElementById('cardPlaceHolder')) {
+		mode = 'card';
+	} else if (document.getElementById('callerPlaceHolder')) {
+		mode = 'caller';
+	}
 
-	// Code starts here
+	var airconsole;
+
+	if (mode === 'card') {
+		airconsole = new AirConsole({ 'orientation': 'portrait' });
+	}
+
+	if (mode === 'caller') {
+		airconsole = new AirConsole();
+	}
+
+	if (mode === 'card' || mode === 'local') {
+		var cardView = new Bingo.CardView({
+			el: '#cardPlaceHolder',
+			data: { model: new Bingo.Card() },
+			oninit: function(options) {
+				if (mode === 'local') {
+					this.on('mark', function(e, cell) {
+						if (callerModel.hasBeenCalled(cell.value)) {
+							this.get('model').markCell(cell);
+						}
+					});
+
+					this.on('bingo', function(e, cell) {
+						alert('BINGO!');
+
+						callerModel.stop();
+					});
+				}
+
+				if (mode === 'card') {
+					this.on('mark', function(e, cell) {
+						airconsole.message(AirConsole.SCREEN, { 'mark': cell });
+					});
+
+					this.on('bingo', function(e, cell) {
+						airconsole.message(AirConsole.SCREEN, { 'bingo': true });
+					});
+
+					// TODO Get rid of self
+					var self = this;
+					airconsole.onMessage = function(deviceId, data) {
+						if (data.marked) {
+							self.get('model').markCellByValue(data.marked.value);
+						}
+					};
+				}
+			}
+		});
+	}
+
+	if (mode === 'caller' || mode === 'local') {
+
+		var callerModel = new Bingo.Caller();
+
+		var callerView = new Bingo.CallerView({
+			el: '#callerPlaceHolder',
+			data: { model: callerModel },
+			oninit: function() {
+				this.on('start', function(e, cell) {
+					this.get('model').start();
+				});
+			}
+		});
+
+		window.addEventListener('blur', function() {
+			callerModel.stop();
+		});
+
+		window.addEventListener('focus', function() {
+			callerModel.start();
+		});
+	}
+
+	if (mode === 'caller') {
+		airconsole.onMessage = function(deviceId, data) {
+			console.log(deviceId, data);
+			if (data.bingo) {
+				alert(airconsole.getNickname(deviceId) + ' got bingo!');
+
+				callerModel.stop();
+			}
+
+			if (data.mark) {
+				if (callerModel.hasBeenCalled(data.mark.value)) {
+					airconsole.message(deviceId, { 'marked': data.mark });
+				}
+			}
+		};
+	}
 })();
