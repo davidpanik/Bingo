@@ -34,3 +34,19 @@
 				<button class="start" on-click="start">Start!</button>
 			</div>
 		</script>
+
+		<script id="playersTemplate" type="text/ractive">
+			<div class="players">
+				{{#each model.playersArray}}
+					{{>'#playerTemplate'}}
+				{{/each}}
+			</div>
+		</script>
+
+		<script id="playerTemplate" type="text/ractive">
+			<div class="player">
+				<h2>{{name}}</h2>
+				<img src="{{image}}"/>
+				<h3>{{score}}</h3>
+			</div>
+		</script>

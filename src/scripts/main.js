@@ -60,7 +60,6 @@
 	}
 
 	if (mode === 'caller' || mode === 'local') {
-
 		var callerModel = new Bingo.Caller();
 
 		var callerView = new Bingo.CallerView({
@@ -96,6 +95,25 @@
 					airconsole.message(deviceId, { 'marked': data.mark });
 				}
 			}
+		};
+
+		var playersModel = new Bingo.Players();
+		var playersView = new Bingo.PlayersView({
+			el: '#playersPlaceHolder',
+			data: { model: playersModel },
+			oninit: function() {
+
+			}
+		});
+
+		// TODO - Get players info rendering on screen
+
+		airconsole.onConnect = function(deviceId) {
+			playersModel.add(deviceId, airconsole.getNickname(deviceId), airconsole.getProfilePicture(deviceId));
+		};
+
+		airconsole.onDisconnect = function(deviceId) {
+			playersModel.remove(deviceId);
 		};
 	}
 })();

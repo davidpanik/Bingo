@@ -1,11 +1,12 @@
 (function() {
 	'use strict';
 
-	var Cell = function(value) {
-		this.value = value || 0;
-		this.marked = false;
+	var Player = function(name, image) {
+		this.name = name || '';
+		this.image = image || '';
+		this.score = 0;
 	};
 
 	window.Bingo = window.Bingo || {};
-	window.Bingo.Cell = Cell;
+	window.Bingo.Player = Player;
 })();
