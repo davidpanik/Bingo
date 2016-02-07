@@ -105,7 +105,7 @@
 		});
 
 		var screensModel = new Bingo.Screens();
-		var screensView = new Bing.ScreensView({
+		var screensView = new Bingo.ScreensView({
 			el: '#screensPlaceHolder',
 			data: { model: screensModel },
 			oninit: function() {
