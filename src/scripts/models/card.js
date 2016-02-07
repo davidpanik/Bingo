@@ -13,6 +13,7 @@
 	Card.prototype.reset = function() {
 		this.grid = [];
 		this.bingoAvailable = false;
+		this.nearlyBingo = false;
 
 		var ranges = Array.apply(null, Array(this.size)).map(function() { return []; });
 
@@ -39,14 +40,12 @@
 
 	Card.prototype.markCell = function(cell) {
 		cell.marked = true;
-
-		if (this.checkForBingo()) {
-			this.bingoAvailable = true;
-		}
+		this.checkForBingo();
 	};
 
 	// TODO This needs to be better
 	Card.prototype.markCellByValue = function(value) {
+		// TODO Get rid of self
 		var self = this;
 		this.grid.forEach(function(line) {
 			line.forEach(function(cell) {
@@ -63,41 +62,37 @@
 		// Fake a declining diagonal - for (var x = 0; x < this.size; x++) { this.grid[x][x].marked = true; }
 		// Fake a inclining diagonal - for (var x = 0; x < this.size; x++) { this.grid[this.size - 1 - x][x].marked = true; }
 
+		var checkLength = (function(n) {
+			if (n === this.size) {
+				this.bingoAvailable = true;
+			} else if (n > Math.floor(this.size * 0.8)) {
+				this.nearlyBingo = true;
+			}
+		}).bind(this);
+
 		// Check for rows
-		if (this.grid.filter(function(line) {
+		this.grid.forEach(function(line) {
 			line = line.filter(function(cell) { return cell.marked; });
-			return (line.length === this.size);
-		}, this).length) {
-			console.log('Found a row');
-			return true;
-		}
+			checkLength(line.length);
+		});
 
 		// Check for columns
-		if (this.grid[0].filter(function(column, index) {
+		this.grid[0].forEach(function(column, index) {
 			column = this.grid.filter(function(row) { return row[index].marked; });
-			return (column.length === this.size);
-		}, this).length) {
-			console.log('Found a column');
-			return true;
-		}
+			checkLength(column.length);
+		}, this);
 
 		// Check for declining diagonals
-		if (this.grid.filter(function(line, index) {
+		checkLength(this.grid.filter(function(line, index) {
 			return line[index].marked;
-		}, this).length === this.size) {
-			console.log('Found a declining diagonal');
-			return true;
-		}
+		}, this).length);
 
 		// Check for inclining diagonals
-		if (this.grid.filter(function(line, index) {
+		checkLength(this.grid.filter(function(line, index) {
 			return line[this.size - 1 - index].marked;
-		}, this).length === this.size) {
-			console.log('Found an inclining diagonal');
-			return true;
-		}
+		}, this).length);
 
-		return false;
+		return this;
 	};
 
 	window.Bingo = window.Bingo || {};
