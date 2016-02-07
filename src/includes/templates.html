@@ -50,3 +50,11 @@
 				<h3>{{score}}</h3>
 			</div>
 		</script>
+
+		<script id="screensPlaceHolder" type="text/ractive">
+			{{#if onScreen('loading')}}
+				<div class="screen">
+					<h1>Loading</h1>
+				</div>
+			{{/if}}
+		</script>

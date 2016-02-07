@@ -106,6 +106,17 @@
 			}
 		});
 
+		var screensModel = new Bingo.Screens();
+		var screensView = new Bing.ScreensView({
+			el: '#screensPlaceHolder',
+			data: { model: screensModel },
+			oninit: function() {
+				this.on('onScreen', function(e, screen) {
+					return (this.get('model').current === screen);
+				});
+			}
+		});
+
 		// TODO - Get players info rendering on screen
 
 		airconsole.onConnect = function(deviceId) {
