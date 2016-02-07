@@ -81,7 +81,6 @@
 
 	if (mode === 'caller') {
 		airconsole.onMessage = function(deviceId, data) {
-			console.log(deviceId, data);
 			if (data.bingo) {
 				alert(airconsole.getNickname(deviceId) + ' got bingo!');
 				playersModel.recordWin(deviceId);
