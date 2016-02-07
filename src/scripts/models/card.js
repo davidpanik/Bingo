@@ -26,13 +26,13 @@
 		}, this);
 
 		for (var x = this.size; x > 0; x--) {
-			var line = [];
+			var row = [];
 
 			for (var y = this.size; y > 0; y--) {
-				line.push(new Bingo.Cell(ranges[this.size-y][this.size-x]));
+				row.push(new Bingo.Cell(ranges[this.size-y][this.size-x]));
 			}
 
-			this.grid.push(line);
+			this.grid.push(row);
 		}
 
 		return this;
@@ -45,8 +45,8 @@
 
 	// TODO This needs to be better
 	Card.prototype.markCellByValue = function(value) {
-		this.grid.forEach(function(line) {
-			line.forEach(function(cell) {
+		this.grid.forEach(function(row) {
+			row.forEach(function(cell) {
 				if (cell.value === value) {
 					this.markCell(cell);
 				}
@@ -69,9 +69,9 @@
 		}).bind(this);
 
 		// Check for rows
-		this.grid.forEach(function(line) {
-			line = line.filter(function(cell) { return cell.marked; });
-			checkLength(line.length);
+		this.grid.forEach(function(row) {
+			row = row.filter(function(cell) { return cell.marked; });
+			checkLength(row.length);
 		});
 
 		// Check for columns
@@ -81,13 +81,13 @@
 		}, this);
 
 		// Check for declining diagonals
-		checkLength(this.grid.filter(function(line, index) {
-			return line[index].marked;
+		checkLength(this.grid.filter(function(row, index) {
+			return row[index].marked;
 		}, this).length);
 
 		// Check for inclining diagonals
-		checkLength(this.grid.filter(function(line, index) {
-			return line[this.size - 1 - index].marked;
+		checkLength(this.grid.filter(function(row, index) {
+			return row[this.size - 1 - index].marked;
 		}, this).length);
 
 		return this;
