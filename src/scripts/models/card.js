@@ -43,7 +43,6 @@
 		this.checkForBingo();
 	};
 
-	// TODO This needs to be better
 	Card.prototype.markCellByValue = function(value) {
 		this.grid.forEach(function(row) {
 			row.forEach(function(cell) {

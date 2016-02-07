@@ -1,3 +1,12 @@
+/*
+	TODO Show players ready for bingo
+	TODO Show player nearing bingo
+	TODO Ensure only one player can call bingo
+	TODO Start a new game
+	TODO Have seperate screens
+*/
+
+
 (function() {
 	'use strict';
 	var mode = '';
@@ -104,7 +113,6 @@
 			}
 		});
 
-		// TODO Seperate screens
 		// var screensModel = new Bingo.Screens();
 		// var screensView = new Bingo.ScreensView({
 		// 	el: '#screensPlaceHolder',
