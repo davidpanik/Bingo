@@ -48,12 +48,11 @@
 					});
 
 					// TODO Get rid of self
-					var self = this;
-					airconsole.onMessage = function(deviceId, data) {
+					airconsole.onMessage = (function(deviceId, data) {
 						if (data.marked) {
-							self.get('model').markCellByValue(data.marked.value);
+							this.get('model').markCellByValue(data.marked.value);
 						}
-					};
+					}).bind(this);
 				}
 			}
 		});

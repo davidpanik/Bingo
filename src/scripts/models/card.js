@@ -45,15 +45,13 @@
 
 	// TODO This needs to be better
 	Card.prototype.markCellByValue = function(value) {
-		// TODO Get rid of self
-		var self = this;
 		this.grid.forEach(function(line) {
 			line.forEach(function(cell) {
 				if (cell.value === value) {
-					self.markCell(cell);
+					this.markCell(cell);
 				}
-			});
-		});
+			}, this);
+		}, this);
 	};
 
 	Card.prototype.checkForBingo = function() {
