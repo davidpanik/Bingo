@@ -21,13 +21,22 @@
 	Players.prototype.add = function(id, name, image) {
 		colourPool.shuffle();
 		this.players['player_' + id] = new Bingo.Player(name, image, colourPool.pop());
+		this.toArray();
 		return this;
 	};
 
 	Players.prototype.remove = function(id) {
 		colourPool.push(this.players['player_' + id].colour);
 		delete this.players['player_' + id];
+		this.toArray();
 		return this;
+	};
+
+	Players.prototype.toArray = function() {
+		this.playersArray = [];
+		for (var player in this.players) {
+			this.playersArray.push(this.players[player]);
+		}
 	};
 
 	window.Bingo = window.Bingo || {};

@@ -104,21 +104,21 @@
 			}
 		});
 
-		var screensModel = new Bingo.Screens();
-		var screensView = new Bingo.ScreensView({
-			el: '#screensPlaceHolder',
-			data: { model: screensModel },
-			oninit: function() {
-				this.on('onScreen', function(e, screen) {
-					return (this.get('model').current === screen);
-				});
-			}
-		});
-
-		// TODO - Get players info rendering on screen
+		// TODO Seperate screens
+		// var screensModel = new Bingo.Screens();
+		// var screensView = new Bingo.ScreensView({
+		// 	el: '#screensPlaceHolder',
+		// 	data: { model: screensModel },
+		// 	oninit: function() {
+		// 		this.on('onScreen', function(e, screen) {
+		// 			return (this.get('model').current === screen);
+		// 		});
+		// 	}
+		// });
 
 		airconsole.onConnect = function(deviceId) {
 			playersModel.add(deviceId, airconsole.getNickname(deviceId), airconsole.getProfilePicture(deviceId));
+			console.log(playersModel);
 		};
 
 		airconsole.onDisconnect = function(deviceId) {
