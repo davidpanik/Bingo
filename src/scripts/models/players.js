@@ -39,6 +39,12 @@
 		}
 	};
 
+	Players.prototype.recordWin = function(id) {
+		this.players['player_' + id].score++;
+		this.toArray();
+		return this;
+	};
+
 	window.Bingo = window.Bingo || {};
 	window.Bingo.Players = Players;
 })();

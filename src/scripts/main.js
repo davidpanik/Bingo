@@ -84,6 +84,7 @@
 			console.log(deviceId, data);
 			if (data.bingo) {
 				alert(airconsole.getNickname(deviceId) + ' got bingo!');
+				playersModel.recordWin(deviceId);
 
 				callerModel.stop();
 			}
