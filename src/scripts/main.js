@@ -129,7 +129,6 @@
 
 		airconsole.onConnect = function(deviceId) {
 			playersModel.add(deviceId, airconsole.getNickname(deviceId), airconsole.getProfilePicture(deviceId));
-			console.log(playersModel);
 		};
 
 		airconsole.onDisconnect = function(deviceId) {
