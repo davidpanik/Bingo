@@ -47,7 +47,6 @@
 						airconsole.message(AirConsole.SCREEN, { 'bingo': true });
 					});
 
-					// TODO Get rid of self
 					airconsole.onMessage = (function(deviceId, data) {
 						if (data.marked) {
 							this.get('model').markCellByValue(data.marked.value);

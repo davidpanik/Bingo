@@ -53,26 +53,31 @@
 
 		<script id="screensTemplate" type="text/ractive">
 			{{#if onScreen('loading')}}
-				<div class="screen loading">
-					<h1>Loading</h1>
-				</div>
+				<section class="screen loading">
+					<h1>Loading...</h1>
+				</section>
 			{{/if}}
 
 			{{#if onScreen('home')}}
-				<div class="screen home">
-					<h1>Home</h1>
-				</div>
+				<section class="screen home">
+					<h1>Ultimate Bingo!</h1>
+
+					<button class="start" on-click="start">Start!</button>
+				</section>
 			{{/if}}
 
 			{{#if onScreen('howToPlay')}}
-				<div class="screen howToPlay">
-					<h1>Home</h1>
-				</div>
+				<section class="screen howToPlay">
+					<h1>How To Play</h1>
+
+					<p>Mark numbers on your card as they are called.</p>
+					<p>Fill any row, column or diagonal to call Bingo! and win the game.</p>
+				</section>
 			{{/if}}
 
 			{{#if onScreen('game')}}
-				<div class="screen game">
+				<section class="screen game">
 					<h1>Game</h1>
-				</div>
+				</section>
 			{{/if}}
 		</script>
