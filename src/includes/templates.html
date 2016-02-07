@@ -51,10 +51,28 @@
 			</div>
 		</script>
 
-		<script id="screensPlaceHolder" type="text/ractive">
+		<script id="screensTemplate" type="text/ractive">
 			{{#if onScreen('loading')}}
-				<div class="screen">
+				<div class="screen loading">
 					<h1>Loading</h1>
+				</div>
+			{{/if}}
+
+			{{#if onScreen('home')}}
+				<div class="screen home">
+					<h1>Home</h1>
+				</div>
+			{{/if}}
+
+			{{#if onScreen('howToPlay')}}
+				<div class="screen howToPlay">
+					<h1>Home</h1>
+				</div>
+			{{/if}}
+
+			{{#if onScreen('game')}}
+				<div class="screen game">
+					<h1>Game</h1>
 				</div>
 			{{/if}}
 		</script>

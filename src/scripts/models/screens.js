@@ -5,7 +5,7 @@
 		this.current = 'loading';
 	};
 
-	Players.prototype.goto = function(screen) {
+	Screens.prototype.goto = function(screen) {
 		this.current = screen;
 		return this;
 	};
