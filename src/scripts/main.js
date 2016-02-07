@@ -4,6 +4,9 @@
 	TODO Ensure only one player can call bingo
 	TODO Start a new game
 	TODO Have seperate screens
+	TODO Replace buttons with divs
+	TODO Listen for touch events
+	TODO Enforce max players limit (8?)
 */
 
 
