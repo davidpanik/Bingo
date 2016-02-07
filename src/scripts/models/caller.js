@@ -14,6 +14,7 @@
 		this.called = [];
 		this.uncalled = [];
 		this.current = 0;
+		this.bingoCalled = false;
 
 		this.uncalled = Array.apply(null, Array(this.range)).map(function(current, index) { return index + 1; });
 

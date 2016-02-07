@@ -1,12 +1,12 @@
 /*
 	TODO Show players ready for bingo
 	TODO Show player nearing bingo
-	TODO Ensure only one player can call bingo
 	TODO Start a new game
 	TODO Have seperate screens
 	TODO Replace buttons with divs
 	TODO Listen for touch events
 	TODO Enforce max players limit (8?)
+	TODO Better display of bingo result
 */
 
 
@@ -93,7 +93,7 @@
 
 	if (mode === 'caller') {
 		airconsole.onMessage = function(deviceId, data) {
-			if (data.bingo) {
+			if (data.bingo && !callerModel.bingoCalled) {
 				alert(airconsole.getNickname(deviceId) + ' got bingo!');
 				playersModel.recordWin(deviceId);
 
