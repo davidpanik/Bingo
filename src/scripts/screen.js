@@ -1,5 +1,4 @@
 /*
-	TODO Start a new game
 	TODO Have seperate screens
 	TODO Replace buttons with divs
 	TODO Better display of bingo result
@@ -24,18 +23,10 @@
 		data: { model: callerModel },
 		oninit: function() {
 			this.on('start', function(e, cell) {
-				this.get('model').start();
+				this.get('model').reset().start();
 				airconsole.broadcastEvent('reset', { reset: true });
 			});
 		}
-	});
-
-	window.addEventListener('blur', function() {
-		callerModel.stop();
-	});
-
-	window.addEventListener('focus', function() {
-		callerModel.start();
 	});
 
 	airconsole.on('bingo', function(deviceId, data) {
@@ -79,6 +70,15 @@
 	// 			return (this.get('model').current === screen);
 	// 		});
 	// 	}
+	// });
+
+
+	// window.addEventListener('blur', function() {
+	// 	callerModel.stop();
+	// });
+
+	// window.addEventListener('focus', function() {
+	// 	callerModel.start();
 	// });
 
 	airconsole.onConnect = function(deviceId) {

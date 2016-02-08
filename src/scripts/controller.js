@@ -35,6 +35,6 @@
 	});
 
 	airconsole.on('reset', function(deviceId, data) {
-		card = new Bingo.Card();
+		card.reset();
 	});
 })();
