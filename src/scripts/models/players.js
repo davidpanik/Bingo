@@ -52,6 +52,14 @@
 	Players.prototype.recordWin = function(id) {
 		this.players['player_' + id].score++;
 		this.toArray();
+
+		return this;
+	};
+
+	Players.prototype.changeState = function(id, state, value) {
+		this.players['player_' + id][state] = value;
+		this.toArray();
+
 		return this;
 	};
 

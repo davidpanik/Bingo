@@ -72,6 +72,14 @@
 
 					airconsole.on('marked', (function(deviceId, data) {
 						this.get('model').markCellByValue(data.marked.value);
+
+						if (this.get('model').bingoAvailable) {
+							airconsole.sendEvent(AirConsole.SCREEN, 'bingoAvailable', { 'bingoAvailable': true });
+						}
+
+						if (this.get('model').nearlyBingo) {
+							airconsole.sendEvent(AirConsole.SCREEN, 'nearlyBingo', { 'nearlyBingo': true });
+						}
 					}).bind(this));
 				}
 			}
@@ -123,6 +131,14 @@
 			if (callerModel.hasBeenCalled(data.mark.value)) {
 				airconsole.sendEvent(deviceId, 'marked', { 'marked': data.mark });
 			}
+		});
+
+		airconsole.on('bingoAvailable', function(deviceId, data) {
+			playersModel.changeState(deviceId, 'bingoAvailable', true);
+		});
+
+		airconsole.on('nearlyBingo', function(deviceId, data) {
+			playersModel.changeState(deviceId, 'nearlyBingo', true);
 		});
 
 		var playersModel = new Bingo.Players();

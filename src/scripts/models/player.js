@@ -6,6 +6,8 @@
 		this.image = image || '';
 		this.colour = colour || '';
 		this.score = 0;
+		this.bingoAvailable = false;
+		this.nearlyBingo = false;
 	};
 
 	window.Bingo = window.Bingo || {};
