@@ -1,6 +1,4 @@
 /*
-	TODO Show players ready for bingo
-	TODO Show player nearing bingo
 	TODO Start a new game
 	TODO Have seperate screens
 	TODO Replace buttons with divs
