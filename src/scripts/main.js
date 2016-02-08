@@ -4,8 +4,8 @@
 	TODO Start a new game
 	TODO Have seperate screens
 	TODO Replace buttons with divs
-	TODO Enforce max players limit (8?)
 	TODO Better display of bingo result
+	TODO Don't show player card until game begins
 */
 
 

@@ -13,22 +13,32 @@
 		'#FFB27F'
 	];
 
-	var Players = function() {
+	var Players = function(maxPlayers) {
+		this.maxPlayers = maxPlayers || 8;
+		this.currentPlayers = 0;
 		this.players = {};
 		this.playersArray = [];
 	};
 
 	Players.prototype.add = function(id, name, image) {
-		colourPool.shuffle();
-		this.players['player_' + id] = new Bingo.Player(name, image, colourPool.pop());
-		this.toArray();
+		if (this.currentPlayers < this.maxPlayers) {
+			colourPool.shuffle();
+			this.players['player_' + id] = new Bingo.Player(name, image, colourPool.pop());
+			this.currentPlayers++;
+			this.toArray();
+		} else {
+			alert('Max players reached - sorry!');
+		}
+
 		return this;
 	};
 
 	Players.prototype.remove = function(id) {
 		colourPool.push(this.players['player_' + id].colour);
 		delete this.players['player_' + id];
+		this.currentPlayers--;
 		this.toArray();
+
 		return this;
 	};
 
