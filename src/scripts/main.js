@@ -3,7 +3,9 @@
 	TODO Have seperate screens
 	TODO Replace buttons with divs
 	TODO Better display of bingo result
+	TODO Better display of max players
 	TODO Don't show player card until game begins
+	TODO Better pause option
 */
 
 
