@@ -13,12 +13,16 @@
 (function() {
 	'use strict';
 
+	var get = function(id) {
+		return document.getElementById(id);
+	};
+
 	var mode = '';
-	if (document.getElementById('cardPlaceHolder') && document.getElementById('callerPlaceHolder')) {
+	if (get('cardPlaceHolder') && get('callerPlaceHolder')) {
 		mode = 'local';
-	} else if (document.getElementById('cardPlaceHolder')) {
+	} else if (get('cardPlaceHolder')) {
 		mode = 'card';
-	} else if (document.getElementById('callerPlaceHolder')) {
+	} else if (get('callerPlaceHolder')) {
 		mode = 'caller';
 	}
 
