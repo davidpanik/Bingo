@@ -12,6 +12,7 @@
 
 (function() {
 	'use strict';
+
 	var mode = '';
 	if (document.getElementById('cardPlaceHolder') && document.getElementById('callerPlaceHolder')) {
 		mode = 'local';
@@ -31,10 +32,17 @@
 		airconsole = new AirConsole();
 	}
 
+	if (mode === 'card' || mode === 'caller') {
+		airconsole.onMessage = function(deviceId, data) {
+			this.dispatchEvent(deviceId, data);
+		};
+	}
+
 	if (mode === 'card' || mode === 'local') {
+		var card = new Bingo.Card();
 		var cardView = new Bingo.CardView({
 			el: '#cardPlaceHolder',
-			data: { model: new Bingo.Card() },
+			data: { model: card },
 			oninit: function(options) {
 				if (mode === 'local') {
 					this.on('mark', function(e, cell) {
@@ -52,21 +60,25 @@
 
 				if (mode === 'card') {
 					this.on('mark', function(e, cell) {
-						airconsole.message(AirConsole.SCREEN, { 'mark': cell });
+						airconsole.sendEvent(AirConsole.SCREEN, 'mark', { 'mark': cell });
 					});
 
 					this.on('bingo', function(e, cell) {
-						airconsole.message(AirConsole.SCREEN, { 'bingo': true });
+						airconsole.sendEvent(AirConsole.SCREEN, 'bingo', { 'bingo': true });
 					});
 
-					airconsole.onMessage = (function(deviceId, data) {
-						if (data.marked) {
-							this.get('model').markCellByValue(data.marked.value);
-						}
-					}).bind(this);
+					airconsole.on('marked', (function(deviceId, data) {
+						this.get('model').markCellByValue(data.marked.value);
+					}).bind(this));
 				}
 			}
 		});
+
+		if (mode === 'card') {
+			airconsole.on('reset', function(deviceId, data) {
+				card = new Bingo.Card();
+			});
+		}
 	}
 
 	if (mode === 'caller' || mode === 'local') {
@@ -78,6 +90,9 @@
 			oninit: function() {
 				this.on('start', function(e, cell) {
 					this.get('model').start();
+					if (mode === 'caller') {
+						airconsole.broadcastEvent('reset', { reset: true });
+					}
 				});
 			}
 		});
@@ -92,20 +107,20 @@
 	}
 
 	if (mode === 'caller') {
-		airconsole.onMessage = function(deviceId, data) {
-			if (data.bingo && !callerModel.bingoCalled) {
+		airconsole.on('bingo', function(deviceId, data) {
+			if (!callerModel.bingoCalled) {
 				alert(airconsole.getNickname(deviceId) + ' got bingo!');
 				playersModel.recordWin(deviceId);
 
 				callerModel.stop();
 			}
+		});
 
-			if (data.mark) {
-				if (callerModel.hasBeenCalled(data.mark.value)) {
-					airconsole.message(deviceId, { 'marked': data.mark });
-				}
+		airconsole.on('mark', function(deviceId, data) {
+			if (callerModel.hasBeenCalled(data.mark.value)) {
+				airconsole.sendEvent(deviceId, 'marked', { 'marked': data.mark });
 			}
-		};
+		});
 
 		var playersModel = new Bingo.Players();
 		var playersView = new Bingo.PlayersView({
