@@ -10,6 +10,10 @@
 		return this;
 	};
 
+	Screens.prototype.onScreen = function(screen) {
+		return (this.current === screen);
+	};
+
 	window.Bingo = window.Bingo || {};
 	window.Bingo.Screens = Screens;
 })();
