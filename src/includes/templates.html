@@ -50,13 +50,13 @@
 		</script>
 
 		<script id="screensTemplate" type="text/ractive">
-			{{#if model.onScreen('loading')}}
+			{{#if model.current == 'loading'}}
 				<section class="screen loading">
 					<h1>Loading...</h1>
 				</section>
 			{{/if}}
 
-			{{#if model.onScreen('home')}}
+			{{#if model.current == 'home'}}
 				<section class="screen home">
 					<h1>Ultimate Bingo!</h1>
 
@@ -64,7 +64,7 @@
 				</section>
 			{{/if}}
 
-			{{#if model.onScreen('howToPlay')}}
+			{{#if model.current == 'howToPlay'}}
 				<section class="screen howToPlay">
 					<h1>How To Play</h1>
 
@@ -73,7 +73,7 @@
 				</section>
 			{{/if}}
 
-			{{#if model.onScreen('game')}}
+			{{#if model.current == 'game'}}
 				<section class="screen game">
 					<h1>Game</h1>
 				</section>

@@ -71,6 +71,10 @@
 		}
 	});
 
+	setTimeout(function() {
+		screensModel.goto('home');
+	}, 1000);
+
 
 	// window.addEventListener('blur', function() {
 	// 	callerModel.stop();
