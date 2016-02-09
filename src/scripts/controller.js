@@ -14,10 +14,14 @@
 		oninit: function(options) {
 			this.on('mark', function(e, cell) {
 				airconsole.sendEvent(AirConsole.SCREEN, 'mark', { 'mark': cell });
+
+				return false;
 			});
 
 			this.on('bingo', function(e, cell) {
 				airconsole.sendEvent(AirConsole.SCREEN, 'bingo', { 'bingo': true });
+
+				return false;
 			});
 
 			airconsole.on('marked', (function(deviceId, data) {

@@ -1,6 +1,5 @@
 /*
 	TODO Have seperate screens
-	TODO Replace buttons with divs
 	TODO Better display of bingo result
 	TODO Better display of max players
 	TODO Don't show player card until game begins
@@ -25,6 +24,7 @@
 			this.on('start', function(e, cell) {
 				this.get('model').reset().start();
 				airconsole.broadcastEvent('reset', { reset: true });
+				return false;
 			});
 		}
 	});
