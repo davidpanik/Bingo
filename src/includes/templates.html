@@ -16,11 +16,7 @@
 		</script>
 
 		<script id="cellTemplate" type="text/ractive">
-			{{#if marked}}
-				<a href="#" class="button cell marked" on-click-touchstart="mark:{{.}}">{{value}}</a>
-			{{else}}
-				<a href="#" class="button cell" on-click-touchstart="mark:{{.}}">{{value}}</a>
-			{{/if}}
+			<a href="#" class="button cell {{ marked ? 'marked' : ''}}" on-click-touchstart="mark:{{.}}">{{value}}</a>
 		</script>
 
 		<script id="callerTemplate" type="text/ractive">

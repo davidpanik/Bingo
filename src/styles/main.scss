@@ -58,7 +58,13 @@ h1 {
 	font-size: 4em;
 }
 
-button.cell {
+.button {
+	border: 1px solid black;
+	color: black;
+	text-decoration: none;
+}
+
+.button.cell {
 	display: inline-block;
 	width: 60px;
 	height: 60px;
@@ -66,11 +72,11 @@ button.cell {
 	cursor: pointer;
 }
 
-button.cell.marked {
+a.button.cell.marked {
 	background-color: red;
 }
 
-button.bingo {
+a.button.bingo {
 	margin: 1em;
 	padding: 1em;
 	font-size: 2em;
