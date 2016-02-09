@@ -61,11 +61,21 @@
 		}
 	});
 
+	var homeView = Ractive.extend({
+		template: '#homeScreenTemplate',
+		data: {},
+		oninit: function() {
+		}
+	});
+
 	var screensModel = new Bingo.Screens();
 	var screensView = new Bingo.ScreensView({
 		el: '#screensPlaceHolder',
 		data: {
 			model: screensModel
+		},
+		components: {
+			'home-screen': homeView
 		},
 		oninit: function() {
 		}
