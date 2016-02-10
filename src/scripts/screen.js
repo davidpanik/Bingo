@@ -28,7 +28,7 @@
 			airconsole.on('bingo', (function(deviceId, data) {
 				if (!this.get('model').bingoCalled) {
 					alert(airconsole.getNickname(deviceId) + ' got bingo!');
-					airconsole.sendEvent(0, 'gotBingo', { 'deviceId': deviceId });
+					airconsole.sendEvent(airconsole.SCREEN, 'gotBingo', { 'deviceId': deviceId });
 
 					this.get('model').stop();
 				}
@@ -103,8 +103,8 @@
 			model: screensModel
 		},
 		components: {
-			'home-screen': HomeView,
-			'caller': Bingo.CallerView,
+			'home-screen': HomeView
+			//,'caller': Bingo.CallerView,
 		},
 		oninit: function() {}
 	});
