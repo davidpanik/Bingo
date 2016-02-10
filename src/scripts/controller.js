@@ -7,10 +7,9 @@
 		this.dispatchEvent(deviceId, data);
 	};
 
-	var card = new Bingo.Card();
 	var cardView = new Bingo.CardView({
 		el: '#cardPlaceHolder',
-		data: { model: card },
+		data: { model: new Bingo.Card() },
 		oninit: function(options) {
 			this.on('mark', function(e, cell) {
 				airconsole.sendEvent(AirConsole.SCREEN, 'mark', { 'mark': cell });
@@ -35,10 +34,12 @@
 					airconsole.sendEvent(AirConsole.SCREEN, 'nearlyBingo', { 'nearlyBingo': true });
 				}
 			}).bind(this));
+
+			airconsole.on('reset', (function(deviceId, data) {
+				this.get('model').reset();
+			}).bind(this));
 		}
 	});
 
-	airconsole.on('reset', function(deviceId, data) {
-		card.reset();
-	});
+
 })();
