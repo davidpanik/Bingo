@@ -21,25 +21,28 @@
 
 	// ========= CALLER ===================================================
 
-	var callerModel = new Bingo.Caller();
 	var callerView = new Bingo.CallerView({
 		el: '#callerPlaceHolder',
-		data: { model: callerModel },
-		oninit: function() {}
-	});
+		data: { model: new Bingo.Caller() },
+		oninit: function() {
+			airconsole.on('bingo', (function(deviceId, data) {
+				if (!this.get('model').bingoCalled) {
+					alert(airconsole.getNickname(deviceId) + ' got bingo!');
+					airconsole.sendEvent(0, 'gotBingo', { 'deviceId': deviceId });
 
-	airconsole.on('bingo', function(deviceId, data) {
-		if (!callerModel.bingoCalled) {
-			alert(airconsole.getNickname(deviceId) + ' got bingo!');
-			airconsole.sendEvent(0, 'gotBingo', { 'deviceId': deviceId });
+					this.get('model').stop();
+				}
+			}).bind(this));
 
-			callerModel.stop();
-		}
-	});
+			airconsole.on('mark', (function(deviceId, data) {
+				if (this.get('model').hasBeenCalled(data.mark.value)) {
+					airconsole.sendEvent(deviceId, 'marked', { 'marked': data.mark });
+				}
+			}).bind(this));
 
-	airconsole.on('mark', function(deviceId, data) {
-		if (callerModel.hasBeenCalled(data.mark.value)) {
-			airconsole.sendEvent(deviceId, 'marked', { 'marked': data.mark });
+			airconsole.on('reset', (function(deviceId, data) {
+				this.get('model').reset().start();
+			}).bind(this));
 		}
 	});
 
@@ -64,7 +67,11 @@
 			}).bind(this));
 
 			airconsole.onConnect = (function(deviceId) {
-				this.get('model').add(deviceId, airconsole.getNickname(deviceId), airconsole.getProfilePicture(deviceId));
+				this.get('model').add(
+					deviceId,
+					airconsole.getNickname(deviceId),
+					airconsole.getProfilePicture(deviceId)
+				);
 			}).bind(this);
 
 			airconsole.onDisconnect = (function(deviceId) {
@@ -82,7 +89,6 @@
 		data: {},
 		oninit: function() {
 			this.on('start', function(e, cell) {
-				callerModel.reset().start();
 				airconsole.broadcastEvent('reset', { reset: true });
 				screensModel.goto('game');
 				return false;
