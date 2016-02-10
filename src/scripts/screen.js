@@ -28,7 +28,8 @@
 			airconsole.on('bingo', (function(deviceId, data) {
 				if (!this.get('model').bingoCalled) {
 					alert(airconsole.getNickname(deviceId) + ' got bingo!');
-					airconsole.sendEvent(airconsole.SCREEN, 'gotBingo', { 'deviceId': deviceId });
+
+					airconsole.sendEvent(AirConsole.SCREEN, 'gotBingo', { 'deviceId': deviceId });
 
 					this.get('model').stop();
 				}
@@ -90,6 +91,7 @@
 		oninit: function() {
 			this.on('start', function(e, cell) {
 				airconsole.broadcastEvent('reset', { reset: true });
+				airconsole.sendEvent(AirConsole.SCREEN, 'reset', { reset: true });
 				screensModel.goto('game');
 				return false;
 			});
