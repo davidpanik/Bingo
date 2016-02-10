@@ -26,8 +26,6 @@
 						{{model.current}}
 					{{/if}}
 				</h1>
-
-				<a href="#" class="button start" on-click-touchstart="start">Start!</a>
 			</div>
 		</script>
 
@@ -80,6 +78,7 @@
 			{{#if model.current == 'game'}}
 				<section class="screen game">
 					<h1>Game</h1>
+					<caller/>
 				</section>
 			{{/if}}
 		</script>

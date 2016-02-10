@@ -4,6 +4,7 @@
 	TODO Better display of max players
 	TODO Don't show player card until game begins
 	TODO Better pause option
+	TODO Simply event data
 */
 
 
@@ -16,23 +17,21 @@
 		this.dispatchEvent(deviceId, data);
 	};
 
+
+
+	// ========= CALLER ===================================================
+
 	var callerModel = new Bingo.Caller();
 	var callerView = new Bingo.CallerView({
 		el: '#callerPlaceHolder',
 		data: { model: callerModel },
-		oninit: function() {
-			this.on('start', function(e, cell) {
-				this.get('model').reset().start();
-				airconsole.broadcastEvent('reset', { reset: true });
-				return false;
-			});
-		}
+		oninit: function() {}
 	});
 
 	airconsole.on('bingo', function(deviceId, data) {
 		if (!callerModel.bingoCalled) {
 			alert(airconsole.getNickname(deviceId) + ' got bingo!');
-			playersModel.recordWin(deviceId);
+			airconsole.sendEvent(0, 'gotBingo', { 'deviceId': deviceId });
 
 			callerModel.stop();
 		}
@@ -44,27 +43,50 @@
 		}
 	});
 
-	airconsole.on('bingoAvailable', function(deviceId, data) {
-		playersModel.changeState(deviceId, 'bingoAvailable', true);
-	});
 
-	airconsole.on('nearlyBingo', function(deviceId, data) {
-		playersModel.changeState(deviceId, 'nearlyBingo', true);
-	});
 
-	var playersModel = new Bingo.Players();
+	// ========= PLAYERS ===================================================
+
 	var playersView = new Bingo.PlayersView({
 		el: '#playersPlaceHolder',
-		data: { model: playersModel },
+		data: { model: new Bingo.Players() },
 		oninit: function() {
+			airconsole.on('bingoAvailable', (function(deviceId, data) {
+				this.get('model').changeState(deviceId, 'bingoAvailable', true);
+			}).bind(this));
 
+			airconsole.on('nearlyBingo', (function(deviceId, data) {
+				this.get('model').changeState(deviceId, 'nearlyBingo', true);
+			}).bind(this));
+
+			airconsole.on('gotBingo', (function(deviceId, data) {
+				this.get('model').recordWin(data.deviceId);
+			}).bind(this));
+
+			airconsole.onConnect = (function(deviceId) {
+				this.get('model').add(deviceId, airconsole.getNickname(deviceId), airconsole.getProfilePicture(deviceId));
+			}).bind(this);
+
+			airconsole.onDisconnect = (function(deviceId) {
+				this.get('model').remove(deviceId);
+			}).bind(this);
 		}
 	});
 
-	var homeView = Ractive.extend({
+
+
+	// ========= SCREENS ===================================================
+
+	var HomeView = Ractive.extend({
 		template: '#homeScreenTemplate',
 		data: {},
 		oninit: function() {
+			this.on('start', function(e, cell) {
+				callerModel.reset().start();
+				airconsole.broadcastEvent('reset', { reset: true });
+				screensModel.goto('game');
+				return false;
+			});
 		}
 	});
 
@@ -75,10 +97,10 @@
 			model: screensModel
 		},
 		components: {
-			'home-screen': homeView
+			'home-screen': HomeView,
+			'caller': Bingo.CallerView,
 		},
-		oninit: function() {
-		}
+		oninit: function() {}
 	});
 
 	setTimeout(function() {
@@ -93,12 +115,4 @@
 	// window.addEventListener('focus', function() {
 	// 	callerModel.start();
 	// });
-
-	airconsole.onConnect = function(deviceId) {
-		playersModel.add(deviceId, airconsole.getNickname(deviceId), airconsole.getProfilePicture(deviceId));
-	};
-
-	airconsole.onDisconnect = function(deviceId) {
-		playersModel.remove(deviceId);
-	};
 })();
