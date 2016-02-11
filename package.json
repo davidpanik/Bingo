@@ -20,6 +20,7 @@
 		"grunt-babel":              "latest",
 		"babel-preset-es2015":      "latest",
 		"load-grunt-config":        "latest",
+		"grunt-browserify":         "latest",
 		"time-grunt":               "latest",
 		"handlebars":               "latest"
 	}

@@ -90,7 +90,17 @@ module.exports = function(grunt) {
 			},
 			all: {
 				files: {
-					'dist/scripts/main.js': 'src/scripts/main.js'
+					'dist/scripts/screen.js': 'src/scripts/screen.js',
+					'dist/scripts/controller.js': 'src/scripts/controller.js'
+				}
+			}
+		},
+
+		browserify: {
+			all: {
+				files: {
+					'dist/scripts/screen.js': 'src/scripts/screen.js',
+					'dist/scripts/controller.js': 'src/scripts/controller.js'
 				}
 			}
 		},
@@ -265,7 +275,7 @@ module.exports = function(grunt) {
 
 			scriptses6: {
 				files: 'src/scripts/**/*.js',
-				tasks: ['newer:jshint:es6', 'beepOnError'],
+				tasks: ['newer:jshint:es6', 'beepOnError', 'browserify'],
 				options: {
 					livereload: true,
 					nospawn: true
@@ -305,9 +315,9 @@ module.exports = function(grunt) {
 
 	// 'develop' task for active site development
 	grunt.registerTask('develop',     ['jshint:es5', 'clean:all', 'copy:develop',          'less:develop', 'sass:develop', 'processhtml:develop', 'connect', 'getip', 'beepOnError', 'beepOnSuccess', 'turnForceOn', 'switchwatch::less:sass:scriptses5:html:includes:images']);
-	grunt.registerTask('develop-es6', ['jshint:es6', 'clean:all', 'copy:develop', 'babel', 'less:develop', 'sass:develop', 'processhtml:develop', 'connect', 'getip', 'beepOnError', 'beepOnSuccess', 'turnForceOn', 'switchwatch::less:sass:scriptses6:html:includes:images']);
+	grunt.registerTask('develop-es6', ['jshint:es6', 'clean:all', 'copy:develop', 'browserify', 'less:develop', 'sass:develop', 'processhtml:develop', 'connect', 'getip', 'beepOnError', 'beepOnSuccess', 'turnForceOn', 'switchwatch::less:sass:scriptses6:html:includes:images']);
 
 	// 'build' task for creating a clean, optimised set of files for distribution
 	grunt.registerTask('build',       ['jshint:es5', 'clean:all', 'copy:build', 'uglify', 'concat', 'less:build', 'sass:build', 'cssmin', 'clean:styles', 'imagemin', 'processhtml:develop', 'processhtml:build', 'beepOnError', 'beepOnSuccess']);
-	grunt.registerTask('build-es6',   ['jshint:es6', 'clean:all', 'copy:build', 'babel',            'less:build', 'sass:build', 'cssmin', 'clean:styles', 'imagemin', 'processhtml:develop', 'processhtml:build', 'beepOnError', 'beepOnSuccess']);
+	grunt.registerTask('build-es6',   ['jshint:es6', 'clean:all', 'copy:build', 'browserify',            'less:build', 'sass:build', 'cssmin', 'clean:styles', 'imagemin', 'processhtml:develop', 'processhtml:build', 'beepOnError', 'beepOnSuccess']);
 };
