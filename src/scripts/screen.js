@@ -4,7 +4,6 @@
 	TODO Better display of max players
 	TODO Don't show player card until game begins
 	TODO Better pause option
-	TODO Simplfy event data
 */
 
 
@@ -36,16 +35,15 @@
 				if (!this.get('model').bingoCalled) {
 					alert(airconsole.getNickname(deviceId) + ' got bingo!');
 
-					// airconsole.sendEvent(AirConsole.SCREEN, 'gotBingo', { 'deviceId': deviceId });
-					pubSub.trigger('gotBingo', { 'deviceId': deviceId });
+					pubSub.trigger('gotBingo', deviceId);
 
 					this.get('model').stop();
 				}
 			}).bind(this));
 
-			airconsole.on('mark', (function(deviceId, data) {
-				if (this.get('model').hasBeenCalled(data.mark.value)) {
-					airconsole.sendEvent(deviceId, 'marked', { 'marked': data.mark });
+			airconsole.on('mark', (function(deviceId, cell) {
+				if (this.get('model').hasBeenCalled(cell.value)) {
+					airconsole.sendEvent(deviceId, 'marked', cell);
 				}
 			}).bind(this));
 
@@ -74,8 +72,8 @@
 				this.get('model').changeState(deviceId, 'nearlyBingo', true);
 			}).bind(this));
 
-			pubSub.on('gotBingo', (function(data) {
-				this.get('model').recordWin(data.deviceId);
+			pubSub.on('gotBingo', (function(deviceId) {
+				this.get('model').recordWin(deviceId);
 			}).bind(this));
 
 			airconsole.onConnect = (function(deviceId) {
@@ -101,9 +99,8 @@
 		data: {},
 		oninit: function() {
 			this.on('start', function(e, cell) {
-				airconsole.broadcastEvent('reset', { reset: true });
+				airconsole.broadcastEvent('reset', {});
 				pubSub.trigger('reset');
-				// airconsole.sendEvent(AirConsole.SCREEN, 'reset', { reset: true });
 				screensModel.goto('game');
 				return false;
 			});
