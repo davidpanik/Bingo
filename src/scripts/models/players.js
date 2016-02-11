@@ -13,7 +13,7 @@
 		'#FFB27F'
 	];
 
-	var Player = require('./player');
+	var PlayerModel = require('./player');
 
 	var Players = function(maxPlayers) {
 		this.maxPlayers = maxPlayers || 8;
@@ -25,7 +25,7 @@
 	Players.prototype.add = function(id, name, image) {
 		if (this.currentPlayers < this.maxPlayers) {
 			colourPool.shuffle();
-			this.players['player_' + id] = new Player(name, image, colourPool.pop());
+			this.players['player_' + id] = new PlayerModel(name, image, colourPool.pop());
 			this.currentPlayers++;
 			this.toArray();
 		} else {

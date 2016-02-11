@@ -13,6 +13,8 @@
 (function() {
 	'use strict';
 
+	require('./other/arrayShuffle');
+
 	var airconsole = new AirConsole();
 
 	airconsole.onMessage = function(deviceId, data) {
@@ -22,12 +24,12 @@
 
 	// ========= CALLER ===================================================
 
-	var Caller = require('./models/caller');
+	var CallerModel = require('./models/caller');
 	var CallerView = require('./views/caller');
 
 	var callerView = new CallerView({
 		el: '#callerPlaceHolder',
-		data: { model: new Caller() },
+		data: { model: new CallerModel() },
 		oninit: function() {
 			airconsole.on('bingo', (function(deviceId, data) {
 				if (!this.get('model').bingoCalled) {
@@ -55,12 +57,12 @@
 
 	// ========= PLAYERS ===================================================
 
-	var Players = require('./models/players');
+	var PlayersModel = require('./models/players');
 	var PlayersView = require('./views/players');
 
 	var playersView = new PlayersView({
 		el: '#playersPlaceHolder',
-		data: { model: new Players() },
+		data: { model: new PlayersModel() },
 		oninit: function() {
 			airconsole.on('bingoAvailable', (function(deviceId, data) {
 				this.get('model').changeState(deviceId, 'bingoAvailable', true);
@@ -105,10 +107,10 @@
 		}
 	});
 
-	var Screens = require('./models/screens');
+	var ScreensModel = require('./models/screens');
 	var ScreensView = require('./views/screens');
 
-	var screensModel = new Screens();
+	var screensModel = new ScreensModel();
 	var screensView = new ScreensView({
 		el: '#screensPlaceHolder',
 		data: {

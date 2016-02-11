@@ -1,7 +1,7 @@
 (function() {
 	'use strict';
 
-	var Cell = require('./cell');
+	var CellModel = require('./cell');
 
 	var Card = function(size, range) {
 		this.size = size || 5;
@@ -31,7 +31,7 @@
 			var row = [];
 
 			for (var y = this.size; y > 0; y--) {
-				row.push(new Cell(ranges[this.size-y][this.size-x]));
+				row.push(new CellModel(ranges[this.size-y][this.size-x]));
 			}
 
 			this.grid.push(row);

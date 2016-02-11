@@ -1,18 +1,20 @@
 (function() {
 	'use strict';
 
+	require('./other/arrayShuffle');
+
 	var airconsole = new AirConsole({ 'orientation': 'portrait' });
 
 	airconsole.onMessage = function(deviceId, data) {
 		this.dispatchEvent(deviceId, data);
 	};
 
-	var Card = require('./models/card');
+	var CardModel = require('./models/card');
 	var CardView = require('./views/card');
 
 	var cardView = new CardView({
 		el: '#cardPlaceHolder',
-		data: { model: new Card() },
+		data: { model: new CardModel() },
 		oninit: function(options) {
 			this.on('mark', function(e, cell) {
 				airconsole.sendEvent(AirConsole.SCREEN, 'mark', { 'mark': cell });
