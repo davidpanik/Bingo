@@ -1,10 +1,20 @@
 (function() {
 	'use strict';
 
-	var ScreensView = Ractive.extend({
-		template: '#screensTemplate',
-		magic: true
-	});
+	module.exports = function(airconsole, pubSub) {
+		var ScreensModel = require('../models/screens');
 
-	module.exports = ScreensView;
+		var ScreensView = Ractive.extend({
+			template: '#screensTemplate',
+			magic: true,
+			data: { model: new ScreensModel() },
+			oninit: function() {
+				setTimeout((function() {
+					this.get('model').goto('home');
+				}).bind(this), 1000);
+			}
+		});
+
+		return ScreensView;
+	};
 })();

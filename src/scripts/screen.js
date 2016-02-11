@@ -25,7 +25,6 @@
 	// ========= CALLER ===================================================
 
 	var CallerView = require('./views/caller')(airconsole, pubSub);
-
 	var callerView = new CallerView({
 		el: '#callerPlaceHolder'
 	});
@@ -35,7 +34,6 @@
 	// ========= PLAYERS ===================================================
 
 	var PlayersView = require('./views/players')(airconsole, pubSub);
-
 	var playersView = new PlayersView({
 		el: '#playersPlaceHolder'
 	});
@@ -57,26 +55,14 @@
 		}
 	});
 
-	var ScreensModel = require('./models/screens');
-	var ScreensView = require('./views/screens');
-
-	var screensModel = new ScreensModel();
+	var ScreensView = require('./views/screens')(airconsole, pubSub);
 	var screensView = new ScreensView({
 		el: '#screensPlaceHolder',
-		data: {
-			model: screensModel
-		},
 		components: {
 			'home-screen': HomeView,
 			'caller': CallerView
-		},
-		oninit: function() {}
+		}
 	});
-
-	setTimeout(function() {
-		screensModel.goto('home');
-	}, 1000);
-
 
 	// window.addEventListener('blur', function() {
 	// 	callerModel.stop();
