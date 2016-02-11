@@ -10,6 +10,5 @@
 		this.nearlyBingo = false;
 	};
 
-	window.Bingo = window.Bingo || {};
-	window.Bingo.Player = Player;
+	module.exports = Player;
 })();

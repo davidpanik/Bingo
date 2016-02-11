@@ -6,6 +6,5 @@
 		this.marked = false;
 	};
 
-	window.Bingo = window.Bingo || {};
-	window.Bingo.Cell = Cell;
+	module.exports = Cell;
 })();

@@ -13,6 +13,8 @@
 		'#FFB27F'
 	];
 
+	var Player = require('./player');
+
 	var Players = function(maxPlayers) {
 		this.maxPlayers = maxPlayers || 8;
 		this.currentPlayers = 0;
@@ -23,7 +25,7 @@
 	Players.prototype.add = function(id, name, image) {
 		if (this.currentPlayers < this.maxPlayers) {
 			colourPool.shuffle();
-			this.players['player_' + id] = new Bingo.Player(name, image, colourPool.pop());
+			this.players['player_' + id] = new Player(name, image, colourPool.pop());
 			this.currentPlayers++;
 			this.toArray();
 		} else {
@@ -63,6 +65,5 @@
 		return this;
 	};
 
-	window.Bingo = window.Bingo || {};
-	window.Bingo.Players = Players;
+	module.exports = Players;
 })();

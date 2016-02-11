@@ -22,9 +22,12 @@
 
 	// ========= CALLER ===================================================
 
-	var callerView = new Bingo.CallerView({
+	var Caller = require('./models/caller');
+	var CallerView = require('./views/caller');
+
+	var callerView = new CallerView({
 		el: '#callerPlaceHolder',
-		data: { model: new Bingo.Caller() },
+		data: { model: new Caller() },
 		oninit: function() {
 			airconsole.on('bingo', (function(deviceId, data) {
 				if (!this.get('model').bingoCalled) {
@@ -52,9 +55,12 @@
 
 	// ========= PLAYERS ===================================================
 
-	var playersView = new Bingo.PlayersView({
+	var Players = require('./models/players');
+	var PlayersView = require('./views/players');
+
+	var playersView = new PlayersView({
 		el: '#playersPlaceHolder',
-		data: { model: new Bingo.Players() },
+		data: { model: new Players() },
 		oninit: function() {
 			airconsole.on('bingoAvailable', (function(deviceId, data) {
 				this.get('model').changeState(deviceId, 'bingoAvailable', true);
@@ -99,15 +105,18 @@
 		}
 	});
 
-	var screensModel = new Bingo.Screens();
-	var screensView = new Bingo.ScreensView({
+	var Screens = require('./models/screens');
+	var ScreensView = require('./views/screens');
+
+	var screensModel = new Screens();
+	var screensView = new ScreensView({
 		el: '#screensPlaceHolder',
 		data: {
 			model: screensModel
 		},
 		components: {
 			'home-screen': HomeView,
-			'caller': Bingo.CallerView
+			'caller': CallerView
 		},
 		oninit: function() {}
 	});

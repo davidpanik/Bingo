@@ -1,6 +1,8 @@
 (function() {
 	'use strict';
 
+	var Cell = require('./cell');
+
 	var Card = function(size, range) {
 		this.size = size || 5;
 		this.range = range || 75;
@@ -29,7 +31,7 @@
 			var row = [];
 
 			for (var y = this.size; y > 0; y--) {
-				row.push(new Bingo.Cell(ranges[this.size-y][this.size-x]));
+				row.push(new Cell(ranges[this.size-y][this.size-x]));
 			}
 
 			this.grid.push(row);
@@ -92,6 +94,5 @@
 		return this;
 	};
 
-	window.Bingo = window.Bingo || {};
-	window.Bingo.Card = Card;
+	module.exports = Card;
 })();

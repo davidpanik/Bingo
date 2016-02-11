@@ -54,6 +54,5 @@
 		return (this.called.indexOf(value) > -1);
 	};
 
-	window.Bingo = window.Bingo || {};
-	window.Bingo.Caller = Caller;
+	module.exports = Caller;
 })();

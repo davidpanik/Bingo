@@ -6,6 +6,5 @@
 		magic: true
 	});
 
-	window.Bingo = window.Bingo || {};
-	window.Bingo.PlayersView = PlayersView;
+	module.exports = PlayersView;
 })();

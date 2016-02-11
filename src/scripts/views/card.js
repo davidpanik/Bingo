@@ -6,6 +6,5 @@
 		magic: true
 	});
 
-	window.Bingo = window.Bingo || {};
-	window.Bingo.CardView = CardView;
+	module.exports = CardView;
 })();

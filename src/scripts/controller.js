@@ -7,9 +7,12 @@
 		this.dispatchEvent(deviceId, data);
 	};
 
-	var cardView = new Bingo.CardView({
+	var Card = require('./models/card');
+	var CardView = require('./views/card');
+
+	var cardView = new CardView({
 		el: '#cardPlaceHolder',
-		data: { model: new Bingo.Card() },
+		data: { model: new Card() },
 		oninit: function(options) {
 			this.on('mark', function(e, cell) {
 				airconsole.sendEvent(AirConsole.SCREEN, 'mark', { 'mark': cell });
