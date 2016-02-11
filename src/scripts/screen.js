@@ -4,9 +4,8 @@
 	TODO Better display of max players
 	TODO Don't show player card until game begins
 	TODO Better pause option
-	TODO Simply event data
+	TODO Simplfy event data
 	TODO Use a PubSub instead of Airconsole messaging (on same device)
-	TODO Switch to better use of modules
 */
 
 
@@ -20,6 +19,8 @@
 	airconsole.onMessage = function(deviceId, data) {
 		this.dispatchEvent(deviceId, data);
 	};
+
+	var Events = require('./other/events');
 
 
 	// ========= CALLER ===================================================
