@@ -1,1 +1,1 @@
-grunt develop
+grunt develop-es6
