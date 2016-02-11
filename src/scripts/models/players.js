@@ -18,6 +18,7 @@
 	var Players = function(maxPlayers) {
 		this.maxPlayers = maxPlayers || 8;
 		this.currentPlayers = 0;
+		this.maxReached = false;
 		this.players = {};
 		this.playersArray = [];
 	};
@@ -28,8 +29,9 @@
 			this.players['player_' + id] = new PlayerModel(name, image, colourPool.pop());
 			this.currentPlayers++;
 			this.toArray();
+			this.maxReached = false;
 		} else {
-			alert('Max players reached - sorry!');
+			this.maxReached = true;
 		}
 
 		return this;
@@ -40,6 +42,7 @@
 		delete this.players['player_' + id];
 		this.currentPlayers--;
 		this.toArray();
+		this.maxReached = false;
 
 		return this;
 	};

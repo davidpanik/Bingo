@@ -1,9 +1,9 @@
 /*
 	TODO Have seperate screens
 	TODO Better display of bingo result
-	TODO Better display of max players
 	TODO Don't show player card until game begins
 	TODO Better pause option
+	TODO Send messages to controller to say what's happening
 */
 
 
