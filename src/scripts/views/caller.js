@@ -7,26 +7,26 @@
 		var CallerView = Ractive.extend({
 			template: '#callerTemplate',
 			magic: true,
-			data: { model: new CallerModel() },
+			data: function() { return new CallerModel(); },
 			oninit: function() {
 				airconsole.on('bingo', (function(deviceId, data) {
-					if (!this.get('model').bingoCalled) {
+					if (!this.get().bingoCalled) {
 						alert(airconsole.getNickname(deviceId) + ' got bingo!');
 
 						pubSub.trigger('gotBingo', deviceId);
 
-						this.get('model').stop();
+						this.get().stop();
 					}
 				}).bind(this));
 
 				airconsole.on('mark', (function(deviceId, cell) {
-					if (this.get('model').hasBeenCalled(cell.value)) {
+					if (this.get().hasBeenCalled(cell.value)) {
 						airconsole.sendEvent(deviceId, 'marked', cell);
 					}
 				}).bind(this));
 
 				pubSub.on('reset', (function() {
-					this.get('model').reset().start();
+					this.get().reset().start();
 				}).bind(this));
 			}
 		});
