@@ -97,6 +97,11 @@ module.exports = function(grunt) {
 		},
 
 		browserify: {
+			options: {
+				browserifyOptions: {
+					debug: true
+				}
+			},
 			all: {
 				files: {
 					'dist/scripts/screen.js': 'src/scripts/screen.js',

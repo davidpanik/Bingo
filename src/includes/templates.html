@@ -15,9 +15,11 @@
 			</div>
 		</script>
 
+
 		<script id="cellTemplate" type="text/ractive">
 			<a href="#" class="button cell {{ marked ? 'marked' : ''}}" on-click-touchstart="mark:{{.}}">{{value}}</a>
 		</script>
+
 
 		<script id="callerTemplate" type="text/ractive">
 			<div class="caller">
@@ -28,6 +30,7 @@
 				</h1>
 			</div>
 		</script>
+
 
 		<script id="playersTemplate" type="text/ractive">
 			<div class="players">
@@ -41,6 +44,7 @@
 			</div>
 		</script>
 
+
 		<script id="playerTemplate" type="text/ractive">
 			<div class="player" style="background-color: {{colour}}">
 				<h2>{{name}}</h2>
@@ -51,11 +55,13 @@
 			</div>
 		</script>
 
+
 		<script id="homeScreenTemplate" type="text/ractive">
 			<h1>Ultimate Bingo!</h1>
 
 			<a href="#" class="button start" on-click-touchstart="start">Start!</a>
 		</script>
+
 
 		<script id="screensTemplate" type="text/ractive">
 			{{#if current == 'loading'}}
