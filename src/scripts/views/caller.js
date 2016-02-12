@@ -11,8 +11,7 @@
 			oninit: function() {
 				airconsole.on('bingo', (function(deviceId, data) {
 					if (!this.get().bingoCalled) {
-						alert(airconsole.getNickname(deviceId) + ' got bingo!');
-
+						this.get().winner = airconsole.getNickname(deviceId);
 						pubSub.trigger('gotBingo', deviceId);
 
 						this.get().stop();

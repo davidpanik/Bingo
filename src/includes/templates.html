@@ -24,8 +24,12 @@
 		<script id="callerTemplate" type="text/ractive">
 			<div class="caller">
 				<h1>
-					{{#if current}}
-						{{current}}
+					{{#if winner}}
+						{{winner}} got bingo!
+					{{else}}
+						{{#if current}}
+							{{current}}
+						{{/if}}
 					{{/if}}
 				</h1>
 			</div>

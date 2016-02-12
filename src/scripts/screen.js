@@ -1,6 +1,5 @@
 /*
 	TODO Have seperate screens
-	TODO Better display of bingo result
 	TODO Don't show player card until game begins
 	TODO Better pause option
 	TODO Send messages to controller to say what's happening
@@ -49,7 +48,7 @@
 			this.on('start', function(e, cell) {
 				airconsole.broadcastEvent('reset', {});
 				pubSub.trigger('reset');
-				screensModel.goto('game');
+				screensView.get().goto('game');
 				return false;
 			});
 		}
