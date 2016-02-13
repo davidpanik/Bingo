@@ -24,9 +24,9 @@
 	// ========= CALLER ===================================================
 
 	var CallerView = require('./views/caller')(airconsole, pubSub);
-	var callerView = new CallerView({
-		el: '#callerPlaceHolder'
-	});
+	// var callerView = new CallerView({
+	// 	el: '#callerPlaceHolder'
+	// });
 
 
 
@@ -36,7 +36,7 @@
 	var playersView = new PlayersView({
 		el: '#playersPlaceHolder'
 	});
-
+	Ractive.components.Players = PlayersView;
 
 
 	// ========= SCREENS ===================================================
@@ -48,7 +48,7 @@
 			this.on('start', function(e, cell) {
 				airconsole.broadcastEvent('reset', {});
 				pubSub.trigger('reset');
-				screensView.get().goto('game');
+				screensView.get('model').goto('game');
 				return false;
 			});
 		}

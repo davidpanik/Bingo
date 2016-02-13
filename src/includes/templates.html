@@ -2,14 +2,14 @@
 
 		<script id="cardTemplate" type="text/ractive">
 			<div class="card">
-				{{#each grid}}
+				{{#each model.grid}}
 					{{#each .}}
 						{{>'#cellTemplate'}}
 					{{/each}}
 					<br/>
 				{{/each}}
 
-				{{#if bingoAvailable}}
+				{{#if model.bingoAvailable}}
 					<a href="#" class="button bingo" on-click-touchstart="bingo">Bingo!</a>
 				{{/if}}
 			</div>
@@ -24,11 +24,11 @@
 		<script id="callerTemplate" type="text/ractive">
 			<div class="caller">
 				<h1>
-					{{#if winner}}
-						{{winner}} got bingo!
+					{{#if model.winner}}
+						{{model.winner}} got bingo!
 					{{else}}
-						{{#if current}}
-							{{current}}
+						{{#if model.current}}
+							{{model.current}}
 						{{/if}}
 					{{/if}}
 				</h1>
@@ -38,11 +38,11 @@
 
 		<script id="playersTemplate" type="text/ractive">
 			<div class="players">
-				{{#each playersArray}}
+				{{#each model.playersArray}}
 					{{>'#playerTemplate'}}
 				{{/each}}
 
-				{{#if maxReached}}
+				{{#if model.maxReached}}
 					<p>Maximum players reached - sorry!</p>
 				{{/if}}
 			</div>
@@ -68,19 +68,19 @@
 
 
 		<script id="screensTemplate" type="text/ractive">
-			{{#if current == 'loading'}}
+			{{#if model.current == 'loading'}}
 				<section class="screen loading">
 					<h1>Loading...</h1>
 				</section>
 			{{/if}}
 
-			{{#if current == 'home'}}
+			{{#if model.current == 'home'}}
 				<section class="screen home">
 					<home-screen/>
 				</section>
 			{{/if}}
 
-			{{#if current == 'howToPlay'}}
+			{{#if model.current == 'howToPlay'}}
 				<section class="screen howToPlay">
 					<h1>How To Play</h1>
 
@@ -89,7 +89,7 @@
 				</section>
 			{{/if}}
 
-			{{#if current == 'game'}}
+			{{#if model.current == 'game'}}
 				<section class="screen game">
 					<h1>Game</h1>
 					<caller/>

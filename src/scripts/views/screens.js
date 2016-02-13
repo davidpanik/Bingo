@@ -7,10 +7,10 @@
 		var ScreensView = Ractive.extend({
 			template: '#screensTemplate',
 			magic: true,
-			data: function() { return new ScreensModel(); },
+			data: { model: new ScreensModel() },
 			oninit: function() {
 				setTimeout((function() {
-					this.get().goto('home');
+					this.get('model').goto('home');
 				}).bind(this), 1000);
 			}
 		});

@@ -7,7 +7,7 @@
 		var CardView = Ractive.extend({
 			template: '#cardTemplate',
 			magic: true,
-			data: function() { return new CardModel(); },
+			data: { model: new CardModel() },
 			oninit: function(options) {
 				this.on('mark', function(e, cell) {
 					airconsole.sendEvent(AirConsole.SCREEN, 'mark', cell);
@@ -22,19 +22,19 @@
 				});
 
 				airconsole.on('marked', (function(deviceId, cell) {
-					this.get().markCellByValue(cell.value);
+					this.get('model').markCellByValue(cell.value);
 
-					if (this.get().bingoAvailable) {
+					if (this.get('model').bingoAvailable) {
 						airconsole.sendEvent(AirConsole.SCREEN, 'bingoAvailable', {});
 					}
 
-					if (this.get().nearlyBingo) {
+					if (this.get('model').nearlyBingo) {
 						airconsole.sendEvent(AirConsole.SCREEN, 'nearlyBingo', {});
 					}
 				}).bind(this));
 
 				airconsole.on('reset', (function(deviceId, data) {
-					this.get().reset();
+					this.get('model').reset();
 				}).bind(this));
 			}
 		});
