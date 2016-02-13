@@ -19,6 +19,17 @@
 		el: '#content',
 		components: {
 			'card': CardView
+		},
+		oninit: function() {
+			this.get('model').goto('home');
+
+			this.on('start', function(e, cell) {
+				airconsole.broadcastEvent('goto', 'game');
+				pubSub.trigger('goto', 'game');
+				return false;
+			});
+
+			this.addListeners();
 		}
 	});
 })();

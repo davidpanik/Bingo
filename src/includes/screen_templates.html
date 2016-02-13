@@ -37,13 +37,6 @@
 		</script>
 
 
-		<script id="homeScreenTemplate" type="text/ractive">
-			<h1>Ultimate Bingo!</h1>
-
-			<a href="#" class="button start" on-click-touchstart="start">Start!</a>
-		</script>
-
-
 		<script id="screensTemplate" type="text/ractive">
 			{{#if model.current == 'loading'}}
 				<section class="screen loading">
@@ -53,7 +46,7 @@
 
 			{{#if model.current == 'home'}}
 				<section class="screen home">
-					<home-screen/>
+					<h1>Ultimate Bingo!</h1>
 				</section>
 			{{/if}}
 

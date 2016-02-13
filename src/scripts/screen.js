@@ -6,6 +6,7 @@
 	TODO Assign a "host" player
 	TODO Remove buttons from screen
 	TODO Why is caller running in the background?
+	TODO Player states on screen no longer updating
 */
 
 
@@ -26,26 +27,10 @@
 	var CallerView = require('./views/caller')(airconsole, pubSub);
 	var PlayersView = require('./views/players')(airconsole, pubSub);
 
-	// ========= SCREENS ===================================================
-
-	var HomeView = Ractive.extend({
-		template: '#homeScreenTemplate',
-		data: {},
-		oninit: function() {
-			this.on('start', function(e, cell) {
-				airconsole.broadcastEvent('reset', {});
-				pubSub.trigger('reset');
-				screensView.get('model').goto('game');
-				return false;
-			});
-		}
-	});
-
 	var ScreensView = require('./views/screens')(airconsole, pubSub);
 	var screensView = new ScreensView({
 		el: '#content',
 		components: {
-			'home-screen': HomeView,
 			'caller': CallerView,
 			'players': PlayersView
 		}

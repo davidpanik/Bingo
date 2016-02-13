@@ -9,9 +9,16 @@
 			magic: true,
 			data: { model: new ScreensModel() },
 			oninit: function() {
-				setTimeout((function() {
-					this.get('model').goto('home');
-				}).bind(this), 1000);
+				this.addListeners();
+			},
+			addListeners: function() {
+				airconsole.on('goto', (function(deviceId, screen) {
+					this.get('model').goto(screen);
+				}).bind(this));
+
+				pubSub.on('goto', (function(screen) {
+					this.get('model').goto(screen);
+				}).bind(this));
 			}
 		});
 
