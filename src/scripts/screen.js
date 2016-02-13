@@ -33,6 +33,11 @@
 		components: {
 			'caller': CallerView,
 			'players': PlayersView
+		},
+		oninit: function() {
+			this.addListeners();
+
+			this.get('model').goto('home');
 		}
 	});
 
