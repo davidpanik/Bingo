@@ -1,5 +1,3 @@
-		<!-- TEMPLATES -->
-
 		<script id="cardTemplate" type="text/ractive">
 			<div class="card">
 				{{#each model.grid}}
@@ -19,53 +17,6 @@
 		<script id="cellTemplate" type="text/ractive">
 			<a href="#" class="button cell {{ marked ? 'marked' : ''}}" on-click-touchstart="mark:{{.}}">{{value}}</a>
 		</script>
-
-
-		<script id="callerTemplate" type="text/ractive">
-			<div class="caller">
-				<h1>
-					{{#if model.winner}}
-						{{model.winner}} got bingo!
-					{{else}}
-						{{#if model.current}}
-							{{model.current}}
-						{{/if}}
-					{{/if}}
-				</h1>
-			</div>
-		</script>
-
-
-		<script id="playersTemplate" type="text/ractive">
-			<div class="players">
-				{{#each model.playersArray}}
-					{{>'#playerTemplate'}}
-				{{/each}}
-
-				{{#if model.maxReached}}
-					<p>Maximum players reached - sorry!</p>
-				{{/if}}
-			</div>
-		</script>
-
-
-		<script id="playerTemplate" type="text/ractive">
-			<div class="player" style="background-color: {{colour}}">
-				<h2>{{name}}</h2>
-				<img src="{{image}}"/>
-				<h3>{{score}}</h3>
-				<p>Nearly bingo: {{nearlyBingo}}</p>
-				<p>Bingo available: {{bingoAvailable}}</p>
-			</div>
-		</script>
-
-
-		<script id="homeScreenTemplate" type="text/ractive">
-			<h1>Ultimate Bingo!</h1>
-
-			<a href="#" class="button start" on-click-touchstart="start">Start!</a>
-		</script>
-
 
 		<script id="screensTemplate" type="text/ractive">
 			{{#if model.current == 'loading'}}

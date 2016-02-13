@@ -1,0 +1,75 @@
+		<script id="callerTemplate" type="text/ractive">
+			<div class="caller">
+				<h1>
+					{{#if model.winner}}
+						{{model.winner}} got bingo!
+					{{else}}
+						{{#if model.current}}
+							{{model.current}}
+						{{/if}}
+					{{/if}}
+				</h1>
+			</div>
+		</script>
+
+
+		<script id="playersTemplate" type="text/ractive">
+			<div class="players">
+				{{#each model.playersArray}}
+					{{>'#playerTemplate'}}
+				{{/each}}
+
+				{{#if model.maxReached}}
+					<p>Maximum players reached - sorry!</p>
+				{{/if}}
+			</div>
+		</script>
+
+
+		<script id="playerTemplate" type="text/ractive">
+			<div class="player" style="background-color: {{colour}}">
+				<h2>{{name}}</h2>
+				<img src="{{image}}"/>
+				<h3>{{score}}</h3>
+				<p>Nearly bingo: {{nearlyBingo}}</p>
+				<p>Bingo available: {{bingoAvailable}}</p>
+			</div>
+		</script>
+
+
+		<script id="homeScreenTemplate" type="text/ractive">
+			<h1>Ultimate Bingo!</h1>
+
+			<a href="#" class="button start" on-click-touchstart="start">Start!</a>
+		</script>
+
+
+		<script id="screensTemplate" type="text/ractive">
+			{{#if model.current == 'loading'}}
+				<section class="screen loading">
+					<h1>Loading...</h1>
+				</section>
+			{{/if}}
+
+			{{#if model.current == 'home'}}
+				<section class="screen home">
+					<home-screen/>
+				</section>
+			{{/if}}
+
+			{{#if model.current == 'howToPlay'}}
+				<section class="screen howToPlay">
+					<h1>How To Play</h1>
+
+					<p>Mark numbers on your card as they are called.</p>
+					<p>Fill any row, column or diagonal to call Bingo! and win the game.</p>
+				</section>
+			{{/if}}
+
+			{{#if model.current == 'game'}}
+				<section class="screen game">
+					<h1>Game</h1>
+					<caller/>
+				</section>
+			{{/if}}
+		</script>
