@@ -21,6 +21,8 @@
 			'card': CardView
 		},
 		oninit: function() {
+			this.addListeners();
+
 			this.get('model').goto('home');
 
 			this.on('start', function(e, cell) {
@@ -29,7 +31,6 @@
 				return false;
 			});
 
-			this.addListeners();
 		}
 	});
 })();
