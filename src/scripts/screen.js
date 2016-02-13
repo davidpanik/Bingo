@@ -3,6 +3,9 @@
 	TODO Don't show player card until game begins
 	TODO Better pause option
 	TODO Send messages to controller to say what's happening
+	TODO Assign a "host" player
+	TODO Remove buttons from screen
+	TODO Why is caller running in the background?
 */
 
 
@@ -20,24 +23,8 @@
 	var Events = require('./other/events');
 	var pubSub = new Events();
 
-
-	// ========= CALLER ===================================================
-
 	var CallerView = require('./views/caller')(airconsole, pubSub);
-	// var callerView = new CallerView({
-	// 	el: '#callerPlaceHolder'
-	// });
-
-
-
-	// ========= PLAYERS ===================================================
-
 	var PlayersView = require('./views/players')(airconsole, pubSub);
-	var playersView = new PlayersView({
-		el: '#playersPlaceHolder'
-	});
-	Ractive.components.Players = PlayersView;
-
 
 	// ========= SCREENS ===================================================
 
@@ -56,10 +43,11 @@
 
 	var ScreensView = require('./views/screens')(airconsole, pubSub);
 	var screensView = new ScreensView({
-		el: '#screensPlaceHolder',
+		el: '#content',
 		components: {
 			'home-screen': HomeView,
-			'caller': CallerView
+			'caller': CallerView,
+			'players': PlayersView
 		}
 	});
 
