@@ -18,6 +18,7 @@
 			<a href="#" class="button cell {{ marked ? 'marked' : ''}}" on-click-touchstart="mark:{{.}}">{{value}}</a>
 		</script>
 
+
 		<script id="screensTemplate" type="text/ractive">
 			{{#if model.current == 'loading'}}
 				<section class="screen loading">
@@ -27,23 +28,13 @@
 
 			{{#if model.current == 'home'}}
 				<section class="screen home">
-					<home-screen/>
-				</section>
-			{{/if}}
-
-			{{#if model.current == 'howToPlay'}}
-				<section class="screen howToPlay">
-					<h1>How To Play</h1>
-
-					<p>Mark numbers on your card as they are called.</p>
-					<p>Fill any row, column or diagonal to call Bingo! and win the game.</p>
+					<card/>
 				</section>
 			{{/if}}
 
 			{{#if model.current == 'game'}}
 				<section class="screen game">
-					<h1>Game</h1>
-					<caller/>
+					<card/>
 				</section>
 			{{/if}}
 		</script>
