@@ -1,9 +1,6 @@
 /*
-	TODO Better pause option
-	TODO Send messages to controller to say what's happening
-	TODO Remove buttons from screen
-	TODO Player states on screen no longer updating
 	TODO Post-game screen on controller
+	TODO Start new game
 */
 
 

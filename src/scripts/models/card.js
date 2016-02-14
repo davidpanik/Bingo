@@ -64,7 +64,7 @@
 		var checkLength = (function(n) {
 			if (n === this.size) {
 				this.bingoAvailable = true;
-			} else if (n > Math.floor(this.size * 0.8)) {
+			} else if (n >= Math.floor(this.size * 0.8)) {
 				this.nearlyBingo = true;
 			}
 		}).bind(this);

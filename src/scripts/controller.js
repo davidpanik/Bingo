@@ -33,7 +33,6 @@
 
 			airconsole.on('setHost', (function(deviceId) {
 				this.set('custom.host', true);
-				console.log(this.get('custom'));
 			}).bind(this));
 		}
 	});
