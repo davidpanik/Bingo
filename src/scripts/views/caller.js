@@ -27,6 +27,9 @@
 				pubSub.on('reset', (function() {
 					this.get('model').reset().start();
 				}).bind(this));
+			},
+			onrender: function() {
+				this.get('model').reset().start();
 			}
 		});
 

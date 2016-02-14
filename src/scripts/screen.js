@@ -1,11 +1,8 @@
 /*
-	TODO Have seperate screens
-	TODO Don't show player card until game begins
 	TODO Better pause option
 	TODO Send messages to controller to say what's happening
 	TODO Assign a "host" player
 	TODO Remove buttons from screen
-	TODO Why is caller running in the background?
 	TODO Player states on screen no longer updating
 	TODO Post-game screen on controller
 */

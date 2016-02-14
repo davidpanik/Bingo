@@ -7,8 +7,6 @@
 
 		this.reset();
 
-		this.start();
-
 		return this;
 	};
 

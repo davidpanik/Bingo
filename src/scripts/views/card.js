@@ -36,6 +36,9 @@
 				airconsole.on('reset', (function(deviceId, data) {
 					this.get('model').reset();
 				}).bind(this));
+			},
+			onrender: function() {
+				this.get('model').reset();
 			}
 		});
 
