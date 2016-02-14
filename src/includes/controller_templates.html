@@ -30,7 +30,9 @@
 				<section class="screen home">
 					<h1>Ultimate Bingo!</h1>
 
-					<a href="#" class="button start" on-click-touchstart="start">Start!</a>
+					{{#if custom.host}}
+						<a href="#" class="button start" on-click-touchstart="start">Start!</a>
+					{{/if}}
 				</section>
 			{{/if}}
 

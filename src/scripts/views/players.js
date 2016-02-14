@@ -27,10 +27,16 @@
 						airconsole.getNickname(deviceId),
 						airconsole.getProfilePicture(deviceId)
 					);
+
+					var host = this.get('model').getHost();
+					airconsole.sendEvent(host, 'setHost');
 				}).bind(this);
 
 				airconsole.onDisconnect = (function(deviceId) {
 					this.get('model').remove(deviceId);
+
+					var host = this.get('model').getHost();
+					airconsole.sendEvent(host, 'setHost');
 				}).bind(this);
 			},
 			onrender: function() {

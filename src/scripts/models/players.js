@@ -15,6 +15,8 @@
 
 	var PlayerModel = require('./player');
 
+	var prefix = 'player_';
+
 	var Players = function(maxPlayers) {
 		this.maxPlayers = maxPlayers || 8;
 		this.currentPlayers = 0;
@@ -26,7 +28,7 @@
 	Players.prototype.add = function(id, name, image) {
 		if (this.currentPlayers < this.maxPlayers) {
 			colourPool.shuffle();
-			this.players['player_' + id] = new PlayerModel(name, image, colourPool.pop());
+			this.players[prefix + id] = new PlayerModel(name, image, colourPool.pop());
 			this.currentPlayers++;
 			this.toArray();
 			this.maxReached = false;
@@ -78,6 +80,16 @@
 			this.toArray();
 			return this;
 		}
+	};
+
+	Players.prototype.getHost = function() {
+		for (var x in this.players) {
+			if (this.players[x].host) {
+				return Number(x.replace(prefix, ''));
+			}
+		}
+
+		return 0;
 	};
 
 	Players.prototype.recordWin = function(id) {

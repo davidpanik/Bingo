@@ -7,7 +7,7 @@
 		var ScreensView = Ractive.extend({
 			template: '#screensTemplate',
 			magic: true,
-			data: { model: new ScreensModel() },
+			data: { custom: {}, model: new ScreensModel() },
 			oninit: function() {
 				this.addListeners();
 			},
