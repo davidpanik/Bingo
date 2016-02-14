@@ -32,6 +32,9 @@
 				airconsole.onDisconnect = (function(deviceId) {
 					this.get('model').remove(deviceId);
 				}).bind(this);
+			},
+			onrender: function() {
+
 			}
 		});
 

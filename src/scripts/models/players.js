@@ -30,6 +30,10 @@
 			this.currentPlayers++;
 			this.toArray();
 			this.maxReached = false;
+
+			if (!this.hostAssigned()) {
+				this.assignHost();
+			}
 		} else {
 			this.maxReached = true;
 		}
@@ -44,6 +48,10 @@
 		this.toArray();
 		this.maxReached = false;
 
+		if (!this.hostAssigned()) {
+			this.assignHost();
+		}
+
 		return this;
 	};
 
@@ -51,6 +59,24 @@
 		this.playersArray = [];
 		for (var player in this.players) {
 			this.playersArray.push(this.players[player]);
+		}
+	};
+
+	Players.prototype.hostAssigned = function() {
+		for (var x in this.players) {
+			if (this.players[x].host) {
+				return true;
+			}
+		}
+
+		return false;
+	};
+
+	Players.prototype.assignHost = function() {
+		for (var x in this.players) {
+			this.players[x].host = true;
+			this.toArray();
+			return this;
 		}
 	};
 

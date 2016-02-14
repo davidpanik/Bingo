@@ -8,6 +8,7 @@
 		this.score = 0;
 		this.bingoAvailable = false;
 		this.nearlyBingo = false;
+		this.host = false;
 	};
 
 	module.exports = Player;
