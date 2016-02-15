@@ -19,6 +19,7 @@
 
 				pubSub.on('gotBingo', (function(deviceId) {
 					this.get('model').recordWin(deviceId);
+					this.get('model').reset();
 				}).bind(this));
 
 				airconsole.onConnect = (function(deviceId) {

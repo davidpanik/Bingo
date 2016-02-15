@@ -11,6 +11,8 @@
 			oninit: function() {
 				airconsole.on('bingo', (function(deviceId, data) {
 					if (!this.get('model').bingoCalled) {
+						pubSub.trigger('gotBingo', deviceId);
+
 						pubSub.trigger('setWinner', airconsole.getNickname(deviceId));
 						pubSub.trigger('goto', 'postGame');
 

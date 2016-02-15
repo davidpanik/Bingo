@@ -1,6 +1,9 @@
 /*
-	TODO Players scores not updating?
-	TODO Check player states reseting between games too
+	TODO Rework Players object/map hybrid
+	TODO Add sound controller
+	TODO Add scrolling background
+	TODO Start adding animation
+	TODO Choose font
 */
 
 

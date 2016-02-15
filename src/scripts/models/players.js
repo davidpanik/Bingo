@@ -109,5 +109,14 @@
 		return this;
 	};
 
+	Players.prototype.reset = function(id, state, value) {
+		for (var x in this.players) {
+			this.players[x].bingoAvailable = false;
+			this.players[x].nearlyBingo = false;
+		}
+
+		return this;
+	};
+
 	module.exports = Players;
 })();
