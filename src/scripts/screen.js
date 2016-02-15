@@ -4,6 +4,7 @@
 	TODO Add scrolling background
 	TODO Start adding animation
 	TODO Choose font
+	TODO Switch player colours to be a class
 */
 
 

@@ -23,13 +23,16 @@
 
 
 		<script id="playerTemplate" type="text/ractive">
-			<div class="player" style="background-color: {{colour}}">
+			<div class="player {{ nearlyBingo ? 'animated pulse' : '' }} {{ nearlyBingo ? 'animated tada' : '' }}" style="background-color: {{colour}}">
 				<h2>{{name}}</h2>
 				<img src="{{image}}"/>
 				<h3>{{score}}</h3>
+
+				<!--
 				<p>Nearly bingo: {{nearlyBingo}}</p>
 				<p>Bingo available: {{bingoAvailable}}</p>
 				<p>Host: {{host}}</p>
+				-->
 			</div>
 		</script>
 
@@ -68,5 +71,6 @@
 					<h1>{{custom.winner}} got bingo!</h1>
 				</section>
 			{{/if}}
+
 			<players/>
 		</script>
