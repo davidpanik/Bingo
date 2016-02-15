@@ -1,12 +1,8 @@
 		<script id="callerTemplate" type="text/ractive">
 			<div class="caller">
 				<h1>
-					{{#if model.winner}}
-						{{model.winner}} got bingo!
-					{{else}}
-						{{#if model.current}}
-							{{model.current}}
-						{{/if}}
+					{{#if model.current}}
+						{{model.current}}
 					{{/if}}
 				</h1>
 			</div>
@@ -67,5 +63,10 @@
 				</section>
 			{{/if}}
 
+			{{#if model.current == 'postGame'}}
+				<section class="screen postGame">
+					<h1>{{custom.winner}} got bingo!</h1>
+				</section>
+			{{/if}}
 			<players/>
 		</script>

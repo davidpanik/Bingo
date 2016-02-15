@@ -11,10 +11,11 @@
 			oninit: function() {
 				airconsole.on('bingo', (function(deviceId, data) {
 					if (!this.get('model').bingoCalled) {
-						this.get('model').winner = airconsole.getNickname(deviceId);
-						pubSub.trigger('gotBingo', deviceId);
+						pubSub.trigger('setWinner', airconsole.getNickname(deviceId));
+						pubSub.trigger('goto', 'postGame');
+
+						airconsole.broadcastEvent('setWinner', airconsole.getNickname(deviceId));
 						airconsole.broadcastEvent('goto', 'postGame');
-						airconsole.broadcastEvent('gotBingo', airconsole.getNickname(deviceId));
 
 						this.get('model').stop();
 					}

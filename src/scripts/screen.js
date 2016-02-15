@@ -1,5 +1,6 @@
 /*
-	TODO Start new game
+	TODO Players scores not updating?
+	TODO Check player states reseting between games too
 	TODO Show player colour on controller
 */
 
@@ -30,6 +31,10 @@
 		},
 		oninit: function() {
 			this.addListeners();
+
+			pubSub.on('setWinner', (function(name) {
+				this.set('custom.winner', name);
+			}).bind(this));
 
 			this.get('model').goto('home');
 		}

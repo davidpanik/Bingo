@@ -34,6 +34,10 @@
 			airconsole.on('setHost', (function(deviceId) {
 				this.set('custom.host', true);
 			}).bind(this));
+
+			airconsole.on('setWinner', (function(deviceId, name) {
+				this.set('custom.winner', name);
+			}).bind(this));
 		}
 	});
 })();
