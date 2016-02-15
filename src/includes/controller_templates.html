@@ -6,11 +6,11 @@
 					{{/each}}
 					<br/>
 				{{/each}}
-
-					<a href="#" class="button bingo" on-click-touchstart="bingo">Bingo!</a>
-				{{#if model.bingoAvailable}}
-				{{/if}}
 			</div>
+
+			{{#if model.bingoAvailable}}
+				<a href="#" class="button bingo" on-click-touchstart="bingo">Bingo!</a>
+			{{/if}}
 		</script>
 
 
@@ -20,7 +20,7 @@
 
 
 		<script id="screensTemplate" type="text/ractive">
-			<div class="fullScreen" style="background-color: {{custom.colour}};">
+			<div class="fullScreen colour_{{custom.colour}}">
 				{{#if model.current == 'loading'}}
 					<section class="screen loading">
 						<h1>Loading...</h1>

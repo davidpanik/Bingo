@@ -61,6 +61,34 @@ body {
 	#content {
 		background-color: #FFF;
 
+		.colour_1 {
+			background-color: #FF6A00;
+		}
+		.colour_2 {
+			background-color: #0094FF;
+		}
+		.colour_3 {
+			background-color: #B200FF;
+		}
+		.colour_4 {
+			background-color: #FF006E;
+		}
+		.colour_5 {
+			background-color: #5B7F00;
+		}
+		.colour_6 {
+			background-color: #FF7F7F;
+		}
+		.colour_7 {
+			background-color: #A17FFF;
+		}
+		.colour_8 {
+			background-color: #0026FF;
+		}
+		.colour_9 {
+			background-color: #FFB27F;
+		}
+
 		&.screen {
 			.players {
 				position: fixed;
@@ -87,13 +115,15 @@ body {
 				display: flex;
 				flex-flow: row wrap;
 				justify-content: center;
+				background-color: black;
+				border-radius: 25%;
 
 				.cell {
 					width: 13vw;
 					height: 13vw;
 					line-height: 14vw;
 					font-size: 9vw;
-					border-radius: 35%;
+					border-radius: 25%;
 					border: none;
 					margin: 1vw;
 				}
