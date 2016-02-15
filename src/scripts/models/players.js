@@ -28,7 +28,8 @@
 	Players.prototype.add = function(id, name, image) {
 		if (this.currentPlayers < this.maxPlayers) {
 			colourPool.shuffle();
-			this.players[prefix + id] = new PlayerModel(name, image, colourPool.pop());
+			var newPlayer = new PlayerModel(name, image, colourPool.pop());
+			this.players[prefix + id] = newPlayer;
 			this.currentPlayers++;
 			this.toArray();
 			this.maxReached = false;
@@ -36,6 +37,8 @@
 			if (!this.hostAssigned()) {
 				this.assignHost();
 			}
+
+			return newPlayer;
 		} else {
 			this.maxReached = true;
 		}

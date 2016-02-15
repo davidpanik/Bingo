@@ -38,6 +38,10 @@
 			airconsole.on('setWinner', (function(deviceId, name) {
 				this.set('custom.winner', name);
 			}).bind(this));
+
+			airconsole.on('setColour', (function(deviceId, colour) {
+				this.set('custom.colour', colour);
+			}).bind(this));
 		}
 	});
 })();

@@ -1,7 +1,6 @@
 /*
 	TODO Players scores not updating?
 	TODO Check player states reseting between games too
-	TODO Show player colour on controller
 */
 
 

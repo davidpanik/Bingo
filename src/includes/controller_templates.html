@@ -20,35 +20,37 @@
 
 
 		<script id="screensTemplate" type="text/ractive">
-			{{#if model.current == 'loading'}}
-				<section class="screen loading">
-					<h1>Loading...</h1>
-				</section>
-			{{/if}}
+			<div style="background-color: {{custom.colour}};">
+				{{#if model.current == 'loading'}}
+					<section class="screen loading">
+						<h1>Loading...</h1>
+					</section>
+				{{/if}}
 
-			{{#if model.current == 'home'}}
-				<section class="screen home">
-					<h1>Ultimate Bingo!</h1>
+				{{#if model.current == 'home'}}
+					<section class="screen home">
+						<h1>Ultimate Bingo!</h1>
 
-					{{#if custom.host}}
-						<a href="#" class="button start" on-click-touchstart="start">Start!</a>
-					{{/if}}
-				</section>
-			{{/if}}
+						{{#if custom.host}}
+							<a href="#" class="button start" on-click-touchstart="start">Start!</a>
+						{{/if}}
+					</section>
+				{{/if}}
 
-			{{#if model.current == 'game'}}
-				<section class="screen game">
-					<card/>
-				</section>
-			{{/if}}
+				{{#if model.current == 'game'}}
+					<section class="screen game">
+						<card/>
+					</section>
+				{{/if}}
 
-			{{#if model.current == 'postGame'}}
-				<section class="screen postGame">
-					<h1>{{custom.winner}} got bingo!</h1>
+				{{#if model.current == 'postGame'}}
+					<section class="screen postGame">
+						<h1>{{custom.winner}} got bingo!</h1>
 
-					{{#if custom.host}}
-						<a href="#" class="button start" on-click-touchstart="start">Play again!</a>
-					{{/if}}
-				</section>
-			{{/if}}
+						{{#if custom.host}}
+							<a href="#" class="button start" on-click-touchstart="start">Play again!</a>
+						{{/if}}
+					</section>
+				{{/if}}
+			</div>
 		</script>

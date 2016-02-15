@@ -22,11 +22,13 @@
 				}).bind(this));
 
 				airconsole.onConnect = (function(deviceId) {
-					this.get('model').add(
+					var newPlayer = this.get('model').add(
 						deviceId,
 						airconsole.getNickname(deviceId),
 						airconsole.getProfilePicture(deviceId)
 					);
+
+					airconsole.sendEvent(deviceId, 'setColour', newPlayer.colour);
 
 					var host = this.get('model').getHost();
 					airconsole.sendEvent(host, 'setHost');
