@@ -13,6 +13,8 @@
 					if (!this.get('model').bingoCalled) {
 						this.get('model').winner = airconsole.getNickname(deviceId);
 						pubSub.trigger('gotBingo', deviceId);
+						airconsole.broadcastEvent('goto', 'postGame');
+						airconsole.broadcastEvent('gotBingo', airconsole.getNickname(deviceId));
 
 						this.get('model').stop();
 					}

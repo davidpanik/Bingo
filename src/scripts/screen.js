@@ -1,6 +1,6 @@
 /*
-	TODO Post-game screen on controller
 	TODO Start new game
+	TODO Show player colour on controller
 */
 
 

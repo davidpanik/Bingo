@@ -7,8 +7,8 @@
 					<br/>
 				{{/each}}
 
-				{{#if model.bingoAvailable}}
 					<a href="#" class="button bingo" on-click-touchstart="bingo">Bingo!</a>
+				{{#if model.bingoAvailable}}
 				{{/if}}
 			</div>
 		</script>
@@ -39,6 +39,16 @@
 			{{#if model.current == 'game'}}
 				<section class="screen game">
 					<card/>
+				</section>
+			{{/if}}
+
+			{{#if model.current == 'postGame'}}
+				<section class="screen postGame">
+					<h1>Somebody got bingo!</h1>
+
+					{{#if custom.host}}
+						<a href="#" class="button start" on-click-touchstart="start">Play again!</a>
+					{{/if}}
 				</section>
 			{{/if}}
 		</script>
