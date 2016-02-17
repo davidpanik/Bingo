@@ -10,7 +10,9 @@
 			data: { model: new CardModel() },
 			oninit: function(options) {
 				this.on('mark', function(e, cell) {
-					airconsole.sendEvent(AirConsole.SCREEN, 'mark', cell);
+					if (!cell.marked) {
+						airconsole.sendEvent(AirConsole.SCREEN, 'mark', cell);
+					}
 
 					return false;
 				});
