@@ -23,7 +23,7 @@
 
 
 		<script id="playerTemplate" type="text/ractive">
-			<div class="player {{ nearlyBingo ? 'nearlyBingo' : '' }} {{ bingoAvailable ? 'bingoAvailable' : ''  }} colour_{{colour}}">
+			<div class="player {{ bingoAvailable ? 'bingoAvailable' : (nearlyBingo ? 'nearlyBingo' : '')  }} colour_{{colour}}">
 				<h2>{{name}}</h2>
 				<img src="{{image}}"/>
 				<h3>{{score}}</h3>
