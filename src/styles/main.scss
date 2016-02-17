@@ -37,7 +37,7 @@
 @mixin colour($hex) {
 	background-color: $hex;
 	.cell {
-		color: darken($hex, 20%);
+		color: darken($hex, 10%);
 	}
 	border-color: darken($hex, 20%);
 }
@@ -136,10 +136,11 @@ body {
 					width: 13vw;
 					height: 13vw;
 					line-height: 14vw;
-					font-size: 9vw;
+					font-size: 7.5vw;
 					border-radius: 25%;
 					border: none;
 					margin: 1.1vw;
+					font-family: 'Alfa Slab One', cursive;
 				}
 			}
 		}
@@ -163,7 +164,7 @@ h1 {
 }
 
 a.button.cell.marked {
-	background-color: red;
+	background-color: #CCC;
 }
 
 a.button.bingo {
