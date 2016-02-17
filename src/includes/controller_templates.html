@@ -15,7 +15,12 @@
 
 
 		<script id="cellTemplate" type="text/ractive">
-			<a href="#" class="button cell {{ marked ? 'marked' : ''}}" on-click-touchstart="mark:{{.}}">{{value}}</a>
+			<a href="#" class="button cell {{ marked ? 'marked' : ''}}" on-click-touchstart="mark:{{.}}">
+				<div class="flipper">
+					<div class="front">{{value}}</div>
+					<div class="back" >{{value}}</div>
+				</div>
+			</a>
 		</script>
 
 

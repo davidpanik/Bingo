@@ -145,10 +145,43 @@ body {
 					height: 13vw;
 					line-height: 14vw;
 					font-size: 7.5vw;
-					border-radius: 25%;
 					border: none;
 					margin: 1.1vw;
 					font-family: 'Alfa Slab One', cursive;
+					background-color: transparent;
+
+					perspective: 1000;
+
+					&.marked .flipper {
+						transform: rotateY(180deg);
+					}
+
+					.flipper {
+						transition: 0.6s;
+						transform-style: preserve-3d;
+						position: relative;
+
+						.front, .back {
+							border-radius: 25%;
+							width: 13vw;
+							height: 13vw;
+							backface-visibility: hidden;
+							position: absolute;
+							top: 0;
+							left: 0;
+						}
+
+						.front {
+							z-index: 2;
+							transform: rotateY(0deg);
+							background-color: #FFF;
+						}
+
+						.back {
+							transform: rotateY(180deg);
+							background-color: #CCC;
+						}
+					}
 				}
 			}
 		}
@@ -165,14 +198,6 @@ h1 {
 	background-color: #FFF;
 	text-decoration: none;
 	cursor: pointer;
-}
-
-.button.cell {
-
-}
-
-a.button.cell.marked {
-	background-color: #CCC;
 }
 
 a.button.bingo {
