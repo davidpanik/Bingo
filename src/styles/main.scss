@@ -6,10 +6,6 @@
 @import 'variables';
 @import 'fonts';
 
-@import 'animate';
-
-
-
 
 
 // ====== MIXINS ===========================================================
@@ -169,17 +165,17 @@ body {
 							position: absolute;
 							top: 0;
 							left: 0;
+							background-color: #FFF;
 						}
 
 						.front {
 							z-index: 2;
 							transform: rotateY(0deg);
-							background-color: #FFF;
 						}
 
 						.back {
 							transform: rotateY(180deg);
-							background-color: #CCC;
+							opacity: 0.5;
 						}
 					}
 				}
