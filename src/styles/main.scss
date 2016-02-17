@@ -37,8 +37,9 @@
 @mixin colour($hex) {
 	background-color: $hex;
 	.cell {
-		color: $hex;
+		color: darken($hex, 20%);
 	}
+	border-color: darken($hex, 20%);
 }
 
 // ====== COMMON ===========================================================
@@ -100,10 +101,15 @@ body {
 				justify-content: center;
 
 				.player {
-					width: 200px;
-					height: 200px;
+					width: 140px;
+					height: 160px;
 					margin: 20px 10px 0 10px;
 					background-image: url(/images/noise.png);
+					border-width: 10px;
+					border-style: solid;
+					border-radius: 20% 20% 0 0;
+					border-bottom: 0;
+					box-shadow: 0px 0px 30px 2px rgba(0, 0, 0, 0.75);
 				}
 			}
 		}
@@ -121,8 +127,10 @@ body {
 				display: flex;
 				flex-flow: row wrap;
 				justify-content: center;
-				background-color: black;
-				border-radius: 25%;
+				background-color: rgba(0, 0, 0, 0.5);
+				border-radius: 6%;
+				width: 81vw;
+				padding: 2vw 0vw;
 
 				.cell {
 					width: 13vw;
@@ -131,7 +139,7 @@ body {
 					font-size: 9vw;
 					border-radius: 25%;
 					border: none;
-					margin: 1vw;
+					margin: 1.1vw;
 				}
 			}
 		}
