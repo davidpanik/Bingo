@@ -34,9 +34,15 @@
 	transition: $args;
 }
 
-
+@mixin colour($hex) {
+	background-color: $hex;
+	.cell {
+		color: $hex;
+	}
+}
 
 // ====== COMMON ===========================================================
+
 
 html,
 body {
@@ -61,57 +67,27 @@ body {
 	#content {
 		background-color: #FFF;
 
-/*
-#771057
-#AB4388
-#CB9BB8
-#0F4479
-#4477AA
-#79AADB
-#127775
-#45AAA8
-#77CBCC
-#107747
-#43AA7A
-#89CCAA
-#787612
-#AAAA46
-#DEDD77
-#79440F
-#AA7646
-#DBAB77
-#771023
-#A94456
-#DF7689
-*/
-
-		.colour_1 {
-			background-color: #FF6A00;
-		}
-		.colour_2 {
-			background-color: #0094FF;
-		}
-		.colour_3 {
-			background-color: #B200FF;
-		}
-		.colour_4 {
-			background-color: #FF006E;
-		}
-		.colour_5 {
-			background-color: #5B7F00;
-		}
-		.colour_6 {
-			background-color: #FF7F7F;
-		}
-		.colour_7 {
-			background-color: #A17FFF;
-		}
-		.colour_8 {
-			background-color: #0026FF;
-		}
-		.colour_9 {
-			background-color: #FFB27F;
-		}
+		.colour_1  { @include colour(#771057); }
+		.colour_2  { @include colour(#AB4388); }
+		.colour_3  { @include colour(#CB9BB8); }
+		.colour_4  { @include colour(#0F4479); }
+		.colour_5  { @include colour(#4477AA); }
+		.colour_6  { @include colour(#79AADB); }
+		.colour_7  { @include colour(#127775); }
+		.colour_8  { @include colour(#45AAA8); }
+		.colour_9  { @include colour(#77CBCC); }
+		.colour_10 { @include colour(#107747); }
+		.colour_11 { @include colour(#43AA7A); }
+		.colour_12 { @include colour(#89CCAA); }
+		.colour_13 { @include colour(#787612); }
+		.colour_14 { @include colour(#AAAA46); }
+		.colour_15 { @include colour(#DEDD77); }
+		.colour_16 { @include colour(#79440F); }
+		.colour_17 { @include colour(#AA7646); }
+		.colour_18 { @include colour(#DBAB77); }
+		.colour_19 { @include colour(#771023); }
+		.colour_20 { @include colour(#A94456); }
+		.colour_21 { @include colour(#DF7689); }
 
 		&.screen {
 			.players {
@@ -127,14 +103,20 @@ body {
 					width: 200px;
 					height: 200px;
 					margin: 20px 10px 0 10px;
+					background-image: url(/images/noise.png);
 				}
 			}
 		}
 
 		&.controller {
+			> div {
+				background-image: url(/images/noise.png);
+			}
+
 			section {
 				padding: 60px 30px 0 30px;
 			}
+
 			.card {
 				display: flex;
 				flex-flow: row wrap;
