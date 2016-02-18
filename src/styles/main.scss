@@ -87,6 +87,9 @@ body {
 		.colour_21 { @include colour(#DF7689); }
 
 		&.screen {
+			background-image: url(/images/stars.jpg);
+			animation: scrollingBackground 30s linear infinite;
+
 			.players {
 				position: fixed;
 				bottom: 0;
@@ -203,7 +206,10 @@ a.button.bingo {
 }
 
 
-
+@keyframes scrollingBackground {
+	from { background-position: 0 0; }
+	to { background-position: 400px 400px; }
+}
 
 @keyframes slightShake {
 	0%   { transform: translateX( 0px); }
