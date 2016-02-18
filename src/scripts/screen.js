@@ -22,6 +22,8 @@
 	var Events = require('./other/events');
 	var pubSub = new Events();
 
+	require('./other/sound')(pubSub);
+
 	var CallerView = require('./views/caller')(airconsole, pubSub);
 	var PlayersView = require('./views/players')(airconsole, pubSub);
 
