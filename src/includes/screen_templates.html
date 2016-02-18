@@ -24,9 +24,9 @@
 
 		<script id="playerTemplate" type="text/ractive">
 			<div class="player {{ bingoAvailable ? 'bingoAvailable' : (nearlyBingo ? 'nearlyBingo' : '')  }} colour_{{colour}}">
-				<h2>{{name}}</h2>
+				<div class="score">{{score}}</div>
 				<img src="{{image}}"/>
-				<h3>{{score}}</h3>
+				<div class="name">{{name}}</div>
 
 				<!--
 				<p>Nearly bingo: {{nearlyBingo}}</p>
