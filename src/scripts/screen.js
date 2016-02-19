@@ -5,6 +5,9 @@
 	TODO Start adding animation
 	TODO Choose font
 	TODO Better assignment of colours
+	TODO Add number sounds
+	TODO Why are sounds playing multiple times?
+	TODO Use perlin noise for background
 */
 
 
@@ -26,13 +29,15 @@
 
 	var CallerView = require('./views/caller')(airconsole, pubSub);
 	var PlayersView = require('./views/players')(airconsole, pubSub);
+	var PerlinView = require('./views/perlin')();
 
 	var ScreensView = require('./views/screens')(airconsole, pubSub);
 	var screensView = new ScreensView({
 		el: '#content',
 		components: {
 			'caller': CallerView,
-			'players': PlayersView
+			'players': PlayersView,
+			'perlin': PerlinView
 		},
 		oninit: function() {
 			this.addListeners();

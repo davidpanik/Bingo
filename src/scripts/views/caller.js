@@ -19,6 +19,8 @@
 						airconsole.broadcastEvent('setWinner', airconsole.getNickname(deviceId));
 						airconsole.broadcastEvent('goto', 'postGame');
 
+						pubSub.trigger('playSound', 'winner');
+
 						this.get('model').stop();
 					}
 				}).bind(this));
@@ -35,6 +37,7 @@
 			},
 			onrender: function() {
 				this.get('model').reset().start();
+				pubSub.trigger('playSound', 'intro');
 			}
 		});
 

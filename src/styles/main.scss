@@ -38,6 +38,16 @@
 	border-color: darken($hex, 20%);
 }
 
+@mixin fullScreen() {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+}
+
 // ====== COMMON ===========================================================
 
 
@@ -53,15 +63,8 @@ a, a:link, a:visited, a:hover, a:active {
 body {
 	text-align: center;
 
-	.fullScreen {
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-	}
-
 	#content {
+		@include fullScreen();
 		background-color: #FFF;
 
 		.colour_1  { @include colour(#771057); }
@@ -87,8 +90,14 @@ body {
 		.colour_21 { @include colour(#DF7689); }
 
 		&.screen {
-			background-image: url(/images/stars.jpg);
-			animation: scrollingBackground 30s linear infinite;
+			canvas {
+				@include fullScreen();
+				background-color: #7F3300;
+			}
+
+			section {
+				@include fullScreen();
+			}
 
 			.players {
 				position: fixed;
@@ -142,6 +151,7 @@ body {
 
 		&.controller {
 			> div {
+				@include fullScreen();
 				background-image: url(/images/noise.png);
 			}
 
@@ -224,11 +234,6 @@ a.button.bingo {
 	font-size: 2em;
 }
 
-
-@keyframes scrollingBackground {
-	from { background-position: 0 0; }
-	to { background-position: 400px 400px; }
-}
 
 @keyframes bounceUp {
 	0%   { transform: translateY(300px); }
