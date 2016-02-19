@@ -109,13 +109,13 @@ body {
 				justify-content: center;
 
 				.player {
-					width: 140px;
-					height: 200px;
+					height: 120px;
+					padding: 10px 10px 20px 10px;
 					margin: 20px 10px -5px 10px;
 					background-image: url(/images/noise.png);
 					border-width: 10px;
 					border-style: solid;
-					border-radius: 20% 20% 0 0;
+					border-radius: 23% 23% 0 0;
 					border-bottom: 0;
 					box-shadow: 0px 0px 30px 2px rgba(0, 0, 0, 0.75);
 					color: #FFF;
@@ -143,7 +143,7 @@ body {
 
 					.score {
 						font-size: 45px;
-						padding: 7px;
+						padding: 12px;
 					}
 				}
 			}
