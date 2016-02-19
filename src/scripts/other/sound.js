@@ -161,16 +161,16 @@
 		var introSound = new Howl({
 			urls: ['sounds/intro.mp3'],
 			sprite: {
-				'intro_lets_play_bingo_0':      [0, 0],
-				'intro_lets_play_bingo_1':      [0, 0],
-				'intro_lets_play_bingo_2':      [0, 0],
-				'intro_lets_play_bingo_3':      [0, 0],
-				'intro_lets_do_this_0':         [0, 0],
-				'intro_lets_do_this_1':         [0, 0],
-				'intro_here_we_go_0':           [0, 0],
-				'intro_here_we_go_1':           [0, 0],
-				'intro_lets_start_the_balls_0': [0, 0],
-				'intro_lets_start_the_balls_1': [0, 0]
+				'intro_lets_play_bingo_0':      [0, 4200],
+				'intro_lets_play_bingo_1':      [4300, 7900],
+				'intro_lets_play_bingo_2':      [8100, 10100],
+				'intro_lets_play_bingo_3':      [10200, 12100],
+				'intro_lets_do_this_0':         [12300, 13700],
+				'intro_lets_do_this_1':         [14100, 15500],
+				'intro_here_we_go_0':           [15900, 17400],
+				'intro_here_we_go_1':           [17500, 19800],
+				'intro_lets_start_the_balls_0': [19900, 21800],
+				'intro_lets_start_the_balls_1': [22100, 24400]
 			}
 		});
 
@@ -245,7 +245,5 @@
 				playNumberSound(soundToPlay);
 			}
 		});
-
-		playWinnerSound();
 	};
 })();
