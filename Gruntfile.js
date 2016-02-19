@@ -44,6 +44,14 @@ module.exports = function(grunt) {
 				dest: 'dist/',
 				filter: 'isFile'
 			},
+			sounds: {
+				expand: true,
+				cwd: 'src/',
+				// Copy all sounds
+				src: ['sounds/**/*.*'],
+				dest: 'dist/',
+				filter: 'isFile'
+			},
 			develop: {
 				expand: true,
 				cwd: 'src/',

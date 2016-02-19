@@ -3,7 +3,7 @@
 
 	module.exports = function(pubSub) {
 		var numberSound = new Howl({
-			urls: ['number.mp3', 'number.ogg'],
+			urls: ['sounds/number.mp3'],
 			sprite: {
 				'number_1_0':                   [0, 0],
 				'number_1_1':                   [0, 0],
@@ -159,7 +159,7 @@
 		});
 
 		var introSound = new Howl({
-			urls: ['intro.mp3', 'intro.ogg'],
+			urls: ['sounds/intro.mp3'],
 			sprite: {
 				'intro_lets_play_bingo_0':      [0, 0],
 				'intro_lets_play_bingo_1':      [0, 0],
@@ -175,18 +175,18 @@
 		});
 
 		var winnerSound = new Howl({
-			urls: ['winner.mp3', 'winner.ogg'],
+			urls: ['sounds/winner.mp3'],
 			sprite: {
-				'winner_bingo_0':               [0, 0],
-				'winner_bingo_1':               [0, 0],
-				'winner_bingo_2':               [0, 0],
-				'winner_bingo_3':               [0, 0],
-				'winner_thats_bingo_0':         [0, 0],
-				'winner_thats_bingo_1':         [0, 0],
-				'winner_we_have_a_winner_0':    [0, 0],
-				'winner_we_have_a_winner_1':    [0, 0],
-				'winner_congratulations_0':     [0, 0],
-				'winner_congratulations_1':     [0, 0]
+				'winner_bingo_0':               [0, 1300],
+				'winner_bingo_1':               [1400, 2700],
+				'winner_bingo_2':               [2800, 5700],
+				'winner_bingo_3':               [5800, 9500],
+				'winner_thats_bingo_0':         [9800, 11400],
+				'winner_thats_bingo_1':         [11500, 13600],
+				'winner_we_have_a_winner_0':    [13700, 15100],
+				'winner_we_have_a_winner_1':    [15200, 17800],
+				'winner_congratulations_0':     [17900, 19700],
+				'winner_congratulations_1':     [19800, 22000]
 			}
 		});
 
@@ -245,5 +245,7 @@
 				playNumberSound(soundToPlay);
 			}
 		});
+
+		playWinnerSound();
 	};
 })();
