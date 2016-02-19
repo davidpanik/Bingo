@@ -65,7 +65,7 @@ body {
 
 	#content {
 		@include fullScreen();
-		background-color: #FFF;
+		background-color: #000;
 
 		.colour_1  { @include colour(#771057); }
 		.colour_2  { @include colour(#AB4388); }
@@ -130,20 +130,16 @@ body {
 						animation: strongShake 0.3s infinite;
 					}
 
-					.name {
-						font-size: 22px;
-						padding: 5px;
-						line-height: 1.2em;
-						font-family: 'Slabo 27px', serif;
-					}
-
 					img {
 						border-radius: 20%;
+						width: 64px;
+						height: 64px;
 					}
 
 					.score {
 						font-size: 45px;
 						padding: 12px;
+						text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.5);
 					}
 				}
 			}

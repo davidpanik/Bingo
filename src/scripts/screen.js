@@ -1,13 +1,12 @@
 /*
 	TODO Rework Players object/map hybrid
-	TODO Add sound controller
-	TODO Add scrolling background
 	TODO Start adding animation
 	TODO Choose font
 	TODO Better assignment of colours
 	TODO Add number sounds
 	TODO Why are sounds playing multiple times?
-	TODO Use perlin noise for background
+	TODO Show player image on controller
+	TODO Show player image and colour when winning
 */
 
 

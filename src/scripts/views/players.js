@@ -26,7 +26,7 @@
 					var newPlayer = this.get('model').add(
 						deviceId,
 						airconsole.getNickname(deviceId),
-						airconsole.getProfilePicture(deviceId)
+						airconsole.getProfilePicture(deviceId, 128)
 					);
 
 					airconsole.sendEvent(deviceId, 'setColour', newPlayer.colour);
