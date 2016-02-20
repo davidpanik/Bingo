@@ -162,15 +162,15 @@
 			urls: ['sounds/intro.mp3'],
 			sprite: {
 				'intro_lets_play_bingo_0':      [0, 4200],
-				'intro_lets_play_bingo_1':      [4300, 7900],
-				'intro_lets_play_bingo_2':      [8100, 10100],
-				'intro_lets_play_bingo_3':      [10200, 12100],
-				'intro_lets_do_this_0':         [12300, 13700],
-				'intro_lets_do_this_1':         [14100, 15500],
-				'intro_here_we_go_0':           [15900, 17400],
-				'intro_here_we_go_1':           [17500, 19800],
-				'intro_lets_start_the_balls_0': [19900, 21800],
-				'intro_lets_start_the_balls_1': [22100, 24400]
+				'intro_lets_play_bingo_1':      [4300, 3600],
+				'intro_lets_play_bingo_2':      [8100, 2000],
+				'intro_lets_play_bingo_3':      [10200, 1900],
+				'intro_lets_do_this_0':         [12300, 1400],
+				'intro_lets_do_this_1':         [14100, 1400],
+				'intro_here_we_go_0':           [15900, 1500],
+				'intro_here_we_go_1':           [17500, 2300],
+				'intro_lets_start_the_balls_0': [19900, 1900],
+				'intro_lets_start_the_balls_1': [22100, 2300]
 			}
 		});
 
@@ -178,15 +178,15 @@
 			urls: ['sounds/winner.mp3'],
 			sprite: {
 				'winner_bingo_0':               [0, 1300],
-				'winner_bingo_1':               [1400, 2700],
-				'winner_bingo_2':               [2800, 5700],
-				'winner_bingo_3':               [5800, 9500],
-				'winner_thats_bingo_0':         [9800, 11400],
-				'winner_thats_bingo_1':         [11500, 13600],
-				'winner_we_have_a_winner_0':    [13700, 15100],
-				'winner_we_have_a_winner_1':    [15200, 17800],
-				'winner_congratulations_0':     [17900, 19700],
-				'winner_congratulations_1':     [19800, 22000]
+				'winner_bingo_1':               [1400, 1300],
+				'winner_bingo_2':               [2800, 2900],
+				'winner_bingo_3':               [5800, 3700],
+				'winner_thats_bingo_0':         [9800, 1600],
+				'winner_thats_bingo_1':         [11500, 2100],
+				'winner_we_have_a_winner_0':    [13700, 1400],
+				'winner_we_have_a_winner_1':    [15200, 2600],
+				'winner_congratulations_0':     [17900, 1800],
+				'winner_congratulations_1':     [19800, 2200]
 			}
 		});
 
@@ -245,5 +245,6 @@
 				playNumberSound(soundToPlay);
 			}
 		});
+
 	};
 })();

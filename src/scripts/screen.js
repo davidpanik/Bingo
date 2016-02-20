@@ -4,9 +4,9 @@
 	TODO Choose font
 	TODO Better assignment of colours
 	TODO Add number sounds
-	TODO Why are sounds playing multiple times?
 	TODO Show player image on controller
 	TODO Show player image and colour when winning
+	TODO Add crowd cheering sound
 */
 
 
