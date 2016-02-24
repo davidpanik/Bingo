@@ -17,8 +17,7 @@
 
 	Players.prototype.add = function(id, name, image) {
 		if (this.currentPlayers < this.maxPlayers) {
-			colourPool.shuffle();
-			var newPlayer = new PlayerModel(name, image, colourPool.pop());
+			var newPlayer = new PlayerModel(name, image, colourPool.shift());
 			this.players[prefix + id] = newPlayer;
 			this.currentPlayers++;
 			this.toArray();
@@ -37,7 +36,7 @@
 	};
 
 	Players.prototype.remove = function(id) {
-		colourPool.push(this.players['player_' + id].colour);
+		colourPool.unshift(this.players['player_' + id].colour);
 		delete this.players['player_' + id];
 		this.currentPlayers--;
 		this.toArray();

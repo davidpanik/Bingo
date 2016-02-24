@@ -2,11 +2,11 @@
 	TODO Rework Players object/map hybrid
 	TODO Start adding animation
 	TODO Choose font
-	TODO Better assignment of colours
 	TODO Add number sounds
 	TODO Show player image on controller
 	TODO Show player image and colour when winning
 	TODO Add crowd cheering sound
+	TODO Handle display of large number of players
 */
 
 

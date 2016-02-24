@@ -67,27 +67,27 @@ body {
 		@include fullScreen();
 		background-color: #000;
 
-		.colour_1  { @include colour(#771057); }
-		.colour_2  { @include colour(#AB4388); }
-		.colour_3  { @include colour(#CB9BB8); }
-		.colour_4  { @include colour(#0F4479); }
+		.colour_1  { @include colour(#45AAA8); }
+		.colour_2  { @include colour(#43AA7A); }
+		.colour_3  { @include colour(#AAAA46); }
+		.colour_4  { @include colour(#A94456); }
 		.colour_5  { @include colour(#4477AA); }
-		.colour_6  { @include colour(#79AADB); }
-		.colour_7  { @include colour(#127775); }
-		.colour_8  { @include colour(#45AAA8); }
+		.colour_6  { @include colour(#AA7646); }
+		.colour_7  { @include colour(#AB4388); }
+		.colour_8  { @include colour(#79AADB); }
 		.colour_9  { @include colour(#77CBCC); }
-		.colour_10 { @include colour(#107747); }
-		.colour_11 { @include colour(#43AA7A); }
-		.colour_12 { @include colour(#89CCAA); }
-		.colour_13 { @include colour(#787612); }
-		.colour_14 { @include colour(#AAAA46); }
-		.colour_15 { @include colour(#DEDD77); }
-		.colour_16 { @include colour(#79440F); }
-		.colour_17 { @include colour(#AA7646); }
-		.colour_18 { @include colour(#DBAB77); }
-		.colour_19 { @include colour(#771023); }
-		.colour_20 { @include colour(#A94456); }
-		.colour_21 { @include colour(#DF7689); }
+		.colour_10 { @include colour(#DEDD77); }
+		.colour_11 { @include colour(#DF7689); }
+		.colour_12 { @include colour(#CB9BB8); }
+		.colour_13 { @include colour(#DBAB77); }
+		.colour_14 { @include colour(#89CCAA); }
+		.colour_15 { @include colour(#0F4479); }
+		.colour_16 { @include colour(#127775); }
+		.colour_17 { @include colour(#787612); }
+		.colour_18 { @include colour(#771023); }
+		.colour_19 { @include colour(#771057); }
+		.colour_20 { @include colour(#79440F); }
+		.colour_21 { @include colour(#107747); }
 
 		&.screen {
 			canvas {
