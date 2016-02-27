@@ -262,6 +262,21 @@ a.button.bingo {
 	margin: 1em;
 	padding: 1em;
 	font-size: 2em;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	border-radius: 30px;
+	border: 8px solid black;
+	background: #EEE;
+	text-transform: uppercase;
+	font-family: 'Alfa Slab One', cursive;
+	box-shadow: inset 0px 0px 40px 6px rgba(0,0,0,0.3), 0px 0px 40px 6px rgba(0,0,0,0.3);
+
+	animation-duration: 1s;
+	animation-name: glow;
+	animation-direction: alternate;
+	animation-iteration-count: infinite;
 }
 
 
@@ -295,6 +310,11 @@ a.button.bingo {
 @keyframes fadeIn {
 	0%   { opacity: 0; }
 	100% { opacity: 1; }
+}
+
+@keyframes glow {
+	from { text-shadow: 0 0 0px rgba(255, 0, 0, 0); }
+	to { text-shadow: 0 0 20px rgba(255, 0, 0, 0.8); }
 }
 
 @import 'mobile';

@@ -6,6 +6,7 @@
 	TODO Show player image and colour when winning
 	TODO Add crowd cheering sound
 	TODO Handle display of large number of players
+	TODO Speed up responses when marking numbers
 */
 
 
