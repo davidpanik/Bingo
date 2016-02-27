@@ -192,6 +192,7 @@ body {
 				border-radius: 6%;
 				width: 81vw;
 				padding: 2vw 0vw;
+				animation: fadeIn 2s;
 
 				.cell {
 					width: 13vw;
@@ -289,6 +290,11 @@ a.button.bingo {
 	50%  { transform: translateX( 0px); }
 	75%  { transform: translateX( 4px) rotate( 3deg); }
 	100% { transform: translateX( 0px); }
+}
+
+@keyframes fadeIn {
+	0%   { opacity: 0; }
+	100% { opacity: 1; }
 }
 
 @import 'mobile';
