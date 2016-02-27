@@ -1,58 +1,60 @@
 (function() {
 	'use strict';
 
-	var Caller = function(range, speed) {
-		this.range = range || 75;
-		this.speed = speed || 2000;
+	module.exports = function(pubSub) {
+		var Caller = function(range, speed) {
+			this.range = range || 75;
+			this.speed = speed || 2000;
 
-		this.reset();
+			this.reset();
 
-		return this;
-	};
+			return this;
+		};
 
-	Caller.prototype.reset = function() {
-		this.called = [];
-		this.uncalled = [];
-		this.current = 0;
-		this.bingoCalled = false;
+		Caller.prototype.reset = function() {
+			this.called = [];
+			this.uncalled = [];
+			this.current = 0;
+			this.bingoCalled = false;
 
-		this.uncalled = Array.apply(null, Array(this.range)).map(function(current, index) { return index + 1; });
+			this.uncalled = Array.apply(null, Array(this.range)).map(function(current, index) { return index + 1; });
 
-		this.uncalled.shuffle();
+			this.uncalled.shuffle();
 
-		return this;
-	};
+			return this;
+		};
 
-	Caller.prototype.call = function() {
-		if (this.uncalled.length > 0) {
-			this.current = this.uncalled.pop();
+		Caller.prototype.call = function() {
+			if (this.uncalled.length > 0) {
+				this.current = this.uncalled.pop();
+				pubSub.trigger('playSound', this.current);
+				this.called.push(this.current);
+			} else {
+				console.log('Nothing left to call');
+				this.stop();
+			}
 
-			this.called.push(this.current);
-		} else {
-			console.log('Nothing left to call');
+			return this;
+		};
+
+		Caller.prototype.stop = function() {
+			clearInterval(this.timer);
+
+			return this;
+		};
+
+		Caller.prototype.start = function() {
 			this.stop();
-		}
+			this.timer = setInterval(this.call.bind(this), this.speed);
 
-		return this;
+			return this;
+		};
+
+		Caller.prototype.hasBeenCalled = function(value) {
+			value = Number(value);
+			return (this.called.indexOf(value) > -1);
+		};
+
+		return Caller;
 	};
-
-	Caller.prototype.stop = function() {
-		clearInterval(this.timer);
-
-		return this;
-	};
-
-	Caller.prototype.start = function() {
-		this.stop();
-		this.timer = setInterval(this.call.bind(this), this.speed);
-
-		return this;
-	};
-
-	Caller.prototype.hasBeenCalled = function(value) {
-		value = Number(value);
-		return (this.called.indexOf(value) > -1);
-	};
-
-	module.exports = Caller;
 })();

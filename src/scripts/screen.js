@@ -2,7 +2,6 @@
 	TODO Rework Players object/map hybrid
 	TODO Start adding animation
 	TODO Choose font
-	TODO Add number sounds
 	TODO Show player image on controller
 	TODO Show player image and colour when winning
 	TODO Add crowd cheering sound

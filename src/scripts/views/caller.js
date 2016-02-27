@@ -2,7 +2,7 @@
 	'use strict';
 
 	module.exports = function(airconsole, pubSub) {
-		var CallerModel = require('../models/caller');
+		var CallerModel = require('../models/caller')(pubSub);
 
 		var CallerView = Ractive.extend({
 			template: '#callerTemplate',
