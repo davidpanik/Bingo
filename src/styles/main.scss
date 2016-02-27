@@ -100,6 +100,11 @@ body {
 			}
 
 			.caller {
+				@include fullScreen();
+				display: flex;
+				justify-content: center;
+				align-items: center;
+
 				.current {
 					color: #FFF;
 					font-family: 'Alfa Slab One', cursive;
