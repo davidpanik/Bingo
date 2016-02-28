@@ -48,6 +48,22 @@
 	height: 100%;
 }
 
+@mixin thickShadow() {
+	text-shadow:
+		3px 1px 0px rgba(0, 0, 0, 0.7),
+		4px 2px 0px rgba(0, 0, 0, 0.7),
+		5px 3px 0px rgba(0, 0, 0, 0.7),
+		7px 4px 0px rgba(0, 0, 0, 0.7),
+		8px 5px 0px rgba(0, 0, 0, 0.7),
+		10px 6px 0px rgba(0, 0, 0, 0.7),
+		11px 7px 0px rgba(0, 0, 0, 0.7),
+		13px 8px 0px rgba(0, 0, 0, 0.7),
+		14px 9px 0px rgba(0, 0, 0, 0.7),
+		16px 10px 0px rgba(0, 0, 0, 0.7),
+		17px 11px 0px rgba(0, 0, 0, 0.7);
+}
+
+
 // ====== COMMON ===========================================================
 
 
@@ -99,6 +115,28 @@ body {
 				@include fullScreen();
 			}
 
+			.home {
+				@include fullScreen();
+				display: flex;
+				justify-content: center;
+				align-items: center;
+
+				h1 {
+					.first {
+						font-family: 'Alfa Slab One', cursive;
+					}
+
+					.second {
+						@include thickShadow();
+						text-transform: uppercase;
+						color: #FFF;
+						font-family: 'Alfa Slab One', cursive;
+						font-size: 250px;
+						letter-spacing: 0.05em;
+					}
+				}
+			}
+
 			.caller {
 				@include fullScreen();
 				display: flex;
@@ -106,21 +144,10 @@ body {
 				align-items: center;
 
 				.current {
+					@include thickShadow();
 					color: #FFF;
 					font-family: 'Alfa Slab One', cursive;
 					font-size: 170px;
-					text-shadow:
-					3px 1px 0px rgba(0, 0, 0, 0.7),
-					4px 2px 0px rgba(0, 0, 0, 0.7),
-					5px 3px 0px rgba(0, 0, 0, 0.7),
-					7px 4px 0px rgba(0, 0, 0, 0.7),
-					8px 5px 0px rgba(0, 0, 0, 0.7),
-					10px 6px 0px rgba(0, 0, 0, 0.7),
-					11px 7px 0px rgba(0, 0, 0, 0.7),
-					13px 8px 0px rgba(0, 0, 0, 0.7),
-					14px 9px 0px rgba(0, 0, 0, 0.7),
-					16px 10px 0px rgba(0, 0, 0, 0.7),
-					17px 11px 0px rgba(0, 0, 0, 0.7);
 					letter-spacing: 0.05em;
 				}
 			}
