@@ -141,7 +141,7 @@ body {
 					background-image: url(/images/noise.png);
 					border-width: 10px;
 					border-style: solid;
-					border-radius: 23% 23% 0 0;
+					border-radius: 25px 25px 0 0;
 					border-bottom: 0;
 					box-shadow: 0px 0px 30px 2px rgba(0, 0, 0, 0.75);
 					color: #FFF;
@@ -157,7 +157,7 @@ body {
 					}
 
 					img {
-						border-radius: 20%;
+						border-radius: 12px;
 						width: 64px;
 						height: 64px;
 					}
@@ -261,22 +261,19 @@ h1 {
 a.button.bingo {
 	margin: 1em;
 	padding: 1em;
-	font-size: 2em;
+	font-size: 2.4em;
+	letter-spacing: 0;
 	position: absolute;
 	bottom: 0;
 	left: 0;
 	right: 0;
 	border-radius: 30px;
-	border: 8px solid black;
+	border: 6px solid black;
 	background: #EEE;
 	text-transform: uppercase;
-	font-family: 'Alfa Slab One', cursive;
-	box-shadow: inset 0px 0px 40px 6px rgba(0,0,0,0.3), 0px 0px 40px 6px rgba(0,0,0,0.3);
-
-	animation-duration: 1s;
-	animation-name: glow;
-	animation-direction: alternate;
-	animation-iteration-count: infinite;
+	font-family: 'Slabo 27px', serif;
+	box-shadow: inset 0px 0px 25px 10px rgba(0,0,0,0.3), 7px 7px 16px 5px rgba(0,0,0,0.3);
+	animation: 1s ease-out infinite alternate glow;
 }
 
 
@@ -313,8 +310,8 @@ a.button.bingo {
 }
 
 @keyframes glow {
-	from { text-shadow: 0 0 0px rgba(255, 0, 0, 0); }
-	to { text-shadow: 0 0 20px rgba(255, 0, 0, 0.8); }
+	from { color: #000; text-shadow: 0 0 0px rgba(255, 0, 0, 0); }
+	to { color: #F00; text-shadow: 0 0 20px rgba(255, 0, 0, 0.8); }
 }
 
 @import 'mobile';
