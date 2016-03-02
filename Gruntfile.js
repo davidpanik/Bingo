@@ -243,7 +243,7 @@ module.exports = function(grunt) {
 				port: port,
 				base: 'dist/',
 				hostname: '*',
-				livereload: true
+				livereload: false // Turned off live reloading
 			},
 			livereload: {
 				options: {
