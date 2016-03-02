@@ -2,7 +2,7 @@
 	'use strict';
 
 	module.exports = function(pubSub) {
-		var effects = ['alpha', 'beta', 'gamma'];
+		var introEffects = ['bounceInDown', 'bounceInUp', 'bounceInLeft', 'bounceInRight', 'flipInX', 'flipInY'];
 
 		var Caller = function(range, speed) {
 			this.range = range || 75;
@@ -18,7 +18,7 @@
 			this.uncalled = [];
 			this.current = 0;
 			this.bingoCalled = false;
-			this.effect = '';
+			this.intro = '';
 
 			this.uncalled = Array.apply(null, Array(this.range)).map(function(current, index) { return index + 1; });
 
@@ -32,7 +32,10 @@
 				this.current = this.uncalled.pop();
 				pubSub.trigger('playSound', this.current);
 				this.called.push(this.current);
-				this.effect = effects[Math.floor(Math.random() * effects.length)];
+				var oldIntro = this.intro;
+				do {
+					this.intro = introEffects[Math.floor(Math.random() * introEffects.length)];
+				} while (this.intro === oldIntro);
 			} else {
 				console.log('Nothing left to call');
 				this.stop();
