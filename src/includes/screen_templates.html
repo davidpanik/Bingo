@@ -1,10 +1,10 @@
 		<script id="callerTemplate" type="text/ractive">
 			<div class="caller">
-				<div class="current">
-					{{#if model.current}}
+				{{#if model.current}}
+					<div class="current {{model.effect}}">
 						{{model.current}}
-					{{/if}}
-				</div>
+					</div>
+				{{/if}}
 			</div>
 		</script>
 
