@@ -14,7 +14,7 @@
 
 		<script id="playersTemplate" type="text/ractive">
 			<div class="players">
-				{{#each model.playersArray}}
+				{{#each model.playersArray:id}}
 					{{>'#playerTemplate'}}
 				{{/each}}
 
@@ -44,7 +44,7 @@
 
 			{{#if model.current == 'home'}}
 				<section class="screen home">
-					<h1><span class="first">Ultimate</span> <span class="second">Bingo</span></h1>
+					<h1><span class="first">Adequate</span> <span class="second">Bingo</span></h1>
 				</section>
 			{{/if}}
 
