@@ -39,6 +39,7 @@
 }
 
 @mixin fullScreen() {
+	overflow: hidden;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -69,7 +70,7 @@
 
 html,
 body {
-
+	overflow: hidden;
 }
 
 a, a:link, a:visited, a:hover, a:active {
@@ -305,7 +306,7 @@ a.button {
 	}
 
 	&.bingo {
-		animation: 1s ease-out infinite alternate glow;
+		animation: 1s ease-out infinite alternate glow, 1s tada;
 	}
 }
 
@@ -346,5 +347,13 @@ a.button {
 	from { color: #000; text-shadow: 0 0 0px rgba(255, 0, 0, 0); }
 	to { color: #F00; text-shadow: 0 0 20px rgba(255, 0, 0, 0.8); }
 }
+
+@keyframes tada {
+	0% { transform: scale3d(0.1, 0.1, 0.1); }
+	30%, 50%, 70%, 90% { transform: scale3d(1.2, 1.2, 1.2) rotate3d(0, 0, 1, 4deg); }
+	40%, 60%, 80% { transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -4deg); }
+	100% { transform: scale3d(1, 1, 1); }
+}
+
 
 @import 'mobile';
