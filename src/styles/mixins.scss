@@ -21,7 +21,9 @@
 @mixin colour($hex) {
 	background-color: $hex;
 	.cell {
-		color: darken($hex, 10%);
+		&:link, &:visited, &:hover, &:active {
+			color: darken($hex, 10%);
+		}
 	}
 	border-color: darken($hex, 20%) !important;
 }
