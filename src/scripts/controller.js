@@ -41,6 +41,8 @@
 				} else {
 					this.set('custom.winnerName', airconsole.getNickname(winnerId));
 				}
+
+				this.set('custom.winnerImage', airconsole.getProfilePicture(winnerId, 512));
 			}).bind(this));
 
 			airconsole.on('setColour', (function(deviceId, colour) {
