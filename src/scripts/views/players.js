@@ -15,6 +15,9 @@
 
 				pubSub.on('gotBingo', (function(deviceId) {
 					this.get('model').recordWin(deviceId);
+				}).bind(this));
+
+				airconsole.on('newGame', (function() {
 					this.get('model').reset();
 				}).bind(this));
 

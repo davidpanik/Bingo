@@ -27,6 +27,7 @@
 
 			this.on('start', function(e, cell) {
 				airconsole.broadcastEvent('goto', 'game');
+				airconsole.broadcastEvent('newGame');
 				pubSub.trigger('goto', 'game');
 				return false;
 			});
