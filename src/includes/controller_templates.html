@@ -50,10 +50,11 @@
 
 				{{#if model.current == 'postGame'}}
 					<section class="screen postGame">
+
 						<h1>{{custom.winner}} got bingo!</h1>
 
 						{{#if custom.host}}
-							<a href="#" class="button start" on-click-touchstart="start">Play again!</a>
+							<a href="#" class="button start" on-click-touchstart="start">New game</a>
 						{{/if}}
 					</section>
 				{{/if}}
