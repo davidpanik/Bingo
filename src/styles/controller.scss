@@ -18,7 +18,7 @@
 
 a.button {
 	margin: 1em;
-	padding: 0.9em 0.2em;
+	padding: 0.7em 0.2em;
 	font-size: 12vw;
 	font-weight: bold;
 	letter-spacing: 0;
@@ -55,65 +55,86 @@ a.button {
 section {
 	padding: 60px 30px 0 30px;
 
-	display: flex;
-	justify-content: center;
-}
+	&.game {
+		display: flex;
+		justify-content: center;
 
-.card {
-	display: flex;
-	flex-flow: row wrap;
-	justify-content: center;
-	background-color: rgba(0, 0, 0, 0.5);
-	border-radius: 6%;
-	width: 81vw;
-	padding: 2vw 0vw;
-	animation: fadeIn 2s;
+		.card {
+			display: flex;
+			flex-flow: row wrap;
+			justify-content: center;
+			background-color: rgba(0, 0, 0, 0.5);
+			border-radius: 6%;
+			width: 81vw;
+			padding: 2vw 0vw;
+			animation: fadeIn 2s;
 
-	.cell {
-		width: 13vw;
-		height: 13vw;
-		line-height: 14vw;
-		font-size: 7.5vw;
-		border: none;
-		margin: 1.1vw;
-		font-family: $thickFont;
-		background-color: transparent;
-
-		perspective: 1000;
-
-		&.marked {
-			cursor: default;
-
-			.flipper {
-				transform: rotateY(180deg);
-			}
-		}
-
-		.flipper {
-			transition: 0.6s;
-			transform-style: preserve-3d;
-			position: relative;
-
-			.front, .back {
-				border-radius: 25%;
+			.cell {
 				width: 13vw;
 				height: 13vw;
-				backface-visibility: hidden;
-				position: absolute;
-				top: 0;
-				left: 0;
-				background-color: #FFF;
-			}
+				line-height: 14vw;
+				font-size: 7.5vw;
+				border: none;
+				margin: 1.1vw;
+				font-family: $thickFont;
+				background-color: transparent;
 
-			.front {
-				z-index: 2;
-				transform: rotateY(0deg);
-			}
+				perspective: 1000;
 
-			.back {
-				transform: rotateY(180deg);
-				opacity: 0.5;
+				&.marked {
+					cursor: default;
+
+					.flipper {
+						transform: rotateY(180deg);
+					}
+				}
+
+				.flipper {
+					transition: 0.6s;
+					transform-style: preserve-3d;
+					position: relative;
+
+					.front, .back {
+						border-radius: 25%;
+						width: 13vw;
+						height: 13vw;
+						backface-visibility: hidden;
+						position: absolute;
+						top: 0;
+						left: 0;
+						background-color: #FFF;
+					}
+
+					.front {
+						z-index: 2;
+						transform: rotateY(0deg);
+					}
+
+					.back {
+						transform: rotateY(180deg);
+						opacity: 0.5;
+					}
+				}
 			}
+		}
+	}
+
+	&.postGame {
+		h1 {
+			text-transform: uppercase;
+			color: #FFF;
+			font-family: $thinFont;
+			font-size: 12vw;
+			letter-spacing: 0.05em;
+			animation: 1s bounceInDown;
+		}
+
+		img {
+			width: 35vw;
+			height: 35vw;
+			border-radius: 15%;
+			margin: 8vw auto;
+			animation: 2s flipInY;
 		}
 	}
 }
