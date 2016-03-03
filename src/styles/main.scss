@@ -71,14 +71,14 @@ body {
 
 				h1 {
 					.first {
-						font-family: 'Alfa Slab One', cursive;
+						font-family: $thickFont;
 					}
 
 					.second {
 						@include thickShadow();
 						text-transform: uppercase;
 						color: #FFF;
-						font-family: 'Alfa Slab One', cursive;
+						font-family: $thickFont;
 						font-size: 250px;
 						letter-spacing: 0.05em;
 					}
@@ -94,7 +94,7 @@ body {
 				.current {
 					@include thickShadow();
 					color: #FFF;
-					font-family: 'Alfa Slab One', cursive;
+					font-family: $thickFont;
 					font-size: 170px;
 					letter-spacing: 0.05em;
 
@@ -127,7 +127,7 @@ body {
 					border-bottom: 0;
 					box-shadow: 0px 0px 30px 2px rgba(0, 0, 0, 0.75);
 					color: #FFF;
-					font-family: 'Alfa Slab One', cursive;
+					font-family: $thickFont;
 					// animation: bounceUp 2s;
 
 					&.nearlyBingo {
@@ -159,6 +159,42 @@ body {
 				background-image: url(/images/noise.png);
 			}
 
+			a.button {
+				margin: 1em;
+				padding: 0.9em 0.2em;
+				font-size: 12vw;
+				font-weight: bold;
+				letter-spacing: 0;
+				text-decoration: none;
+				cursor: pointer;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				border-radius: 30px;
+				border: 6px solid #000;
+				background: #EEE;
+				color: #000;
+				text-transform: uppercase;
+				font-family: $thinFont;
+				box-shadow: inset 0px 0px 25px 10px rgba(0,0,0,0.3), 7px 7px 16px 5px rgba(0,0,0,0.3);
+				transition: box-shadow 0.2s, background 0.2s;
+
+				&:link, &:visited, &:hover, &:active {
+					color: #000;
+				}
+
+				&:hover {
+					color: #000;
+					background: #E5E5E5;
+					box-shadow: inset 0px 0px 25px 10px rgba(0,0,0,0.3), 4px 4px 12px 4px rgba(0,0,0,0.3);
+				}
+
+				&.bingo {
+					animation: 1s ease-out infinite alternate glow, 1s tada;
+				}
+			}
+
 			section {
 				padding: 60px 30px 0 30px;
 
@@ -183,7 +219,7 @@ body {
 					font-size: 7.5vw;
 					border: none;
 					margin: 1.1vw;
-					font-family: 'Alfa Slab One', cursive;
+					font-family: $thickFont;
 					background-color: transparent;
 
 					perspective: 1000;
@@ -225,41 +261,5 @@ body {
 				}
 			}
 		}
-	}
-}
-
-a.button {
-	margin: 1em;
-	padding: 0.9em 0.2em;
-	font-size: 12vw;
-	font-weight: bold;
-	letter-spacing: 0;
-	text-decoration: none;
-	cursor: pointer;
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	border-radius: 30px;
-	border: 6px solid #000;
-	background: #EEE;
-	color: #000;
-	text-transform: uppercase;
-	font-family: 'Slabo 27px', serif;
-	box-shadow: inset 0px 0px 25px 10px rgba(0,0,0,0.3), 7px 7px 16px 5px rgba(0,0,0,0.3);
-	transition: box-shadow 0.2s, background 0.2s;
-
-	&:link, &:visited, &:hover, &:active {
-		color: #000;
-	}
-
-	&:hover {
-		color: #000;
-		background: #E5E5E5;
-		box-shadow: inset 0px 0px 25px 10px rgba(0,0,0,0.3), 4px 4px 12px 4px rgba(0,0,0,0.3);
-	}
-
-	&.bingo {
-		animation: 1s ease-out infinite alternate glow, 1s tada;
 	}
 }
