@@ -1,0 +1,110 @@
+// ====== IMPORTS ===========================================================
+
+@import '_h5bp';
+@import '_meyer-reset';
+
+@import 'variables';
+@import 'fonts';
+
+@import 'animations';
+@import 'mixins';
+
+
+
+canvas {
+	@include fullScreen();
+	background-color: #7F3300;
+}
+
+section {
+	@include fullScreen();
+}
+
+.home {
+	@include fullScreen();
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	h1 {
+		.first {
+			font-family: $thickFont;
+		}
+
+		.second {
+			@include thickShadow();
+			text-transform: uppercase;
+			color: #FFF;
+			font-family: $thickFont;
+			font-size: 250px;
+			letter-spacing: 0.05em;
+		}
+	}
+}
+
+.caller {
+	@include fullScreen();
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	.current {
+		@include thickShadow();
+		color: #FFF;
+		font-family: $thickFont;
+		font-size: 170px;
+		letter-spacing: 0.05em;
+
+		&.bounceInDown  { animation: 1s bounceInDown; }
+		&.bounceInUp    { animation: 1s bounceInUp; }
+		&.bounceInLeft  { animation: 1s bounceInLeft; }
+		&.bounceInRight { animation: 1s bounceInRight; }
+		&.flipInX       { animation: 1s flipInX; }
+		&.flipInY       { animation: 1s flipInY; }
+	}
+}
+
+.players {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+
+	display: flex;
+	justify-content: center;
+
+	.player {
+		height: 120px;
+		padding: 10px 10px 20px 10px;
+		margin: 20px 10px -5px 10px;
+		background-image: url(/images/noise.png);
+		border-width: 10px;
+		border-style: solid;
+		border-radius: 25px 25px 0 0;
+		border-bottom: 0;
+		box-shadow: 0px 0px 30px 2px rgba(0, 0, 0, 0.75);
+		color: #FFF;
+		font-family: $thickFont;
+		// animation: bounceUp 2s;
+
+		&.nearlyBingo {
+				animation: slightShake 0.4s infinite;
+		}
+
+		&.bingoAvailable {
+			animation: strongShake 0.3s infinite;
+		}
+
+		img {
+			border-radius: 12px;
+			width: 64px;
+			height: 64px;
+		}
+
+		.score {
+			font-size: 45px;
+			padding: 12px;
+			text-shadow: 9px 5px 0px rgba(0, 0, 0, 0.5);
+		}
+	}
+}

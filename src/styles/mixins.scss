@@ -23,7 +23,7 @@
 	.cell {
 		color: darken($hex, 10%);
 	}
-	border-color: darken($hex, 20%);
+	border-color: darken($hex, 20%) !important;
 }
 
 @mixin fullScreen() {
