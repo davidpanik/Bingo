@@ -18,49 +18,64 @@ canvas {
 
 section {
 	@include fullScreen();
-}
 
-.home {
-	@include fullScreen();
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	&.home {
+		@include fullScreen();
+		display: flex;
+		justify-content: center;
+		align-items: center;
 
-	h1 {
-		.first {
-			font-family: $thickFont;
-		}
+		h1 {
+			.first {
+				font-family: $thickFont;
+			}
 
-		.second {
-			@include thickShadow();
-			text-transform: uppercase;
-			color: #FFF;
-			font-family: $thickFont;
-			font-size: 250px;
-			letter-spacing: 0.05em;
+			.second {
+				@include thickShadow();
+				text-transform: uppercase;
+				color: #FFF;
+				font-family: $thickFont;
+				font-size: 250px;
+				letter-spacing: 0.05em;
+			}
 		}
 	}
-}
 
-.caller {
-	@include fullScreen();
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	&.game {
+		.caller {
+			@include fullScreen();
+			display: flex;
+			justify-content: center;
+			align-items: center;
 
-	.current {
-		@include thickShadow();
-		color: #FFF;
-		font-family: $thickFont;
-		font-size: 170px;
-		letter-spacing: 0.05em;
+			.current {
+				@include thickShadow();
+				color: #FFF;
+				font-family: $thickFont;
+				font-size: 170px;
+				letter-spacing: 0.05em;
 
-		&.bounceInDown  { animation: 1s bounceInDown; }
-		&.bounceInUp    { animation: 1s bounceInUp; }
-		&.bounceInLeft  { animation: 1s bounceInLeft; }
-		&.bounceInRight { animation: 1s bounceInRight; }
-		&.flipInX       { animation: 1s flipInX; }
-		&.flipInY       { animation: 1s flipInY; }
+				&.bounceInDown  { animation: 1s bounceInDown; }
+				&.bounceInUp    { animation: 1s bounceInUp; }
+				&.bounceInLeft  { animation: 1s bounceInLeft; }
+				&.bounceInRight { animation: 1s bounceInRight; }
+				&.flipInX       { animation: 1s flipInX; }
+				&.flipInY       { animation: 1s flipInY; }
+			}
+		}
+	}
+
+	&.postGame {
+		h1 {
+			text-transform: uppercase;
+			@include thickShadow();
+			color: #FFF;
+			font-family: $thickFont;
+			font-size: 80px;
+			line-height: 1.1em;
+			letter-spacing: 0.05em;
+			animation: 1s tada;
+		}
 	}
 }
 
