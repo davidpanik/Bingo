@@ -45,7 +45,6 @@
 
 			pubSub.on('setWinner', (function(winnerId) {
 				this.set('custom.winnerName', airconsole.getNickname(winnerId));
-				this.set('custom.winnerImage', airconsole.getProfilePicture(winnerId, 512));
 			}).bind(this));
 
 			this.get('model').goto('home');
