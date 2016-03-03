@@ -1,0 +1,53 @@
+@mixin clear() {
+	&:before, &:after {
+		content: "\0020";
+		display: block;
+		height: 0;
+		overflow: hidden;
+	}
+	&:after {
+		clear: both;
+	}
+}
+
+@mixin transition($args...) {
+	-webkit-transition: $args;
+	-moz-transition: $args;
+	-ms-transition: $args;
+	-o-transition: $args;
+	transition: $args;
+}
+
+@mixin colour($hex) {
+	background-color: $hex;
+	.cell {
+		color: darken($hex, 10%);
+	}
+	border-color: darken($hex, 20%);
+}
+
+@mixin fullScreen() {
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100%;
+	height: 100%;
+}
+
+@mixin thickShadow() {
+	text-shadow:
+		3px 1px 0px rgba(0, 0, 0, 0.7),
+		4px 2px 0px rgba(0, 0, 0, 0.7),
+		5px 3px 0px rgba(0, 0, 0, 0.7),
+		7px 4px 0px rgba(0, 0, 0, 0.7),
+		8px 5px 0px rgba(0, 0, 0, 0.7),
+		10px 6px 0px rgba(0, 0, 0, 0.7),
+		11px 7px 0px rgba(0, 0, 0, 0.7),
+		13px 8px 0px rgba(0, 0, 0, 0.7),
+		14px 9px 0px rgba(0, 0, 0, 0.7),
+		16px 10px 0px rgba(0, 0, 0, 0.7),
+		17px 11px 0px rgba(0, 0, 0, 0.7);
+}
