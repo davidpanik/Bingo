@@ -1,6 +1,8 @@
 /*
-	TODO Start adding animation
-	TODO Show player image and colour when winning
+	TODO Animate player on screen when they've won
+	TODO Bug with scores going up too much
+	TODO Intro logo and animation
+	TODO How to play
 	TODO Handle display of large number of players
 	TODO Speed up responses when marking numbers
 	TODO Cross browser compatiblity
