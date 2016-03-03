@@ -91,17 +91,16 @@
 		return this;
 	};
 
-	Players.prototype.changeState = function(id, state, value) {
-		this.players['player_' + id][state] = value;
+	Players.prototype.changeState = function(id, state) {
+		this.players['player_' + id].state = state;
 		this.toArray();
 
 		return this;
 	};
 
-	Players.prototype.reset = function(id, state, value) {
+	Players.prototype.reset = function() {
 		for (var x in this.players) {
-			this.players[x].bingoAvailable = false;
-			this.players[x].nearlyBingo = false;
+			this.players[x].state = '';
 		}
 
 		return this;

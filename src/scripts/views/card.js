@@ -26,13 +26,7 @@
 				airconsole.on('marked', (function(deviceId, cell) {
 					this.get('model').markCellByValue(cell.value);
 
-					if (this.get('model').bingoAvailable) {
-						airconsole.sendEvent(AirConsole.SCREEN, 'bingoAvailable', {});
-					}
-
-					if (this.get('model').nearlyBingo) {
-						airconsole.sendEvent(AirConsole.SCREEN, 'nearlyBingo', {});
-					}
+					airconsole.sendEvent(AirConsole.SCREEN, 'changeState', this.get('model').state);
 				}).bind(this));
 
 				airconsole.on('reset', (function(deviceId, data) {

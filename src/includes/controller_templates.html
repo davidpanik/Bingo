@@ -8,7 +8,7 @@
 				{{/each}}
 			</div>
 
-			{{#if model.bingoAvailable}}
+			{{#if model.checkState('bingoAvailable')}}
 				<a href="#" class="button bingo" on-click-touchstart="bingo">Bingo!</a>
 			{{/if}}
 		</script>

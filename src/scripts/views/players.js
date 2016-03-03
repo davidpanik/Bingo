@@ -9,12 +9,8 @@
 			magic: true,
 			data: { model: new PlayersModel() },
 			oninit: function() {
-				airconsole.on('bingoAvailable', (function(deviceId, data) {
-					this.get('model').changeState(deviceId, 'bingoAvailable', true);
-				}).bind(this));
-
-				airconsole.on('nearlyBingo', (function(deviceId, data) {
-					this.get('model').changeState(deviceId, 'nearlyBingo', true);
+				airconsole.on('changeState', (function(deviceId, state) {
+					this.get('model').changeState(deviceId, state);
 				}).bind(this));
 
 				pubSub.on('gotBingo', (function(deviceId) {

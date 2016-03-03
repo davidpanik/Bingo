@@ -6,8 +6,7 @@
 		this.image = image || '';
 		this.colour = colour || '';
 		this.score = 0;
-		this.bingoAvailable = false;
-		this.nearlyBingo = false;
+		this.state = '';
 		this.host = false;
 	};
 

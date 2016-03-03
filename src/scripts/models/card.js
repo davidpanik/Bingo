@@ -14,8 +14,7 @@
 
 	Card.prototype.reset = function() {
 		this.grid = [];
-		this.bingoAvailable = false;
-		this.nearlyBingo = false;
+		this.state = '';
 
 		var ranges = Array.apply(null, Array(this.size)).map(function() { return []; });
 
@@ -55,6 +54,10 @@
 		}, this);
 	};
 
+	Card.prototype.checkState = function(checkFor) {
+		return (this.state === checkFor);
+	};
+
 	Card.prototype.checkForBingo = function() {
 		// Fake a row - this.grid[0].forEach(function(current) { current.marked = true; });
 		// Fake a column - this.grid.forEach(function(current) { current[0].marked = true; });
@@ -63,9 +66,9 @@
 
 		var checkLength = (function(n) {
 			if (n === this.size) {
-				this.bingoAvailable = true;
+				this.state = 'bingoAvailable';
 			} else if (n >= Math.floor(this.size * 0.8)) {
-				this.nearlyBingo = true;
+				this.state = 'nearlyBingo';
 			}
 		}).bind(this);
 
