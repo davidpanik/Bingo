@@ -13,10 +13,10 @@
 					if (!this.get('model').bingoCalled) {
 						pubSub.trigger('gotBingo', deviceId);
 
-						pubSub.trigger('setWinner', airconsole.getNickname(deviceId));
+						pubSub.trigger('setWinner', deviceId);
 						pubSub.trigger('goto', 'postGame');
 
-						airconsole.broadcastEvent('setWinner', airconsole.getNickname(deviceId));
+						airconsole.broadcastEvent('setWinner', deviceId);
 						airconsole.broadcastEvent('goto', 'postGame');
 
 						pubSub.trigger('playSound', 'winner');

@@ -35,8 +35,12 @@
 				this.set('custom.host', true);
 			}).bind(this));
 
-			airconsole.on('setWinner', (function(deviceId, name) {
-				this.set('custom.winner', name);
+			airconsole.on('setWinner', (function(deviceId, winnerId) {
+				if (winnerId === airconsole.getDeviceId()) {
+					this.set('custom.winnerName', 'You');
+				} else {
+					this.set('custom.winnerName', airconsole.getNickname(winnerId));
+				}
 			}).bind(this));
 
 			airconsole.on('setColour', (function(deviceId, colour) {

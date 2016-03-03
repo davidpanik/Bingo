@@ -43,8 +43,8 @@
 		oninit: function() {
 			this.addListeners();
 
-			pubSub.on('setWinner', (function(name) {
-				this.set('custom.winner', name);
+			pubSub.on('setWinner', (function(winnerId) {
+				this.set('custom.winnerName', airconsole.getNickname(winnerId));
 			}).bind(this));
 
 			this.get('model').goto('home');
