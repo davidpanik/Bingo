@@ -42,6 +42,12 @@
 	Card.prototype.markCell = function(cell) {
 		cell.marked = true;
 		this.checkForBingo();
+
+		// Extra step to force a re-render
+		if (this.state === 'bingoAvailable') {
+			cell.marked = false;
+			cell.marked = true;
+		}
 	};
 
 	Card.prototype.markCellByValue = function(value) {
