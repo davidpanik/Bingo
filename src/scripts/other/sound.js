@@ -1,6 +1,8 @@
 (function() {
 	'use strict';
 
+	var muted = true;
+
 	module.exports = function(pubSub) {
 		var numberSound = new Howl({
 			urls: ['sounds/number.mp3'],
@@ -237,12 +239,14 @@
 		}
 
 		pubSub.on('playSound', function(soundToPlay) {
-			if (soundToPlay === 'intro') {
-				playIntroSound();
-			} else if (soundToPlay === 'winner') {
-				playWinnerSound();
-			} else {
-				playNumberSound(soundToPlay);
+			if (!muted) {
+				if (soundToPlay === 'intro') {
+					playIntroSound();
+				} else if (soundToPlay === 'winner') {
+					playWinnerSound();
+				} else {
+					playNumberSound(soundToPlay);
+				}
 			}
 		});
 
