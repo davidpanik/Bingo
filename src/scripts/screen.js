@@ -1,5 +1,4 @@
 /*
-	TODO Animate player on screen when they've won
 	TODO Bug with scores going up too much
 	TODO Intro logo and animation
 	TODO How to play

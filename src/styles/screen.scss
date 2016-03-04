@@ -109,6 +109,10 @@ section {
 			animation: strongShake 0.3s infinite;
 		}
 
+		&.gotBingo {
+			animation: lookAtMe 1s infinite;
+		}
+
 		img {
 			border-radius: 12px;
 			width: 64px;

@@ -1,7 +1,7 @@
 (function() {
 	'use strict';
 
-	var muted = true;
+	var muted = false;
 
 	module.exports = function(pubSub) {
 		var numberSound = new Howl({
