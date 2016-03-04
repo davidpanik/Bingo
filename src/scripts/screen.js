@@ -2,9 +2,9 @@
 	TODO Intro logo and animation
 	TODO How to play
 	TODO Handle display of large number of players
-	TODO Speed up responses when marking numbers
 	TODO Cross browser compatiblity
 
+	NICE Speed up responses when marking numbers
 	NICE Rework Players object/map hybrid
 	NICE Show player image on controller
 	NICE Add crowd cheering sound

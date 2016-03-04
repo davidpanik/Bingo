@@ -21,13 +21,11 @@
 		return id;
 	};
 
-	EventHandler.prototype.off = function(identifier, callback) {
-		if (this.events[identifier]) {
-			var index = this.events[identifier].indexOf(callback);
-			if (callback > -1) {
-				this.events.splice(index, 1);
-				if (this.events[identifier].length === 0) {
-					delete this.events[identifier];
+	EventHandler.prototype.off = function(id) {
+		for (var identifier in this.events) {
+			for (var eventId in this.events[identifier]) {
+				if (eventId === id) {
+					this.events[identifier][eventId] = null;
 				}
 			}
 		}
