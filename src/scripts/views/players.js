@@ -7,20 +7,22 @@
 		var PlayersView = Ractive.extend({
 			template: '#playersTemplate',
 			magic: true,
-			data: { model: new PlayersModel(), events: [] },
+			data: { model: new PlayersModel(), airconsoleEvents: [], pubsubEvents: [] },
 			oninit: function() {
-				this.get('events').push(
+				this.get('airconsoleEvents').push(
 					airconsole.on('changeState', (function(deviceId, state) {
 						this.get('model').changeState(deviceId, state);
 					}).bind(this))
 				);
 
-				pubSub.on('gotBingo', (function(deviceId) {
-					this.get('model').recordWin(deviceId);
-					this.get('model').changeState(deviceId, 'gotBingo');
-				}).bind(this));
+				this.get('pubsubEvents').push(
+					pubSub.on('gotBingo', (function(deviceId) {
+						this.get('model').recordWin(deviceId);
+						this.get('model').changeState(deviceId, 'gotBingo');
+					}).bind(this))
+				);
 
-				this.get('events').push(
+				this.get('airconsoleEvents').push(
 					airconsole.on('newGame', (function() {
 						this.get('model').reset();
 					}).bind(this))
@@ -50,9 +52,14 @@
 
 			},
 			onunrender: function() {
-				while (this.get('events').length) {
-					airconsole.off(this.get('events').pop());
+				while (this.get('airconsoleEvents').length) {
+					airconsole.off(this.get('airconsoleEvents').pop());
 				}
+
+				while (this.get('pubsubEvents').length) {
+					airconsole.off(this.get('pubsubEvents').pop());
+				}
+
 			}
 		});
 

@@ -7,12 +7,18 @@
 
 	EventHandler.prototype.on = function(identifier, callback) {
 		if (!this.events[identifier]) {
-			this.events[identifier] = [];
+			this.events[identifier] = {};
 		}
 
-		this.events[identifier].push(callback);
+		var randomId = function(chars) {
+			chars = chars || 15;
+			return (Math.random() + 1).toString(36).substring(2, chars);
+		};
 
-		return this;
+		var id = randomId();
+		this.events[identifier][id] = callback;
+
+		return id;
 	};
 
 	EventHandler.prototype.off = function(identifier, callback) {
@@ -34,9 +40,9 @@
 		}
 
 		if (this.events[identifier]) {
-			this.events[identifier].forEach(function(evt) {
-				evt.apply(this, newArguments);
-			}, this);
+			for (var event in this.events[identifier]) {
+				this.events[identifier][event].apply(this, newArguments);
+			}
 		}
 
 		return this;

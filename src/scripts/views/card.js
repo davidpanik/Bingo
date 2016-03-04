@@ -7,7 +7,7 @@
 		var CardView = Ractive.extend({
 			template: '#cardTemplate',
 			magic: true,
-			data: { model: new CardModel(), events: [] },
+			data: { model: new CardModel(), airconsoleEvents: [] },
 			oninit: function(options) {
 				this.on('mark', function(e, cell) {
 					if (!cell.marked) {
@@ -23,7 +23,7 @@
 					return false;
 				});
 
-				this.get('events').push(
+				this.get('airconsoleEvents').push(
 					airconsole.on('marked', (function(deviceId, cell) {
 						this.get('model').markCellByValue(cell.value);
 
@@ -31,7 +31,7 @@
 					}).bind(this))
 				);
 
-				this.get('events').push(
+				this.get('airconsoleEvents').push(
 					airconsole.on('reset', (function(deviceId, data) {
 						this.get('model').reset();
 					}).bind(this))
@@ -41,8 +41,8 @@
 				this.get('model').reset();
 			},
 			onunrender: function() {
-				while (this.get('events').length) {
-					airconsole.off(this.get('events').pop());
+				while (this.get('airconsoleEvents').length) {
+					airconsole.off(this.get('airconsoleEvents').pop());
 				}
 			}
 		});

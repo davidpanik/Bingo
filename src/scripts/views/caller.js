@@ -7,9 +7,9 @@
 		var CallerView = Ractive.extend({
 			template: '#callerTemplate',
 			magic: true,
-			data: { model: new CallerModel(), events: [] },
+			data: { model: new CallerModel(), airconsoleEvents: [], pubsubEvents: [] },
 			oninit: function() {
-				this.get('events').push(
+				this.get('airconsoleEvents').push(
 					airconsole.on('bingo', (function(deviceId) {
 						if (!this.get('model').bingoCalled) {
 							pubSub.trigger('gotBingo', deviceId);
@@ -27,7 +27,7 @@
 					}).bind(this))
 				);
 
-				this.get('events').push(
+				this.get('airconsoleEvents').push(
 					airconsole.on('mark', (function(deviceId, cell) {
 						if (this.get('model').hasBeenCalled(cell.value)) {
 							airconsole.sendEvent(deviceId, 'marked', cell);
@@ -35,17 +35,23 @@
 					}).bind(this))
 				);
 
-				pubSub.on('reset', (function() {
-					this.get('model').reset().start();
-				}).bind(this));
+				this.get('pubsubEvents').push(
+					pubSub.on('reset', (function() {
+						this.get('model').reset().start();
+					}).bind(this))
+				);
 			},
 			onrender: function() {
 				this.get('model').reset().start();
 				pubSub.trigger('playSound', 'intro');
 			},
 			onunrender: function() {
-				while (this.get('events').length) {
-					airconsole.off(this.get('events').pop());
+				while (this.get('airconsoleEvents').length) {
+					airconsole.off(this.get('airconsoleEvents').pop());
+				}
+
+				while (this.get('pubsubEvents').length) {
+					airconsole.off(this.get('pubsubEvents').pop());
 				}
 			}
 		});
