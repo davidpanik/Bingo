@@ -1,5 +1,4 @@
 /*
-	TODO Bug with scores going up too much
 	TODO Intro logo and animation
 	TODO How to play
 	TODO Handle display of large number of players

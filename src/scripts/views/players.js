@@ -7,20 +7,24 @@
 		var PlayersView = Ractive.extend({
 			template: '#playersTemplate',
 			magic: true,
-			data: { model: new PlayersModel() },
+			data: { model: new PlayersModel(), events: [] },
 			oninit: function() {
-				airconsole.on('changeState', (function(deviceId, state) {
-					this.get('model').changeState(deviceId, state);
-				}).bind(this));
+				this.get('events').push(
+					airconsole.on('changeState', (function(deviceId, state) {
+						this.get('model').changeState(deviceId, state);
+					}).bind(this))
+				);
 
 				pubSub.on('gotBingo', (function(deviceId) {
 					this.get('model').recordWin(deviceId);
 					this.get('model').changeState(deviceId, 'gotBingo');
 				}).bind(this));
 
-				airconsole.on('newGame', (function() {
-					this.get('model').reset();
-				}).bind(this));
+				this.get('events').push(
+					airconsole.on('newGame', (function() {
+						this.get('model').reset();
+					}).bind(this))
+				);
 
 				airconsole.onConnect = (function(deviceId) {
 					var newPlayer = this.get('model').add(
@@ -44,6 +48,11 @@
 			},
 			onrender: function() {
 
+			},
+			onunrender: function() {
+				while (this.get('events').length) {
+					airconsole.off(this.get('events').pop());
+				}
 			}
 		});
 
