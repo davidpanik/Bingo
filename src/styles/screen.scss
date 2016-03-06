@@ -125,4 +125,41 @@ section {
 			text-shadow: 9px 5px 0px rgba(0, 0, 0, 0.5);
 		}
 	}
+
+	&.many {
+		.player {
+			margin: 20px 5px -5px 5px;
+		}
+	}
+
+	&.manyMany {
+		.player {
+			padding: 10px 5px 20px 5px;
+			border-width: 5px;
+
+			img {
+				border-radius: 9px;
+				width: 48px;
+				height: 48px;
+			}
+		}
+	}
+
+	&.manyManyMany {
+		.player {
+			margin: 20px 3px -5px 3px;
+			padding: 15px 3px 20px 3px;
+			border-width: 3px;
+
+			img {
+				display: none
+			}
+
+			.score {
+				font-size: 35px;
+				padding: 45px 8px 8px 8px;
+				text-shadow: 6px 4px 0px rgba(0, 0, 0, 0.5);
+			}
+		}
+	}
 }

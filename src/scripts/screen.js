@@ -4,11 +4,13 @@
 	TODO Handle display of large number of players
 	TODO Cross browser compatiblity
 
+	NICE Add loading progress
 	NICE Speed up responses when marking numbers
 	NICE Rework Players object/map hybrid
 	NICE Show player image on controller
 	NICE Add crowd cheering sound
 	NICE Background music
+	NICE Add explosion effect
 */
 
 

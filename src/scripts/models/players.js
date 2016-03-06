@@ -8,7 +8,7 @@
 	var prefix = 'player_';
 
 	var Players = function(maxPlayers) {
-		this.maxPlayers = maxPlayers || 8;
+		this.maxPlayers = maxPlayers || 20;
 		this.currentPlayers = 0;
 		this.maxReached = false;
 		this.players = {};
@@ -104,6 +104,10 @@
 		}
 
 		return this;
+	};
+
+	Players.prototype.moreThan = function(x) {
+		return (this.currentPlayers > x);
 	};
 
 	module.exports = Players;

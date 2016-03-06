@@ -13,7 +13,7 @@
 		</script>
 
 		<script id="playersTemplate" type="text/ractive">
-			<div class="players">
+			<div class="players {{#if model.moreThan(8)}}many{{/if}} {{#if model.moreThan(12)}}manyMany{{/if}} {{#if model.moreThan(16)}}manyManyMany{{/if}}">
 				{{#each model.playersArray}}
 					{{>'#playerTemplate'}}
 				{{/each}}
