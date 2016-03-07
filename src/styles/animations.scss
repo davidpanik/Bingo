@@ -36,6 +36,12 @@
 	100% { opacity: 1; }
 }
 
+@keyframes fadeOut {
+	0%   { opacity: 1; }
+	100% { opacity: 0; }
+}
+
+
 @keyframes glow {
 	from { color: #000; text-shadow: 0 0 0px rgba(255, 0, 0, 0); }
 	to { color: #F00; text-shadow: 0 0 20px rgba(255, 0, 0, 0.8); }

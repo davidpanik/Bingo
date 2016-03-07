@@ -1,9 +1,12 @@
 /*
 	TODO Intro logo and animation
 	TODO How to play
-	TODO Handle display of large number of players
 	TODO Cross browser compatiblity
+	TODO Show message on controller if max players reached
+	TODO Better show-then-disappear animation on max players
 
+	NICE Offline test harness
+	NICE Convert all px to vm
 	NICE Add loading progress
 	NICE Speed up responses when marking numbers
 	NICE Rework Players object/map hybrid

@@ -29,6 +29,8 @@
 
 			return newPlayer;
 		} else {
+			// Forcing to re-render each time a player joins
+			this.maxReached = false;
 			this.maxReached = true;
 		}
 
