@@ -49,6 +49,10 @@
 			airconsole.on('setColour', (function(deviceId, colour) {
 				this.set('custom.colour', colour);
 			}).bind(this));
+
+			airconsole.on('maxPlayers', (function(deviceId) {
+				this.get('model').goto('maxPlayers');
+			}).bind(this));
 		}
 	});
 })();

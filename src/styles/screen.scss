@@ -23,7 +23,6 @@ section {
 	height: auto;
 
 	&.home {
-
 		h1 {
 			.first {
 				font-family: $thickFont;
@@ -161,23 +160,5 @@ section {
 				text-shadow: 6px 4px 0px rgba(0, 0, 0, 0.5);
 			}
 		}
-	}
-
-	.maxPlayers {
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		background-color: #F00;
-		color: #FFF;
-		text-align: center;
-		padding: 24px;
-		font-size: 25px;
-		font-family: $thinFont;
-		letter-spacing: 0.05em;
-		text-transform: uppercase;
-		box-shadow: 0px 0px 30px 2px rgba(0, 0, 0, 0.75);
-		transform: translate3d(0, 3000px, 0);
-		animation: 1s bounceInUp;
 	}
 }

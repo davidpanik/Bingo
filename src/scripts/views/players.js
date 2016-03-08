@@ -29,16 +29,21 @@
 				);
 
 				airconsole.onConnect = (function(deviceId) {
-					var newPlayer = this.get('model').add(
-						deviceId,
-						airconsole.getNickname(deviceId),
-						airconsole.getProfilePicture(deviceId, 128)
-					);
+					if (this.get('model').maxReached) {
+						airconsole.sendEvent(deviceId, 'maxPlayers');
+					} else {
+						var newPlayer = this.get('model').add(
+							deviceId,
+							airconsole.getNickname(deviceId),
+							airconsole.getProfilePicture(deviceId, 128)
+						);
 
-					airconsole.sendEvent(deviceId, 'setColour', newPlayer.colour);
+						airconsole.sendEvent(deviceId, 'setColour', newPlayer.colour);
 
-					var host = this.get('model').getHost();
-					airconsole.sendEvent(host, 'setHost');
+						var host = this.get('model').getHost();
+						airconsole.sendEvent(host, 'setHost');
+					}
+
 				}).bind(this);
 
 				airconsole.onDisconnect = (function(deviceId) {
