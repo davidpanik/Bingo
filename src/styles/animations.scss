@@ -105,3 +105,23 @@
 	80% { transform: perspective(400px) rotate3d(0, 1, 0, -5deg); }
 	to { transform: perspective(400px); }
 }
+
+@keyframes slideFromTopLeft {
+	from { transform: translate3d(-3000px, -3000px, 0) rotate(-360deg * 6) scale(0.2); }
+	to { transform: translate3d(0, 0, 0) rotate(0deg) scale(1); }
+}
+
+@keyframes slideFromTopRight {
+	from { transform: translate3d(3000px, -3000px, 0) rotate(360deg * 6) scale(0.2); }
+	to { transform: translate3d(0, 0, 0) rotate(0deg) scale(1); }
+}
+
+@keyframes slideFromBottomLeft {
+	from { transform: translate3d(-3000px, 3000px, 0) rotate(-360deg * 6) scale(0.2); }
+	to { transform: translate3d(0, 0, 0) rotate(0deg) scale(1); }
+}
+
+@keyframes slideFromBottomRight {
+	from { transform: translate3d(3000px, 3000px, 0) rotate(360deg * 6) scale(0.2); }
+	to { transform: translate3d(0, 0, 0) rotate(0deg) scale(1); }
+}

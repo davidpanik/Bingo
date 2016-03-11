@@ -24,17 +24,38 @@ section {
 
 	&.home {
 		h1 {
-			.first {
+			.alpha {
 				font-family: $thickFont;
 			}
 
-			.second {
+			.beta {
 				@include thickShadow();
 				text-transform: uppercase;
 				color: #FFF;
 				font-family: $thickFont;
 				font-size: 250px;
 				letter-spacing: 0.05em;
+				justify-content: center;
+
+				* {
+					display: inline-block;
+				}
+
+				.first {
+					animation: 3s ease-out slideFromTopLeft;
+				}
+				.second {
+					animation: 3s ease-out slideFromTopRight;
+				}
+				.third {
+					animation: 3s ease-out slideFromBottomLeft;
+				}
+				.fourth {
+					animation: 3s ease-out slideFromBottomRight;
+				}
+				.fifth {
+					animation: 3s ease-out slideFromBottomRight;
+				}
 			}
 		}
 	}

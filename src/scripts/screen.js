@@ -20,7 +20,7 @@
 
 	require('./other/arrayShuffle');
 
-	var airconsole = new AirConsole();
+	var airconsole = new AirConsole({ 'orientation': 'landscape' });
 
 	airconsole.onMessage = function(deviceId, data) {
 		this.dispatchEvent(deviceId, data);
