@@ -26,6 +26,10 @@ section {
 		h1 {
 			.alpha {
 				font-family: $thickFont;
+				transform: rotate(-30deg) translate(-60px, -25px);
+				display: inline-block;
+				font-size: 40px;
+				position: absolute;
 			}
 
 			.beta {
@@ -34,7 +38,7 @@ section {
 				color: #FFF;
 				font-family: $thickFont;
 				font-size: 250px;
-				letter-spacing: 0.05em;
+				letter-spacing: -0.1em;
 				justify-content: center;
 
 				* {
@@ -45,16 +49,16 @@ section {
 					animation: 3s ease-out slideFromTopLeft;
 				}
 				.second {
-					animation: 3s ease-out slideFromTopRight;
+					animation: 3s ease-out slideFromBottomLeft;
 				}
 				.third {
-					animation: 3s ease-out slideFromBottomLeft;
+					animation: 3s ease-out slideFromBottom;
 				}
 				.fourth {
 					animation: 3s ease-out slideFromBottomRight;
 				}
 				.fifth {
-					animation: 3s ease-out slideFromBottomRight;
+					animation: 3s ease-out slideFromTopRight;
 				}
 			}
 		}
