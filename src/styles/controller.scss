@@ -61,7 +61,7 @@ section {
 			font-size: 8.5vw;
 			font-family: $thickFont;
 			text-transform: uppercase;
-			text-shadow: 1.5vw 1.5vw 0px rgba(0, 0, 0, 1);
+			text-shadow: 1.5vw 1.5vw 0px rgba(0, 0, 0, 0.8);
 			letter-spacing: 0.1em;
 			margin-bottom: 12vw;
 		}
@@ -149,7 +149,7 @@ section {
 			font-size: 12vw;
 			letter-spacing: 0;
 			animation: 1s bounceInDown;
-			text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
+			text-shadow: 0.8vw 0.8vw 0 rgba(0, 0, 0, 0.8);
 		}
 
 		img {
@@ -175,7 +175,7 @@ section {
 		font-size: 12vw;
 		letter-spacing: 0;
 		animation: 1s bounceInDown;
-		text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
+		text-shadow: 0.8vw 0.8vw 0 rgba(0, 0, 0, 0.8);
 		line-height: 1.2em;
 
 		p {
