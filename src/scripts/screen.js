@@ -1,7 +1,8 @@
 /*
 	TODO Cross browser compatiblity
-	TODO Bingo button sometimes not appearing?
+	TODO Bingo button sometimes not appearing
 	TODO Is loading screen needed?
+	TODO Make screen.players use vw?
 
 	NICE Offline test harness
 	NICE Convert all px to vm

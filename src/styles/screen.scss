@@ -26,9 +26,9 @@ section {
 		h1 {
 			.alpha {
 				font-family: $thickFont;
-				transform: rotate(-30deg) translate(-60px, -25px);
+				transform: rotate(-30deg) translate(-1.5em, -0.2em);
 				display: inline-block;
-				font-size: 40px;
+				font-size: 3vw;
 				position: absolute;
 				color: #5C0087;
 				animation: 5s linear alphaIntro, 1s ease-out infinite alternate alphaGlow;
@@ -39,7 +39,7 @@ section {
 				text-transform: uppercase;
 				color: #FFF;
 				font-family: $thickFont;
-				font-size: 250px;
+				font-size: 16vw;
 				letter-spacing: -0.1em;
 				justify-content: center;
 
@@ -77,7 +77,7 @@ section {
 				@include thickShadow();
 				color: #FFF;
 				font-family: $thickFont;
-				font-size: 170px;
+				font-size: 14vw;
 				letter-spacing: 0.05em;
 
 				&.bounceInDown  { animation: 1s bounceInDown; }
@@ -96,7 +96,7 @@ section {
 			@include thickShadow();
 			color: #FFF;
 			font-family: $thickFont;
-			font-size: 80px;
+			font-size: 6vw;
 			line-height: 1.1em;
 			letter-spacing: 0.05em;
 			animation: 1s tada;
