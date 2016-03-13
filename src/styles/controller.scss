@@ -34,8 +34,8 @@ a.button {
 	color: #000;
 	text-transform: uppercase;
 	font-family: $thinFont;
-	box-shadow: inset 0px 0px 25px 10px rgba(0,0,0,0.3), 7px 7px 16px 5px rgba(0,0,0,0.3);
-	transition: box-shadow 0.2s, background 0.2s;
+	@include box-shadow(inset 0px 0px 25px 10px rgba(0,0,0,0.3), 7px 7px 16px 5px rgba(0,0,0,0.3));
+	@include transition(box-shadow 0.2s, background 0.2s);
 
 	&:link, &:visited, &:hover, &:active {
 		color: #000;
@@ -44,11 +44,11 @@ a.button {
 	&:active {
 		color: #000;
 		background: #E5E5E5;
-		box-shadow: inset 0px 0px 25px 10px rgba(0,0,0,0.3), 4px 4px 12px 4px rgba(0,0,0,0.3);
+		@include box-shadow(inset 0px 0px 25px 10px rgba(0,0,0,0.3), 4px 4px 12px 4px rgba(0,0,0,0.3));
 	}
 
 	&.bingo {
-		animation: 1s ease-out infinite alternate glow, 1s tada;
+		@include animation(1s ease-out infinite alternate glow, 1s tada);
 	}
 }
 
@@ -78,18 +78,20 @@ section {
 	}
 
 	&.game {
-		display: flex;
+		display: block;
+		@include flexbox();
 		justify-content: center;
 
 		.card {
-			display: flex;
+			display: block;
+			@include flexbox();
 			flex-flow: row wrap;
 			justify-content: center;
 			background-color: rgba(0, 0, 0, 0.5);
 			border-radius: 6%;
 			width: 81vw;
 			padding: 2vw 0vw;
-			animation: fadeIn 2s;
+			@include animation(fadeIn 2s);
 
 			.cell {
 				width: 13vw;
@@ -107,12 +109,12 @@ section {
 					cursor: default;
 
 					.flipper {
-						transform: rotateY(180deg);
+						@include transform(rotateY(180deg));
 					}
 				}
 
 				.flipper {
-					transition: 0.6s;
+					@include transition(0.6s);
 					transform-style: preserve-3d;
 					position: relative;
 
@@ -129,12 +131,12 @@ section {
 
 					.front {
 						z-index: 2;
-						transform: rotateY(0deg);
+						@include transform(rotateY(0deg));
 					}
 
 					.back {
-						transform: rotateY(180deg);
-						opacity: 0.5;
+						@include transform(rotateY(180deg));
+						@include opacity(0.5);
 					}
 				}
 			}
@@ -148,7 +150,7 @@ section {
 			font-family: $thinFont;
 			font-size: 12vw;
 			letter-spacing: 0;
-			animation: 1s bounceInDown;
+			@include animation(1s bounceInDown);
 			text-shadow: 0.8vw 0.8vw 0 rgba(0, 0, 0, 0.8);
 		}
 
@@ -157,13 +159,14 @@ section {
 			height: 35vw;
 			border-radius: 15%;
 			margin: 8vw auto;
-			animation: 2s flipInY;
+			@include animation(2s flipInY);
 		}
 	}
 
 	&.maxPlayers {
 		@include fullScreen();
-		display: flex;
+		display: block;
+		@include flexbox();
 		justify-content: center;
 		align-items: center;
 		padding: 0;
@@ -174,7 +177,7 @@ section {
 		font-family: $thinFont;
 		font-size: 12vw;
 		letter-spacing: 0;
-		animation: 1s bounceInDown;
+		@include animation(1s bounceInDown);
 		text-shadow: 0.8vw 0.8vw 0 rgba(0, 0, 0, 0.8);
 		line-height: 1.2em;
 

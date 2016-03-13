@@ -1,143 +1,145 @@
-@keyframes bounceUp {
-	0%   { transform: translateY(300px); }
-	50%  { transform: translateY(-30px); }
-	60%  { transform: translateY(30px); }
-	70%  { transform: translateY(-20px); }
-	80% { transform: translateY(20px); }
-	90%  { transform: translateY(-10px); }
-	95% { transform: translateY(10px); }
-	100% { transform: translateY( 0px); }
+@import 'mixins';
+
+@include keyframes(bounceUp) {
+	0%   { @include transform(translateY(300px)); }
+	50%  { @include transform(translateY(-30px)); }
+	60%  { @include transform(translateY(30px)); }
+	70%  { @include transform(translateY(-20px)); }
+	80% { @include transform(translateY(20px)); }
+	90%  { @include transform(translateY(-10px)); }
+	95% { @include transform(translateY(10px)); }
+	100% { @include transform(translateY( 0px)); }
 }
 
-@keyframes slightShake {
-	0%   { transform: translateX( 0px); }
-	25%  { transform: translateX(-1px) rotate(-1deg); }
-	50%  { transform: translateX( 0px); }
-	75%  { transform: translateX( 1px) rotate( 1deg); }
-	100% { transform: translateX( 0px); }
+@include keyframes(slightShake) {
+	0%   { @include transform(translateX( 0px)); }
+	25%  { @include transform(translateX(-1px) rotate(-1deg)); }
+	50%  { @include transform(translateX( 0px)); }
+	75%  { @include transform(translateX( 1px) rotate( 1deg)); }
+	100% { @include transform(translateX( 0px)); }
 }
 
-@keyframes strongShake {
-	0%   { transform: translateX( 0px); }
-	25%  { transform: translateX(-4px) rotate(-3deg); }
-	50%  { transform: translateX( 0px); }
-	75%  { transform: translateX( 4px) rotate( 3deg); }
-	100% { transform: translateX( 0px); }
+@include keyframes(strongShake) {
+	0%   { @include transform(translateX( 0px)); }
+	25%  { @include transform(translateX(-4px) rotate(-3deg)); }
+	50%  { @include transform(translateX( 0px)); }
+	75%  { @include transform(translateX( 4px) rotate( 3deg)); }
+	100% { @include transform(translateX( 0px)); }
 }
 
-@keyframes lookAtMe {
-	0%   { transform: translateY( 0px); }
-	50%  { transform: translateY( -10px) scale(1.2); }
-	100% { transform: translateY( 0px); }
+@include keyframes(lookAtMe) {
+	0%   { @include transform(translateY( 0px)); }
+	50%  { @include transform(translateY( -10px) scale(1.2)); }
+	100% { @include transform(translateY( 0px)); }
 }
 
-@keyframes fadeIn {
-	0%   { opacity: 0; }
-	100% { opacity: 1; }
+@include keyframes(fadeIn) {
+	0%   { @include opacity(0); }
+	100% { @include opacity(1); }
 }
 
-@keyframes fadeOut {
-	0%   { opacity: 1; }
-	100% { opacity: 0; }
+@include keyframes(fadeOut) {
+	0%   { @include opacity(1); }
+	100% { @include opacity(0); }
 }
 
 
-@keyframes glow {
+@include keyframes(glow) {
 	from { color: #000; text-shadow: 0 0 0px rgba(255, 0, 0, 0); }
 	to { color: #F00; text-shadow: 0 0 20px rgba(255, 0, 0, 0.8); }
 }
 
-@keyframes tada {
-	0% { transform: scale3d(0.1, 0.1, 0.1); }
-	30%, 50%, 70%, 90% { transform: scale3d(1.2, 1.2, 1.2) rotate3d(0, 0, 1, 4deg); }
-	40%, 60%, 80% { transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -4deg); }
-	100% { transform: scale3d(1, 1, 1); }
+@include keyframes(tada) {
+	0% { @include transform(scale3d(0.1, 0.1, 0.1)); }
+	30%, 50%, 70%, 90% { @include transform(scale3d(1.2, 1.2, 1.2) rotate3d(0, 0, 1, 4deg)); }
+	40%, 60%, 80% { @include transform(scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -4deg)); }
+	100% { @include transform(scale3d(1, 1, 1)); }
 }
 
-@keyframes bounceInDown {
+@include keyframes(bounceInDown) {
 	from, 60%, 75%, 90%, to { animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000); }
-	0% { opacity: 0; transform: translate3d(0, -3000px, 0); }
-	60% { opacity: 1; transform: translate3d(0, 25px, 0); }
-	75% { transform: translate3d(0, -10px, 0); }
-	90% { transform: translate3d(0, 5px, 0); }
-	to { transform: none; }
+	0% { @include opacity(0); @include transform(translate3d(0, -3000px, 0)); }
+	60% { @include opacity(1); @include transform(translate3d(0, 25px, 0)); }
+	75% { @include transform(translate3d(0, -10px, 0)); }
+	90% { @include transform(translate3d(0, 5px, 0)); }
+	to { @include transform(none); }
 }
 
-@keyframes bounceInUp {
+@include keyframes(bounceInUp) {
 	from, 60%, 75%, 90%, to { animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000); }
-	from { opacity: 0; transform: translate3d(0, 3000px, 0); }
-	60% { opacity: 1; transform: translate3d(0, -20px, 0); }
-	75% { transform: translate3d(0, 10px, 0); }
-	90% { transform: translate3d(0, -5px, 0); }
-	to { transform: translate3d(0, 0, 0); }
+	from { @include opacity(0); @include transform(translate3d(0, 3000px, 0)); }
+	60% { @include opacity(1); @include transform(translate3d(0, -20px, 0)); }
+	75% { @include transform(translate3d(0, 10px, 0)); }
+	90% { @include transform(translate3d(0, -5px, 0)); }
+	to { @include transform(translate3d(0, 0, 0)); }
 }
 
-@keyframes bounceInLeft {
+@include keyframes(bounceInLeft) {
 	from, 60%, 75%, 90%, to { animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000); }
-	0% { opacity: 0; transform: translate3d(-3000px, 0, 0); }
-	60% { opacity: 1; transform: translate3d(25px, 0, 0); }
-	75% { transform: translate3d(-10px, 0, 0); }
-	90% { transform: translate3d(5px, 0, 0); }
-	to { transform: none; }
+	0% { @include opacity(0); @include transform(translate3d(-3000px, 0, 0)); }
+	60% { @include opacity(1); @include transform(translate3d(25px, 0, 0)); }
+	75% { @include transform(translate3d(-10px, 0, 0)); }
+	90% { @include transform(translate3d(5px, 0, 0)); }
+	to { @include transform(none); }
 }
 
-@keyframes bounceInRight {
+@include keyframes(bounceInRight) {
 	from, 60%, 75%, 90%, to { animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000); }
-	from { opacity: 0;transform: translate3d(3000px, 0, 0); }
-	60% { opacity: 1; transform: translate3d(-25px, 0, 0); }
-	75% { transform: translate3d(10px, 0, 0); }
-	90% { transform: translate3d(-5px, 0, 0); }
-	to { transform: none; }
+	from { @include opacity(0);@include transform(translate3d(3000px, 0, 0)); }
+	60% { @include opacity(1); @include transform(translate3d(-25px, 0, 0)); }
+	75% { @include transform(translate3d(10px, 0, 0)); }
+	90% { @include transform(translate3d(-5px, 0, 0)); }
+	to { @include transform(none); }
 }
 
-@keyframes flipInX {
-	from { transform: perspective(400px) rotate3d(1, 0, 0, 90deg); animation-timing-function: ease-in; opacity: 0; }
-	40% { transform: perspective(400px) rotate3d(1, 0, 0, -20deg); animation-timing-function: ease-in; }
-	60% { transform: perspective(400px) rotate3d(1, 0, 0, 10deg); opacity: 1; }
-	80% { transform: perspective(400px) rotate3d(1, 0, 0, -5deg); }
-	to { transform: perspective(400px); }
+@include keyframes(flipInX) {
+	from { @include transform(perspective(400px) rotate3d(1, 0, 0, 90deg)); animation-timing-function: ease-in; @include opacity(0); }
+	40% { @include transform(perspective(400px) rotate3d(1, 0, 0, -20deg)); animation-timing-function: ease-in; }
+	60% { @include transform(perspective(400px) rotate3d(1, 0, 0, 10deg)); @include opacity(1); }
+	80% { @include transform(perspective(400px) rotate3d(1, 0, 0, -5deg)); }
+	to { @include transform(perspective(400px)); }
 }
 
-@keyframes flipInY {
-	from { transform: perspective(400px) rotate3d(0, 1, 0, 90deg); animation-timing-function: ease-in; opacity: 0; }
-	40% { transform: perspective(400px) rotate3d(0, 1, 0, -20deg); animation-timing-function: ease-in; }
-	60% { transform: perspective(400px) rotate3d(0, 1, 0, 10deg); opacity: 1; }
-	80% { transform: perspective(400px) rotate3d(0, 1, 0, -5deg); }
-	to { transform: perspective(400px); }
+@include keyframes(flipInY) {
+	from { @include transform(perspective(400px) rotate3d(0, 1, 0, 90deg)); animation-timing-function: ease-in; @include opacity(0); }
+	40% { @include transform(perspective(400px) rotate3d(0, 1, 0, -20deg)); animation-timing-function: ease-in; }
+	60% { @include transform(perspective(400px) rotate3d(0, 1, 0, 10deg)); @include opacity(1); }
+	80% { @include transform(perspective(400px) rotate3d(0, 1, 0, -5deg)); }
+	to { @include transform(perspective(400px)); }
 }
 
-@keyframes slideFromTopLeft {
-	from { opacity: 0; transform: translate3d(-3000px, -3000px, 0) rotate(-360deg * 6) scale(0.2); }
-	to { opacity: 1; transform: translate3d(0, 0, 0) rotate(0deg) scale(1); }
+@include keyframes(slideFromTopLeft) {
+	from { @include opacity(0); @include transform(translate3d(-3000px, -3000px, 0) rotate(-360deg * 6) scale(0.2)); }
+	to { @include opacity(1); @include transform(translate3d(0, 0, 0) rotate(0deg) scale(1)); }
 }
 
-@keyframes slideFromTopRight {
-	from { opacity: 0; transform: translate3d(3000px, -3000px, 0) rotate(360deg * 6) scale(0.2); }
-	to { opacity: 1; transform: translate3d(0, 0, 0) rotate(0deg) scale(1); }
+@include keyframes(slideFromTopRight) {
+	from { @include opacity(0); @include transform(translate3d(3000px, -3000px, 0) rotate(360deg * 6) scale(0.2)); }
+	to { @include opacity(1); @include transform(translate3d(0, 0, 0) rotate(0deg) scale(1)); }
 }
 
-@keyframes slideFromBottom {
-	from { opacity: 0; transform: translate3d(0, 3000px, 0) rotate(-360deg * 6) scale(0.2); }
-	to { opacity: 1; transform: translate3d(0, 0, 0) rotate(0deg) scale(1); }
+@include keyframes(slideFromBottom) {
+	from { @include opacity(0); @include transform(translate3d(0, 3000px, 0) rotate(-360deg * 6) scale(0.2)); }
+	to { @include opacity(1); @include transform(translate3d(0, 0, 0) rotate(0deg) scale(1)); }
 }
 
-@keyframes slideFromBottomLeft {
-	from { opacity: 0; transform: translate3d(-3000px, 3000px, 0) rotate(-360deg * 6) scale(0.2); }
-	to { opacity: 1; transform: translate3d(0, 0, 0) rotate(0deg) scale(1); }
+@include keyframes(slideFromBottomLeft) {
+	from { @include opacity(0); @include transform(translate3d(-3000px, 3000px, 0) rotate(-360deg * 6) scale(0.2)); }
+	to { @include opacity(1); @include transform(translate3d(0, 0, 0) rotate(0deg) scale(1)); }
 }
 
-@keyframes slideFromBottomRight {
-	from { opacity: 0; transform: translate3d(3000px, 3000px, 0) rotate(360deg * 6) scale(0.2); }
-	to { opacity: 1; transform: translate3d(0, 0, 0) rotate(0deg) scale(1); }
+@include keyframes(slideFromBottomRight) {
+	from { @include opacity(0); @include transform(translate3d(3000px, 3000px, 0) rotate(360deg * 6) scale(0.2)); }
+	to { @include opacity(1); @include transform(translate3d(0, 0, 0) rotate(0deg) scale(1)); }
 }
 
-@keyframes alphaIntro {
-	from { opacity: 0; transform: rotate(-30deg) translate(-1.5em, -0.2em) scale(10); }
-	50% { opacity: 0; transform: rotate(-30deg) translate(-1.5em, -0.2em) scale(10); }
-	to { opacity: 1; transform: rotate(-30deg) translate(-1.5em, -0.2em) scale(1); }
+@include keyframes(alphaIntro) {
+	from { @include opacity(0); @include transform(rotate(-30deg) translate(-1.5em, -0.2em) scale(10)); }
+	50% { @include opacity(0); @include transform(rotate(-30deg) translate(-1.5em, -0.2em) scale(10)); }
+	to { @include opacity(1); @include transform(rotate(-30deg) translate(-1.5em, -0.2em) scale(1)); }
 }
 
-@keyframes alphaGlow {
+@include keyframes(alphaGlow) {
 	from { text-shadow: 0 0 0px rgba(178, 0, 255, 0); }
 	to { text-shadow: 0 0 40px rgba(178, 0, 255, 0.8); }
 }
