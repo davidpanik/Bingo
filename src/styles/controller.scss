@@ -55,6 +55,28 @@ a.button {
 section {
 	padding: 60px 30px 0 30px;
 
+	&.home {
+		h1 {
+			color: #FFFFFF;
+			font-size: 8.5vw;
+			font-family: $thickFont;
+			text-transform: uppercase;
+			text-shadow: 1.5vw 1.5vw 0px rgba(0, 0, 0, 1);
+			letter-spacing: 0.1em;
+			margin-bottom: 12vw;
+		}
+
+		p {
+			color: #FFFFFF;
+			font-family: $thinFont;
+			font-size: 7vw;
+			text-transform: uppercase;
+			margin-bottom: 8vw;
+			line-height: 1.3em;
+			text-shadow: 0.8vw 0.8vw 0px rgba(0, 0, 0, 0.8);
+		}
+	}
+
 	&.game {
 		display: flex;
 		justify-content: center;

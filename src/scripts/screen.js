@@ -1,8 +1,7 @@
 /*
-	TODO Intro logo and animation
-	TODO How to play
 	TODO Cross browser compatiblity
 	TODO Bingo button sometimes not appearing?
+	TODO Is loading screen needed?
 
 	NICE Offline test harness
 	NICE Convert all px to vm
