@@ -30,6 +30,8 @@ section {
 				display: inline-block;
 				font-size: 40px;
 				position: absolute;
+				color: #5C0087;
+				animation: 5s linear alphaIntro, 1s ease-out infinite alternate alphaGlow;
 			}
 
 			.beta {
