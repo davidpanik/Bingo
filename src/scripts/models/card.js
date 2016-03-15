@@ -73,7 +73,7 @@
 		var checkLength = (function(n) {
 			if (n === this.size) {
 				this.state = 'bingoAvailable';
-			} else if (n >= Math.floor(this.size * 0.8)) {
+			} else if (this.state !== 'bingoAvailable' && n >= Math.floor(this.size * 0.8)) {
 				this.state = 'nearlyBingo';
 			}
 		}).bind(this);

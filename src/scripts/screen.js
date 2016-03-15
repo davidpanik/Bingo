@@ -1,6 +1,5 @@
 /*
 	TODO Cross browser compatiblity
-	TODO Bingo button sometimes not appearing
 	TODO Is loading screen needed?
 	TODO Make screen.players use vw?
 	TODO Mixins for anything else?
