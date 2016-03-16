@@ -51,6 +51,9 @@
 			}).bind(this));
 
 			this.get('model').goto('home');
+			setTimeout(function() {
+				pubSub.trigger('playSound', 'welcome');
+			}, 1000);
 		}
 	});
 })();

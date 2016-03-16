@@ -238,12 +238,23 @@
 			winnerSound.play(randomFromArray(sounds));
 		}
 
+		function playWelcomeSound() {
+			var sounds = [
+				'winner_bingo_1',
+				'winner_bingo_2'
+			];
+
+			winnerSound.play(randomFromArray(sounds));
+		}
+
 		pubSub.on('playSound', function(soundToPlay) {
 			if (!muted) {
 				if (soundToPlay === 'intro') {
 					playIntroSound();
 				} else if (soundToPlay === 'winner') {
 					playWinnerSound();
+				} else if (soundToPlay === 'welcome') {
+					playWelcomeSound();
 				} else {
 					playNumberSound(soundToPlay);
 				}
