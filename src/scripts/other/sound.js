@@ -247,16 +247,21 @@
 			winnerSound.play(randomFromArray(sounds));
 		}
 
+		var userAgent = window.navigator.userAgent.toLowerCase();
+
 		pubSub.on('playSound', function(soundToPlay) {
 			if (!muted) {
-				if (soundToPlay === 'intro') {
+				if (soundToPlay === 'intro') { // When a new round is started
 					playIntroSound();
-				} else if (soundToPlay === 'winner') {
+				} else if (soundToPlay === 'winner') { // When someone gets bingo
 					playWinnerSound();
-				} else if (soundToPlay === 'welcome') {
+				} else if (soundToPlay === 'welcome') { // When the game first loads
 					playWelcomeSound();
 				} else {
-					playNumberSound(soundToPlay);
+					// Don't even attempt to play numbers in IE
+					if (userAgent.indexOf('msie') === -1 && userAgent.indexOf('trident') === -1) {
+						playNumberSound(soundToPlay); // Individual numbers
+					}
 				}
 			}
 		});

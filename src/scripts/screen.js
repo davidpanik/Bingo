@@ -1,5 +1,6 @@
 /*
 	TODO Cross browser compatiblity
+	TODO Marked state not right in IE
 
 	NICE Offline test harness
 	NICE Convert all px to vm
