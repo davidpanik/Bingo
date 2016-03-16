@@ -19,6 +19,8 @@
 (function() {
 	'use strict';
 
+	Ractive.DEBUG = false;
+
 	require('./other/arrayShuffle');
 
 	var airconsole = new AirConsole({ 'orientation': 'landscape' });
