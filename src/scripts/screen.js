@@ -1,8 +1,5 @@
 /*
 	TODO Cross browser compatiblity
-	TODO Is loading screen needed?
-	TODO Make screen.players use vw?
-	TODO Mixins for anything else?
 
 	NICE Offline test harness
 	NICE Convert all px to vm
