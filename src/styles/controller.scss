@@ -80,12 +80,15 @@ section {
 	&.game {
 		display: block;
 		@include flexbox();
+		-webkit-justify-content: center;
 		justify-content: center;
 
 		.card {
 			display: block;
 			@include flexbox();
+			-webkit-flex-flow: row wrap;
 			flex-flow: row wrap;
+			-webkit-justify-content: center;
 			justify-content: center;
 			background-color: rgba(0, 0, 0, 0.5);
 			border-radius: 6%;
@@ -109,7 +112,8 @@ section {
 					cursor: default;
 
 					.flipper {
-						@include transform(rotateY(180deg));
+						@include opacity(0.5);
+						// @include transform(rotateY(180deg)); // Uncomment to bring back flip effect
 					}
 				}
 
@@ -135,7 +139,7 @@ section {
 					}
 
 					.back {
-						@include transform(rotateY(180deg));
+						@include transform(rotateY(-180deg));
 						@include opacity(0.5);
 					}
 				}
@@ -167,7 +171,9 @@ section {
 		@include fullScreen();
 		display: block;
 		@include flexbox();
+		-webkit-justify-content: center;
 		justify-content: center;
+		-webkit-align-items: center;
 		align-items: center;
 		padding: 0;
 		background-color: red;

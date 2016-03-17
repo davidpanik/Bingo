@@ -75,8 +75,8 @@
 @mixin flex($values) {
 	-webkit-box-flex: $values;
 	-moz-box-flex:    $values;
-	-webkit-flex:     $values;
 	-ms-flex:         $values;
+	-webkit-flex:     $values;
 	flex:             $values;
 }
 
