@@ -5,7 +5,7 @@
 
 	module.exports = function(pubSub) {
 		var numberSound = new Howl({
-			src: ['../../sounds/number.mp3', '../../sounds/number.ogg', '../../sounds/number.wav'],
+			src: ['./sounds/number.mp3', './sounds/number.ogg', './sounds/number.wav'],
 			sprite: {
 				'number_1_0':  [ 300, 1000 ],
 				'number_1_1':  [ 1400, 900 ],
@@ -161,7 +161,7 @@
 		});
 
 		var introSound = new Howl({
-			src: ['../../sounds/intro.mp3', '../../sounds/intro.ogg', '../../sounds/intro.wav'],
+			src: ['./sounds/intro.mp3', './sounds/intro.ogg', './sounds/intro.wav'],
 			sprite: {
 				'intro_lets_play_bingo_0':      [0, 4200],
 				'intro_lets_play_bingo_1':      [4300, 3600],
@@ -177,7 +177,7 @@
 		});
 
 		var winnerSound = new Howl({
-			src: ['../../sounds/winner.mp3', '../../sounds/winner.ogg', '../../sounds/winner.wav'],
+			src: ['./sounds/winner.mp3', './sounds/winner.ogg', './sounds/winner.wav'],
 			sprite: {
 				'winner_bingo_0':               [0, 1300],
 				'winner_bingo_1':               [1400, 1300],
