@@ -9,13 +9,18 @@
 			magic: true,
 			data: { model: new CardModel(), airconsoleEvents: [] },
 			oninit: function(options) {
-				this.on('mark', function(e, cell) {
+				this.on('mark', (function(e, cell) {
 					if (!cell.marked) {
-						airconsole.sendEvent(AirConsole.SCREEN, 'mark', cell);
+						if (this.get('model').hasBeenCalled(cell.value)) {
+							this.get('model').markCellByValue(cell.value);
+						} else {
+							// Player tapped a number that hasn't been called
+						}
 					}
 
 					return false;
-				});
+				}).bind(this)
+				);
 
 				this.on('bingo', function(e, cell) {
 					airconsole.sendEvent(AirConsole.SCREEN, 'bingo', {});
@@ -24,16 +29,14 @@
 				});
 
 				this.get('airconsoleEvents').push(
-					airconsole.on('marked', (function(deviceId, cell) {
-						this.get('model').markCellByValue(cell.value);
-
-						airconsole.sendEvent(AirConsole.SCREEN, 'changeState', this.get('model').state);
+					airconsole.on('reset', (function(deviceId, data) {
+						this.get('model').reset();
 					}).bind(this))
 				);
 
 				this.get('airconsoleEvents').push(
-					airconsole.on('reset', (function(deviceId, data) {
-						this.get('model').reset();
+					airconsole.on('numberCalled', (function(deviceId, number) {
+						this.get('model').addCalled(number);
 					}).bind(this))
 				);
 			},

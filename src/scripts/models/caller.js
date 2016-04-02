@@ -1,7 +1,7 @@
 (function() {
 	'use strict';
 
-	module.exports = function(pubSub) {
+	module.exports = function(airconsole, pubSub) {
 		var introEffects = ['bounceInDown', 'bounceInUp', 'bounceInLeft', 'bounceInRight', 'flipInX', 'flipInY'];
 
 		var Caller = function(range, speed) {
@@ -31,6 +31,7 @@
 			if (this.uncalled.length > 0) {
 				this.current = this.uncalled.pop();
 				pubSub.trigger('playSound', this.current);
+				airconsole.broadcastEvent('numberCalled', this.current);
 				this.called.push(this.current);
 				var oldIntro = this.intro;
 				do {

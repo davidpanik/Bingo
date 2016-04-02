@@ -2,7 +2,7 @@
 	'use strict';
 
 	module.exports = function(airconsole, pubSub) {
-		var CallerModel = require('../models/caller')(pubSub);
+		var CallerModel = require('../models/caller')(airconsole, pubSub);
 
 		var CallerView = Ractive.extend({
 			template: '#callerTemplate',
@@ -23,14 +23,6 @@
 							pubSub.trigger('playSound', 'winner');
 
 							this.get('model').stop();
-						}
-					}).bind(this))
-				);
-
-				this.get('airconsoleEvents').push(
-					airconsole.on('mark', (function(deviceId, cell) {
-						if (this.get('model').hasBeenCalled(cell.value)) {
-							airconsole.sendEvent(deviceId, 'marked', cell);
 						}
 					}).bind(this))
 				);

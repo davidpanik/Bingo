@@ -14,6 +14,7 @@
 
 	Card.prototype.reset = function() {
 		this.grid = [];
+		this.called = [];
 		this.state = '';
 
 		var ranges = Array.apply(null, Array(this.size)).map(function() { return []; });
@@ -101,6 +102,17 @@
 		}, this).length);
 
 		return this;
+	};
+
+	Card.prototype.addCalled = function(value) {
+		this.called.push(Number(value));
+
+		return this;
+	};
+
+	Card.prototype.hasBeenCalled = function(value) {
+		value = Number(value);
+		return (this.called.indexOf(value) > -1);
 	};
 
 	module.exports = Card;
