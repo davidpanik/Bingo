@@ -127,6 +127,10 @@
 	Card.prototype.lock = function() {
 		var lockDuration = 3000;
 
+		if (navigator.vibrate) {
+			navigator.vibrate(800);
+		}
+
 		this.locked = true;
 		this.lockTimer = setTimeout((function() {
 			this.locked = false;

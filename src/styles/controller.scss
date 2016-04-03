@@ -17,7 +17,7 @@
 }
 
 a.button {
-	margin: 1em;
+	margin: 0.6em 0.7em;
 	padding: 0.7em 0.2em;
 	font-size: 12vw;
 	font-weight: bold;
@@ -151,7 +151,7 @@ section {
 
 		.locked {
 			@include fullScreen();
-			background-color: #000000;
+			background-color: #FF0000;
 			background-image: url(/images/noise.png);
 			@include opacity(0.8);
 		}

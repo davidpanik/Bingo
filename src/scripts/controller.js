@@ -7,6 +7,8 @@
 
 	var airconsole = new AirConsole({ 'orientation': 'portrait' });
 
+	navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
+
 	airconsole.onMessage = function(deviceId, data) {
 		this.dispatchEvent(deviceId, data);
 	};

@@ -38,10 +38,13 @@
 
 				{{#if model.current == 'home'}}
 					<section class="screen home">
-						<h1>How to play</h1>
+						{{#if !custom.host}}
+							<h1>How to play</h1>
+						{{/if}}
 
 						<p>As numbers are called on the screen, mark them off on your card</p>
 						<p>The first player to fill a line (in any direction) and call "Bingo" wins!</p>
+						<p>Hitting a number that hasn't been called will briefly lock you out!</p>
 
 						{{#if custom.host}}
 							<a href="#" class="button start" on-click-touchstart="start">Start!</a>
