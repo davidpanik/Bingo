@@ -16,6 +16,7 @@
 		this.grid = [];
 		this.called = [];
 		this.state = '';
+		this.stateChanged = false;
 
 		var ranges = Array.apply(null, Array(this.size)).map(function() { return []; });
 
@@ -73,8 +74,14 @@
 
 		var checkLength = (function(n) {
 			if (n === this.size) {
+				if (this.state !== 'bingoAvailable') {
+					this.stateChanged = true;
+				}
 				this.state = 'bingoAvailable';
 			} else if (this.state !== 'bingoAvailable' && n >= Math.floor(this.size * 0.8)) {
+				if (this.state !== 'nearlyBingo') {
+					this.stateChanged = true;
+				}
 				this.state = 'nearlyBingo';
 			}
 		}).bind(this);

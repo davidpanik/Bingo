@@ -103,7 +103,7 @@ section {
 				width: $cellSize;
 				height: $cellSize;
 				line-height: $cellSize + 1;
-				font-size: ($cellSize / 2) + 1;
+				font-size: ($cellSize / 2) + 0.5;
 				border: none;
 				margin: 1.1vw;
 				font-family: $thickFont;

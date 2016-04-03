@@ -9,17 +9,22 @@
 			magic: true,
 			data: { model: new CardModel(), airconsoleEvents: [] },
 			oninit: function(options) {
-				this.on('mark', (function(e, cell) {
-					if (!cell.marked) {
-						if (this.get('model').hasBeenCalled(cell.value)) {
-							this.get('model').markCellByValue(cell.value);
-						} else {
-							// Player tapped a number that hasn't been called
+				this.on('mark',
+					(function(e, cell) {
+						if (!cell.marked) {
+							if (this.get('model').hasBeenCalled(cell.value)) {
+								this.get('model').markCellByValue(cell.value);
+								if (this.get('model').stateChanged) {
+									airconsole.sendEvent(AirConsole.SCREEN, 'changeState', this.get('model').state);
+									this.get('model').stateChanged = false;
+								}
+							} else {
+								// Player tapped a number that hasn't been called
+							}
 						}
-					}
 
-					return false;
-				}).bind(this)
+						return false;
+					}).bind(this)
 				);
 
 				this.on('bingo', function(e, cell) {
