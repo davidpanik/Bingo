@@ -19,7 +19,7 @@
 									this.get('model').stateChanged = false;
 								}
 							} else {
-								// Player tapped a number that hasn't been called
+								this.get('model').lock();
 							}
 						}
 

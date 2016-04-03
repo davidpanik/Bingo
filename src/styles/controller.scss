@@ -148,6 +148,13 @@ section {
 				}
 			}
 		}
+
+		.locked {
+			@include fullScreen();
+			background-color: #000000;
+			background-image: url(/images/noise.png);
+			@include opacity(0.8);
+		}
 	}
 
 	&.postGame {

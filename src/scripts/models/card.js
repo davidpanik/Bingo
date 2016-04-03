@@ -17,6 +17,8 @@
 		this.called = [];
 		this.state = '';
 		this.stateChanged = false;
+		this.locked = false;
+		clearTimeout(this.lockTimer);
 
 		var ranges = Array.apply(null, Array(this.size)).map(function() { return []; });
 
@@ -120,6 +122,15 @@
 	Card.prototype.hasBeenCalled = function(value) {
 		value = Number(value);
 		return (this.called.indexOf(value) > -1);
+	};
+
+	Card.prototype.lock = function() {
+		var lockDuration = 3000;
+
+		this.locked = true;
+		this.lockTimer = setTimeout((function() {
+			this.locked = false;
+		}).bind(this), lockDuration);
 	};
 
 	module.exports = Card;
