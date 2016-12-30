@@ -4,6 +4,8 @@
 	module.exports = function(airconsole, pubSub) {
 		var PlayersModel = require('../models/players');
 
+		var gamesPlayed = 0;
+
 		var PlayersView = Ractive.extend({
 			template: '#playersTemplate',
 			magic: true,
@@ -19,6 +21,30 @@
 					pubSub.on('gotBingo', (function(deviceId) {
 						this.get('model').recordWin(deviceId);
 						this.get('model').changeState(deviceId, 'gotBingo');
+					}).bind(this))
+				);
+
+				this.get('airconsoleEvents').push(
+					airconsole.on('requestNewGame', (function() {
+						function startGame() {
+							airconsole.broadcastEvent('goto', 'game');
+							airconsole.broadcastEvent('newGame');
+							pubSub.trigger('goto', 'game');
+						}
+
+						// Show an ad after every 2 games
+						if (gamesPlayed > 0 && gamesPlayed % 2 === 0) {
+							airconsole.showAd();
+							airconsole.onAdComplete = function(ad_was_shown) {
+								if (ad_was_shown) {
+									startGame();
+								}
+							};
+						} else {
+							startGame();
+						}
+
+						gamesPlayed++;
 					}).bind(this))
 				);
 
